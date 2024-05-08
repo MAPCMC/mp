@@ -29,7 +29,8 @@ export default function RootLayout({
     <html lang="nl">
       <body
         className={cn(
-          "h-full min-w-full min-h-full bg-orange-200 dark:bg-blue-900",
+          "h-full min-w-full min-h-full ",
+          "grid-light dark:grid-dark dark:bg-neutral-950",
           sans.variable,
           serif.variable
         )}
