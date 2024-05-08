@@ -5,18 +5,10 @@ const config = {
   content: [
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
-    "./styles/**/*.{js,ts,jsx,tsx,mdx}",
+    "./styles/**/*.{css,scss,sass,less,stylus}",
     "./tailwind.config.ts",
   ],
-  prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       fontFamily: {
         sans: ["var(--font-roboto-flex)"],
