@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-
+import { cn } from "@/lib/utils";
 import { Roboto_Slab, Roboto_Flex } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { cn } from "@/lib/utils";
+import { MemoryGame } from "@/components/memory-game";
 import { HeaderNav } from "@/components/header-nav";
 
 const serif = Roboto_Slab({
@@ -14,6 +14,7 @@ const serif = Roboto_Slab({
 const sans = Roboto_Flex({
   subsets: ["latin"],
   variable: "--font-roboto-flex",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -51,16 +52,9 @@ export default function RootLayout({
             {/* logo puzzle */}
             <div className="grid sm:grid-cols-[auto_1fr] grid-rows-[1fr_auto_auto] gap-y-1 !gap-x-4">
               <div className="flex flex-wrap sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr] gap-1 sm:row-span-2 md:row-span-3">
-                <div className="size-12 lg:size-16 bg-red-400"></div>
-                <div className="size-12 lg:size-16 bg-red-400"></div>
-                <div className="size-12 lg:size-16 bg-red-400"></div>
-                <div className="size-12 lg:size-16 bg-red-400"></div>
-                <div className="size-12 lg:size-16 bg-red-400"></div>
-                <div className="size-12 lg:size-16 bg-red-400"></div>
-                <div className="size-12 lg:size-16 bg-red-400"></div>
-                <div className="size-12 lg:size-16 bg-red-400"></div>
-                <div className="size-12 lg:size-16 bg-red-400"></div>
+                <MemoryGame />
               </div>
+
               {/* page header & intro */}
 
               <h1 className="font-serif text-4xl font-bold sm:col-start-2 self-end">
