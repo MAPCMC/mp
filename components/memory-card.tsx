@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { Check } from "lucide-react";
 
 export function MemoryCard({
   children,
@@ -19,28 +19,17 @@ export function MemoryCard({
   isCleared: boolean;
   isResetCard: boolean;
 }) {
-  const [isNew, setIsNew] = useState<boolean>(false);
   const handleClick = () => {
-    !isOpen && !isCleared && !isNew && onClick(index);
+    !isOpen && !isCleared && onClick(index);
   };
-
-  useEffect(() => {
-    setIsNew(true);
-    let remountSpin = setTimeout(() => {
-      setIsNew(false);
-    }, 300);
-
-    return () => {
-      clearTimeout(remountSpin);
-    };
-  }, []);
 
   return (
     <Button
       className={cn(
-        "size-12 lg:size-16 rounded-md relative transform-style-3d transition-transform duration-300",
+        "size-12 lg:size-16 rounded-md relative animate-in spin-in-90",
+        "transform-style-3d transition-transform duration-300",
         isOpen ? "rotate-y-180" : "",
-        isNew ? "rotate-z-12" : ""
+        isCleared ? "disabled:opacity-100" : ""
       )}
       onClick={handleClick}
       variant="default"
@@ -53,22 +42,21 @@ export function MemoryCard({
           isCleared ? "bg-orange-500" : "bg-orange-400"
         )}
       >
-        {isCleared ? "🎉" : ""}
+        {isCleared && <Check className="h-full w-full p-2" />}
       </span>
 
-      {/* full-spin backs */}
-      <div className="w-full h-full absolute backface-hidden rounded-md bg-orange-400 rotate-y-180"></div>
-
       {/* open card back */}
-      {isOpen && (
+      {isOpen ? (
         <div
           className={cn(
-            "w-full h-full absolute backface-hidden rounded-md rotate-y-180  flex items-center justify-center",
+            "w-full h-full absolute backface-hidden rounded-md rotate-y-180 flex items-center justify-center",
             isResetCard ? "bg-red-500" : "bg-yellow-500"
           )}
         >
           {children}
         </div>
+      ) : (
+        <div className="w-full h-full absolute backface-hidden rounded-md bg-orange-400 rotate-y-180"></div>
       )}
     </Button>
   );

@@ -10,6 +10,7 @@ import { HeaderNav } from "@/components/header-nav";
 const serif = Roboto_Slab({
   subsets: ["latin"],
   variable: "--font-roboto-slab",
+  preload: false,
 });
 const sans = Roboto_Flex({
   subsets: ["latin"],
@@ -51,7 +52,7 @@ export default function RootLayout({
           <header className="w-full flex flex-col items-center *:w-full *:md:max-w-[70%] space-y-2 pt-24 px-6 mb-2">
             {/* logo puzzle */}
             <div className="grid sm:grid-cols-[auto_1fr] grid-rows-[1fr_auto_auto] gap-y-1 !gap-x-4">
-              <div className="flex flex-wrap sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr] gap-1 sm:row-span-2 md:row-span-3">
+              <div className="flex flex-wrap sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr] gap-1 sm:row-span-2 md:row-span-3 relative">
                 <MemoryGame />
               </div>
 
