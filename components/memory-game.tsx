@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, forwardRef } from "react";
 import { MemoryCard } from "@/components/memory-card";
 import {
   SiGithub,
@@ -13,6 +13,7 @@ import {
 import { X, PartyPopper, IconNode } from "lucide-react";
 
 import { shuffle } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 type Card = {
   text: string;
@@ -29,7 +30,10 @@ const Cards = [
   { text: "Figma", icon: SiFigma },
 ];
 
-export function MemoryGame() {
+export const MemoryGame = forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => {
   const [cards, setCards] = useState<Card[]>([]);
   const [openCards, setOpenCards] = useState<number[]>([]);
   const [clearedCards, setClearedCards] = useState<string[]>([]);
@@ -95,7 +99,7 @@ export function MemoryGame() {
   }, []);
 
   return (
-    <>
+    <div ref={ref} className={cn("relative", className)} {...props}>
       {cards.length === 0 && (
         <>
           {[...Array(9)].map((n, i) => (
@@ -126,6 +130,7 @@ export function MemoryGame() {
           </MemoryCard>
         );
       })}
-    </>
+    </div>
   );
-}
+});
+MemoryGame.displayName = "MemoryGame";

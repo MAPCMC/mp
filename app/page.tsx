@@ -17,36 +17,42 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <header className="w-full flex flex-col items-center *:w-full *:md:max-w-[70%] space-y-2 pt-24 px-6 mb-4">
-        <div className="grid sm:grid-cols-[auto_1fr] grid-rows-[1fr_auto_auto] gap-y-1 !gap-x-4">
+      <header className="flex w-full flex-col items-center space-y-2 px-6 pt-24 *:w-full *:md:max-w-[70%]">
+        <div className="grid gap-3 sm:grid-cols-[auto_1fr] sm:gap-y-2 md:grid-rows-[1fr_auto]">
           {/* logo puzzle */}
-          <div className="flex flex-wrap sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr] gap-1 sm:row-span-2 md:row-span-3 relative">
-            <MemoryGame />
-          </div>
+          <MemoryGame className="flex flex-wrap-reverse gap-1 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr] md:row-span-2" />
           {/* page header & intro */}
-          <h1 className="font-serif text-4xl font-bold sm:col-start-2 self-end">
-            Maarten Peene
-          </h1>
-          <p role="doc-subtitle" className="font-serif text-2xl sm:col-start-2">
-            <span>Creatieve</span> full-stack webdeveloper
-          </p>
-          <p className="sm:col-span-2 md:col-start-2 md:col-span-1">
-            Ik geloof in een internet waar creativiteit en functionaliteit
-            samenkomen. Als webontwikkelaar specialiseer ik me in het tot leven
-            brengen van experimentele ideeën, waarbij ik je begeleid van concept
-            naar boeiende online ervaringen.
+          <hgroup className="self-end font-serif text-2xl sm:col-start-2">
+            <h1 className=" font-serif text-4xl font-bold">Maarten Peene</h1>
+            <p role="doc-subtitle">
+              <span>Creatieve</span> full-stack webdeveloper
+            </p>
+          </hgroup>
+          <p className="text-lg sm:col-span-2 md:col-span-1 md:col-start-2">
+            <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+              Ik geloof in een internet waar creativiteit en functionaliteit
+              samenkomen. Als webontwikkelaar breng ik experimentele ideeën tot
+              leven; van concept tot unieke online ervaring.
+            </span>
           </p>
         </div>
       </header>
-      <main className="w-full flex flex-col items-center px-6 *:w-full *:md:max-w-[70%] *:gap-x-2 space-y-2">
-        <section className="grid sm:grid-cols-2 lg:grid-cols-5 gap-y-2">
-          <article className="sm:col-span-2 lg:col-span-1 p-6">
-            <h2 className="font-serif text-3xl font-bold">Aanbod</h2>
-            <p>Wat kan ik voor je betekenen?</p>
-          </article>
-          <Card className="lg:col-span-2">
+      <main className="flex w-full flex-col items-center space-y-2 px-6 pb-24 *:w-full *:gap-x-2 *:md:max-w-[70%]">
+        <section
+          className="grid gap-y-2 pt-6 sm:grid-cols-2 lg:grid-cols-5"
+          aria-labelledby="s1"
+        >
+          <hgroup className="px-4 sm:col-span-2 lg:col-span-1 lg:px-0">
+            <h2 id="s1" className="font-serif text-3xl font-bold">
+              Aanbod
+            </h2>
+            <p role="subtitle" className="font-serif text-lg">
+              Wat kan ik voor je betekenen?
+            </p>
+          </hgroup>
+          <Card as="article" className="lg:col-span-2" aria-labelledby="s1c1">
             <CardHeader>
-              <CardTitle>Websites & applicaties</CardTitle>
+              <CardTitle id="s1c1">Websites & applicaties</CardTitle>
             </CardHeader>
             <CardContent>
               Ik wil samen aan de slag om van mijn idee een werkende website of
@@ -56,9 +62,9 @@ export default function Home() {
               <Link href="/development">Meer over development</Link>
             </CardFooter>
           </Card>
-          <Card className="lg:col-span-2">
+          <Card as="article" className="lg:col-span-2" aria-labelledby="s1c2">
             <CardHeader>
-              <CardTitle>Advies</CardTitle>
+              <CardTitle id="s1c2">Advies</CardTitle>
             </CardHeader>
             <CardContent>
               Ik weet niet waar ik moet beginnen. Wil je meedenken?
@@ -67,17 +73,134 @@ export default function Home() {
               <Link href="/advies">Naar advies</Link>
             </CardFooter>
           </Card>
-          <Card className="sm:col-span-2 lg:col-span-5 bg-orange-500">
+          <Card
+            as="article"
+            className="grid bg-orange-500 dark:bg-orange-900 sm:col-span-2 lg:col-span-5 lg:grid-cols-[1fr_auto]"
+            aria-labelledby="s1c3"
+          >
             <CardHeader>
-              <CardTitle>Freelance</CardTitle>
+              <CardTitle id="s1c3">Freelance</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="lg:row-start-2">
               We hebben een interessant project en/of zoeken een tijdelijke
               vaste kracht. Kom jij ons team versterken?
             </CardContent>
-            <CardFooter>
+            <CardFooter className="lg:row-span-2 lg:pb-0">
               <Link href="/freelance">Bekijk de mogelijkheden</Link>
             </CardFooter>
+          </Card>
+        </section>
+        <section
+          className="grid gap-y-2 sm:grid-cols-2 xl:grid-cols-4"
+          aria-labelledby="s2 s2b"
+        >
+          <div className="px-4 pb-3 pt-4 sm:col-span-2 lg:flex lg:gap-x-6 lg:px-0 xl:col-span-4">
+            <hgroup className="w-full">
+              <h2 id="s2" className="font-serif text-lg">
+                Werkwijze
+              </h2>
+              <p
+                id="s2b"
+                role="subtitle"
+                className="font-serif text-3xl font-bold"
+              >
+                Persoonlijke aandacht
+              </p>
+            </hgroup>
+            <p className="text-lg">
+              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+                We gaan iets moois en innovatiefs maken, zodat jullie boven het
+                maaiveld uitsteken. Staat er al een visie op papier of bestaat
+                ie nog uit flarden? Geen zorgen, ik neem jullie mee in het
+                ontwikkeltraject.
+              </span>
+            </p>
+          </div>
+          <Card as="article" aria-labelledby="s2c1">
+            <CardHeader>
+              <CardTitle id="s2c1">1. Ontwerp</CardTitle>
+            </CardHeader>
+            <CardContent>
+              Tijd om dromen concreet te maken. Wat willen we bereiken en hoe
+              gaan we dat doen? Hoe komt dit eruit te zien? We maken een plan en
+              zetten een visueel ontwerp neer.
+            </CardContent>
+          </Card>
+          <Card as="article" aria-labelledby="s2c2">
+            <CardHeader>
+              <CardTitle id="s2c2">2. Ontwikkeling</CardTitle>
+            </CardHeader>
+            <CardContent>
+              Het coderen begint. Stapsgewijs toets ik de voortgang aan jullie
+              wensen, zodat we kunnen bijsturen waar nodig. Samen houden we het
+              grote plaatje in het oog.
+            </CardContent>
+          </Card>
+          <Card as="article" aria-labelledby="s2c3">
+            <CardHeader>
+              <CardTitle id="s2c3">3. Oplevering</CardTitle>
+            </CardHeader>
+            <CardContent>
+              Jullie kunnen live! De content is gevuld en alle afbeeldingen
+              staan recht. Ik zet jullie online en zorg dat jullie onbezorgd aan
+              de slag kunnen met jullie nieuwe platform.
+            </CardContent>
+          </Card>
+          <Card as="article" aria-labelledby="s2c4">
+            <CardHeader>
+              <CardTitle id="s2c4">4. Ondersteuning</CardTitle>
+            </CardHeader>
+            <CardContent>
+              Ik houd de site gezond en blijf betrokken. Vragen van nieuwe
+              werknemers? Nieuwe ideeën na de lancering? Logisch! Ik blijf
+              beschikbaar voor support en doorontwikkeling.
+            </CardContent>
+          </Card>
+        </section>
+        <section
+          className="grid gap-y-2 sm:grid-cols-3 xl:grid-cols-5"
+          aria-labelledby="s3"
+        >
+          <h2
+            className="p-3 font-serif text-4xl font-bold sm:col-start-3 xl:col-span-2 xl:col-start-4"
+            id="s3"
+          >
+            Wat gaan we doen?
+          </h2>
+          <Card
+            as="article"
+            aria-labelledby="s3c1"
+            className="sm:col-span-2 sm:col-start-1 sm:row-span-2 sm:row-start-1 xl:col-span-3"
+          >
+            <CardHeader>
+              <CardTitle id="s3c1">Ik wil praten</CardTitle>
+            </CardHeader>
+            <CardContent>Contact</CardContent>
+          </Card>
+          <Card
+            as="article"
+            aria-labelledby="s3c2"
+            className="sm:col-start-3 xl:col-span-2 xl:col-start-4"
+          >
+            <CardHeader>
+              <CardTitle id="s3c2">Ik wil beginnen</CardTitle>
+            </CardHeader>
+            <CardContent>Zet de eerste stappen</CardContent>
+            <CardFooter>
+              <Link href="/development/start-nu">go go go</Link>
+            </CardFooter>
+          </Card>
+          <Card
+            as="article"
+            aria-labelledby="s3c3"
+            className="sm:col-span-3 xl:col-span-5"
+          >
+            <CardHeader>
+              <CardTitle id="s3c3">Ik wil meer feiten</CardTitle>
+            </CardHeader>
+            <CardContent>
+              Met wie heb je te maken? Bekijk mijn ervaring en portfolio.
+            </CardContent>
           </Card>
         </section>
       </main>
