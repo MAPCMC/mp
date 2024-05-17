@@ -13,13 +13,13 @@ const Card = React.forwardRef<HTMLDivElement, Card>(
       <Element
         ref={ref}
         className={cn(
-          "p-4 flex flex-col gap-3 rounded-lg border border-neutral-200 bg-white text-neutral-950 shadow-sm dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50",
-          className
+          "flex flex-col gap-3 rounded-lg border border-neutral-200 bg-white p-4 text-neutral-950 shadow-sm dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50",
+          className,
         )}
         {...props}
       />
     );
-  }
+  },
 );
 Card.displayName = "Card";
 
@@ -45,7 +45,7 @@ const CardTitle = React.forwardRef<
     ref={ref}
     className={cn(
       "text-2xl font-semibold leading-none tracking-tight",
-      className
+      className,
     )}
     {...props}
   />

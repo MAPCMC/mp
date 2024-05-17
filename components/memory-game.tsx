@@ -66,7 +66,7 @@ export const MemoryGame = forwardRef<
       [...fourCards, ...fourCards, resetCard].map((card, i) => ({
         ...card,
         id: new Date().getTime() + i,
-      }))
+      })),
     );
   };
 
@@ -105,13 +105,13 @@ export const MemoryGame = forwardRef<
           {[...Array(9)].map((n, i) => (
             <div
               key={i}
-              className="size-12 lg:size-16 bg-orange-300 rounded-md animate-in slide-in-from-bottom-4 md:slide-in-from-right-4"
+              className="size-12 rounded-md bg-orange-300 animate-in slide-in-from-bottom-4 md:slide-in-from-right-4 lg:size-16"
             ></div>
           ))}
         </>
       )}
       {clearedCards.length === 4 && (
-        <PartyPopper className="w-6 h-6 absolute -top-8 md:right-0 animate-in fade-in slide-in-from-bottom" />
+        <PartyPopper className="absolute -top-8 h-6 w-6 animate-in fade-in slide-in-from-bottom md:right-0" />
       )}
       {cards.map((card, index) => {
         const CardIcon = card.icon as React.ElementType;
@@ -125,7 +125,7 @@ export const MemoryGame = forwardRef<
             isResetCard={card.text === "Reset"}
             isCleared={clearedCards.includes(card.text)}
           >
-            <CardIcon className="w-full h-full p-2" />
+            <CardIcon className="h-full w-full p-2" />
             <span className="sr-only">{card.text}</span>
           </MemoryCard>
         );

@@ -29,11 +29,11 @@ export function ThemeToggle() {
         <DropdownMenuLabel>Thema</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          <Sun className="mr-2 h-4 w-4 rotate-0 opacity-100 transition-all dark:-rotate-90 dark:opacity-50 text-yellow-600 dark:text-blue-300" />
+          <Sun className="mr-2 h-4 w-4 text-yellow-600 opacity-100 transition-all rotate-0 dark:text-blue-300 dark:opacity-50 dark:-rotate-90" />
           Licht
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          <Moon className="mr-2 h-4 w-4 opacity-50 transition-all dark:rotate-0 dark:opacity-100 text-blue-300 dark:text-yellow-500" />
+          <Moon className="mr-2 h-4 w-4 text-blue-300 opacity-50 transition-all dark:text-yellow-500 dark:opacity-100 dark:rotate-0" />
           Donker
         </DropdownMenuItem>
       </DropdownMenuContent>

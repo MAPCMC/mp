@@ -7,12 +7,12 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <header className="w-full flex flex-col items-center *:w-full *:md:max-w-[70%] space-y-2 pt-24 px-6 mb-4">
-        <h1 className="font-serif text-4xl font-bold sm:col-start-2 self-end">
+      <header className="mb-4 flex w-full flex-col items-center space-y-2 px-6 pt-24 *:w-full *:md:max-w-[70%]">
+        <h1 className="self-end font-serif text-4xl font-bold sm:col-start-2">
           Freelance
         </h1>
       </header>
-      <main className="w-full flex flex-col items-center px-6 *:w-full *:md:max-w-[70%] *:gap-x-2 space-y-2">
+      <main className="flex w-full flex-col items-center space-y-2 px-6 *:w-full *:gap-x-2 *:md:max-w-[70%]">
         <section>
           <article>
             Dikke klus en niemand paraat? Als freelance developer help ik graag

@@ -32,11 +32,11 @@ export default function RootLayout({
     <html lang="nl" suppressHydrationWarning>
       <body
         className={cn(
-          "h-full min-w-full min-h-full",
-          "bg-white text-neutral-950 grid-light",
-          "dark:text-white dark:grid-dark dark:bg-neutral-950",
+          "h-full min-h-full min-w-full",
+          "grid-light bg-white text-neutral-950",
+          "dark:grid-dark dark:bg-neutral-950 dark:text-white",
           sans.variable,
-          serif.variable
+          serif.variable,
         )}
       >
         <ThemeProvider
@@ -45,7 +45,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <nav className="fixed w-full flex p-2 justify-between items-center md:px-24">
+          <nav className="fixed flex w-full items-center justify-between p-2 md:px-24">
             <HeaderNav />
             <ThemeToggle />
           </nav>
