@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/card";
 import { MemoryGame } from "@/components/memory-game";
 import Link from "next/link";
+import { ProcessCards } from "@/components/process-cards";
 
 export const metadata: Metadata = {
   title: "Home | Maarten Peene",
@@ -42,7 +43,7 @@ export default function Home() {
           className="grid gap-y-2 pt-6 sm:grid-cols-2 lg:grid-cols-5"
           aria-labelledby="s1"
         >
-          <hgroup className="px-4 sm:col-span-2 lg:col-span-1 lg:px-0">
+          <hgroup className="row-span-3 px-4 sm:col-span-2 lg:col-span-1 lg:px-0">
             <h2 id="s1" className="font-serif text-3xl font-bold">
               Aanbod
             </h2>
@@ -50,7 +51,11 @@ export default function Home() {
               Wat kan ik voor je betekenen?
             </p>
           </hgroup>
-          <Card as="article" className="lg:col-span-2" aria-labelledby="s1c1">
+          <Card
+            as="article"
+            className="row-span-3 grid grid-rows-subgrid lg:col-span-2"
+            aria-labelledby="s1c1"
+          >
             <CardHeader>
               <CardTitle id="s1c1">Websites & applicaties</CardTitle>
             </CardHeader>
@@ -62,7 +67,11 @@ export default function Home() {
               <Link href="/development">Meer over development</Link>
             </CardFooter>
           </Card>
-          <Card as="article" className="lg:col-span-2" aria-labelledby="s1c2">
+          <Card
+            as="article"
+            className="row-span-3 grid grid-rows-subgrid lg:col-span-2"
+            aria-labelledby="s1c2"
+          >
             <CardHeader>
               <CardTitle id="s1c2">Advies</CardTitle>
             </CardHeader>
@@ -116,46 +125,9 @@ export default function Home() {
               </span>
             </p>
           </div>
-          <Card as="article" aria-labelledby="s2c1">
-            <CardHeader>
-              <CardTitle id="s2c1">1. Ontwerp</CardTitle>
-            </CardHeader>
-            <CardContent>
-              Tijd om dromen concreet te maken. Wat willen we bereiken en hoe
-              gaan we dat doen? Hoe komt dit eruit te zien? We maken een plan en
-              zetten een visueel ontwerp neer.
-            </CardContent>
-          </Card>
-          <Card as="article" aria-labelledby="s2c2">
-            <CardHeader>
-              <CardTitle id="s2c2">2. Ontwikkeling</CardTitle>
-            </CardHeader>
-            <CardContent>
-              Het coderen begint. Stapsgewijs toets ik de voortgang aan jullie
-              wensen, zodat we kunnen bijsturen waar nodig. Samen houden we het
-              grote plaatje in het oog.
-            </CardContent>
-          </Card>
-          <Card as="article" aria-labelledby="s2c3">
-            <CardHeader>
-              <CardTitle id="s2c3">3. Oplevering</CardTitle>
-            </CardHeader>
-            <CardContent>
-              Jullie kunnen live! De content is gevuld en alle afbeeldingen
-              staan recht. Ik zet jullie online en zorg dat jullie onbezorgd aan
-              de slag kunnen met jullie nieuwe platform.
-            </CardContent>
-          </Card>
-          <Card as="article" aria-labelledby="s2c4">
-            <CardHeader>
-              <CardTitle id="s2c4">4. Ondersteuning</CardTitle>
-            </CardHeader>
-            <CardContent>
-              Ik houd de site gezond en blijf betrokken. Vragen van nieuwe
-              werknemers? Nieuwe ideeën na de lancering? Logisch! Ik blijf
-              beschikbaar voor support en doorontwikkeling.
-            </CardContent>
-          </Card>
+          <div className="sm:col-span-2 xl:col-span-4">
+            <ProcessCards />
+          </div>
         </section>
         <section
           className="grid gap-y-2 sm:grid-cols-3 xl:grid-cols-5"
