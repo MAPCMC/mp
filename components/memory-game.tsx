@@ -73,7 +73,13 @@ export const MemoryGame = forwardRef<
   const handleRestart = () => {
     setClearedCards([]);
     setOpenCards([]);
-    setCards(newCards());
+
+    // end game after win
+    if (clearedCards.length === 4) {
+      setCards([]);
+    } else {
+      setCards(newCards());
+    }
   };
 
   const handleEvaluate = ([first, second]: any) => {
@@ -84,9 +90,6 @@ export const MemoryGame = forwardRef<
   };
 
   useEffect(() => {
-    // start new game on mount
-    setCards(newCards());
-
     // cleanup timeouts on unmount
     return () => {
       if (TORestart.current) {
@@ -99,15 +102,21 @@ export const MemoryGame = forwardRef<
   }, []);
 
   return (
-    <div ref={ref} className={cn("relative", className)} {...props}>
+    <div
+      id="memory-game"
+      ref={ref}
+      className={cn("relative", className)}
+      {...props}
+    >
       {cards.length === 0 && (
         <>
-          {[...Array(9)].map((n, i) => (
+          {[...Array(7)].map((n, i) => (
             <div
               key={i}
               className="size-12 rounded-md bg-orange-300 animate-in slide-in-from-bottom-4 md:slide-in-from-right-4 lg:size-16"
             ></div>
           ))}
+          <MemoryCard index={0} onClick={() => setCards(newCards())} />
         </>
       )}
       {clearedCards.length === 4 && (
