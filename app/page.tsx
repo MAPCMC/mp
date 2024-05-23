@@ -9,6 +9,9 @@ import {
 import { MemoryGame } from "@/components/memory-game";
 import Link from "next/link";
 import { ProcessCards } from "@/components/process-cards";
+import { ContactForm } from "@/components/contact-form";
+import { AboutSpans } from "@/components/about-spans";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Home | Maarten Peene",
@@ -26,7 +29,8 @@ export default function Home() {
           <hgroup className="self-end font-serif text-2xl sm:col-start-2">
             <h1 className=" font-serif text-4xl font-bold">Maarten Peene</h1>
             <p role="doc-subtitle">
-              <span>Creatieve</span> full-stack webdeveloper
+              <AboutSpans />
+              <span>full-stack webdeveloper</span>
             </p>
           </hgroup>
           <p className="text-lg sm:col-span-2 md:col-span-1 md:col-start-2">
@@ -142,12 +146,14 @@ export default function Home() {
           <Card
             as="article"
             aria-labelledby="s3c1"
-            className="sm:col-span-2 sm:col-start-1 sm:row-span-2 sm:row-start-1 xl:col-span-3"
+            className="focus-within:bg-yellow-200  dark:focus-within:bg-yellow-700  sm:col-span-2 sm:col-start-1 sm:row-span-2 sm:row-start-1 xl:col-span-3"
           >
             <CardHeader>
               <CardTitle id="s3c1">Ik wil praten</CardTitle>
             </CardHeader>
-            <CardContent>Contact</CardContent>
+            <CardContent>
+              <ContactForm />
+            </CardContent>
           </Card>
           <Card
             as="article"
@@ -176,6 +182,7 @@ export default function Home() {
           </Card>
         </section>
       </main>
+      <Toaster />
     </>
   );
 }
