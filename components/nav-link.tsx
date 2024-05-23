@@ -7,7 +7,13 @@ export function NavLink({
   ...props
 }: React.ComponentProps<typeof Link>) {
   return (
-    <Link {...props} className={cn("text-orange-700 underline", className)}>
+    <Link
+      {...props}
+      className={cn(
+        "text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8",
+        className,
+      )}
+    >
       {children}
     </Link>
   );

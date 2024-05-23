@@ -4,8 +4,7 @@ import { cn } from "@/lib/utils";
 import { Roboto_Slab, Roboto_Flex } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
-
-import { HeaderNav } from "@/components/header-nav";
+import { Navigation } from "@/components/navigation";
 
 const serif = Roboto_Slab({
   subsets: ["latin"],
@@ -32,7 +31,7 @@ export default function RootLayout({
     <html lang="nl" suppressHydrationWarning>
       <body
         className={cn(
-          "h-full min-h-full min-w-full",
+          "h-full min-h-full min-w-full max-w-full",
           "grid-light bg-white text-neutral-950",
           "dark:grid-dark dark:bg-neutral-950 dark:text-white",
           sans.variable,
@@ -45,8 +44,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <nav className="fixed flex w-full items-center justify-between p-2 md:px-24">
-            <HeaderNav />
+          <nav className="fixed z-50 flex w-full justify-between p-2 md:px-24">
+            <Navigation />
             <ThemeToggle />
           </nav>
           {children}

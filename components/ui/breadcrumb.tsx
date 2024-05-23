@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { ChevronRight, MoreHorizontal } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -19,7 +19,7 @@ const BreadcrumbList = React.forwardRef<
   <ol
     ref={ref}
     className={cn(
-      "text-muted-foreground flex flex-wrap items-center gap-1.5 break-words text-sm sm:gap-2.5",
+      "text-muted-foreground flex flex-col break-words text-sm md:flex-row md:items-center",
       className,
     )}
     {...props}
@@ -33,7 +33,10 @@ const BreadcrumbItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <li
     ref={ref}
-    className={cn("inline-flex items-center gap-1.5", className)}
+    className={cn(
+      "rounded-full bg-white pr-1.5 dark:bg-neutral-950",
+      className,
+    )}
     {...props}
   />
 ));
@@ -50,7 +53,7 @@ const BreadcrumbLink = React.forwardRef<
   return (
     <Comp
       ref={ref}
-      className={cn("hover:text-foreground transition-colors", className)}
+      className={cn("hover:text-foreground pr-3 transition-colors", className)}
       {...props}
     />
   );
@@ -66,7 +69,7 @@ const BreadcrumbPage = React.forwardRef<
     role="link"
     aria-disabled="true"
     aria-current="page"
-    className={cn("text-foreground font-normal", className)}
+    className={cn("text-foreground pr-3 font-bold", className)}
     {...props}
   />
 ));
@@ -80,10 +83,10 @@ const BreadcrumbSeparator = ({
   <li
     role="presentation"
     aria-hidden="true"
-    className={cn("[&>svg]:size-3.5", className)}
+    className={cn("", className)}
     {...props}
   >
-    {children ?? <ChevronRight />}
+    <div className="-ml-px h-4 w-2.5 border-r-2 border-orange-500 md:ml-0 md:h-0 md:w-4 md:border-b-2"></div>
   </li>
 );
 BreadcrumbSeparator.displayName = "BreadcrumbSeparator";
