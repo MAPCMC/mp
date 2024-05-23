@@ -7,11 +7,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { MemoryGame } from "@/components/memory-game";
-import Link from "next/link";
 import { ProcessCards } from "@/components/process-cards";
 import { ContactForm } from "@/components/contact-form";
 import { AboutSpans } from "@/components/about-spans";
 import { Toaster } from "@/components/ui/toaster";
+import { NavLink } from "@/components/nav-link";
 
 export const metadata: Metadata = {
   title: "Home | Maarten Peene",
@@ -68,7 +68,7 @@ export default function Home() {
               applicatie te maken.
             </CardContent>
             <CardFooter>
-              <Link href="/development">Meer over development</Link>
+              <NavLink href="/development">Meer over development</NavLink>
             </CardFooter>
           </Card>
           <Card
@@ -83,7 +83,7 @@ export default function Home() {
               Ik weet niet waar ik moet beginnen. Wil je meedenken?
             </CardContent>
             <CardFooter>
-              <Link href="/advies">Naar advies</Link>
+              <NavLink href="/advies">Naar advies</NavLink>
             </CardFooter>
           </Card>
           <Card
@@ -99,7 +99,7 @@ export default function Home() {
               vaste kracht. Kom jij ons team versterken?
             </CardContent>
             <CardFooter className="lg:row-span-2 lg:pb-0">
-              <Link href="/freelance">Bekijk de mogelijkheden</Link>
+              <NavLink href="/freelance">Bekijk de mogelijkheden</NavLink>
             </CardFooter>
           </Card>
         </section>
@@ -165,7 +165,7 @@ export default function Home() {
             </CardHeader>
             <CardContent>Zet de eerste stappen</CardContent>
             <CardFooter>
-              <Link href="/development/start-nu">go go go</Link>
+              <NavLink href="/development/start-nu">go go go</NavLink>
             </CardFooter>
           </Card>
           <Card
