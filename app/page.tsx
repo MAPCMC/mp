@@ -21,37 +21,40 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <header className="flex w-full flex-col items-center space-y-2 px-6 pt-24 *:w-full *:md:max-w-[70%]">
-        <div className="grid gap-3 sm:grid-cols-[auto_1fr] sm:gap-y-2 md:grid-rows-[1fr_auto]">
+      <header className="space-y-2 px-6 pt-24 *:w-full *:md:px-[15%]">
+        <div className="grid gap-x-4 gap-y-2 sm:grid-cols-[auto_auto] md:grid-rows-[1fr_auto]">
           {/* logo puzzle */}
-          <MemoryGame className="flex flex-wrap-reverse gap-1 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr] md:row-span-2" />
-          {/* page header & intro */}
-          <hgroup className="self-end font-serif text-2xl sm:col-start-2">
-            <h1 className=" font-serif text-4xl font-bold">Maarten Peene</h1>
-            <p role="doc-subtitle">
-              <AboutSpans />
-              <span>full-stack webdeveloper</span>
+          <MemoryGame className=" flex flex-wrap-reverse gap-1 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr]" />
+          <hgroup className="self-end font-serif font-light">
+            <h1 className="text-xl">
+              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+                Maarten Peene
+              </span>
+            </h1>
+            <p role="doc-subtitle" className="-mt-1 text-orange-700">
+              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+                <AboutSpans /> full-stack webdeveloper
+              </span>
             </p>
           </hgroup>
-          <p className="text-lg sm:col-span-2 md:col-span-1 md:col-start-2">
-            <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
-              Ik geloof in een internet waar creativiteit en functionaliteit
-              samenkomen. Als webontwikkelaar breng ik experimentele ideeën tot
-              leven; van concept tot unieke online ervaring.
-            </span>
+
+          <p className="w-full break-words font-serif text-3xl sm:text-5xl">
+            Samen creëeren wij jouw unieke webplatform
           </p>
         </div>
       </header>
-      <main className="flex w-full flex-col items-center space-y-2 px-6 pb-24 *:w-full *:gap-x-2 *:md:max-w-[70%]">
+      <main className="space-y-2 px-6 pb-24 *:w-full *:gap-x-2 *:md:px-[15%]">
         <section
-          className="grid gap-y-2 pt-6 sm:grid-cols-2 lg:grid-cols-5"
+          className="grid gap-y-2 pt-6 sm:grid-cols-2 lg:grid-cols-6"
           aria-labelledby="s1"
         >
-          <hgroup className="row-span-3 px-4 sm:col-span-2 lg:col-span-1 lg:px-0">
-            <h2 id="s1" className="font-serif text-3xl font-bold">
-              Aanbod
+          <hgroup className="p-4 sm:col-span-2 lg:col-span-4 lg:px-0">
+            <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
+              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+                Aanbod
+              </span>
             </h2>
-            <p role="subtitle" className="font-serif text-lg">
+            <p role="subtitle" className="font-serif text-xl sm:text-3xl">
               Wat kan ik voor je betekenen?
             </p>
           </hgroup>
@@ -64,8 +67,8 @@ export default function Home() {
               <CardTitle id="s1c1">Websites & applicaties</CardTitle>
             </CardHeader>
             <CardContent>
-              Ik wil samen aan de slag om van mijn idee een werkende website of
-              applicatie te maken.
+              We werken van een vernieuwend idee naar een succesvolle website of
+              applicatie.
             </CardContent>
             <CardFooter>
               <NavLink href="/development">Meer over development</NavLink>
@@ -80,7 +83,8 @@ export default function Home() {
               <CardTitle id="s1c2">Advies</CardTitle>
             </CardHeader>
             <CardContent>
-              Ik weet niet waar ik moet beginnen. Wil je meedenken?
+              Ik denk graag mee over de mogelijkheden, valkuilen en kansen van
+              jouw concept.
             </CardContent>
             <CardFooter>
               <NavLink href="/advies">Naar advies</NavLink>
@@ -88,15 +92,16 @@ export default function Home() {
           </Card>
           <Card
             as="article"
-            className="grid bg-orange-500 dark:bg-orange-900 sm:col-span-2 lg:col-span-5 lg:grid-cols-[1fr_auto]"
+            className="bg-orange-500 dark:bg-orange-900 sm:col-span-2 lg:col-start-5 lg:row-span-4 lg:row-start-1"
             aria-labelledby="s1c3"
           >
             <CardHeader>
               <CardTitle id="s1c3">Freelance</CardTitle>
             </CardHeader>
-            <CardContent className="lg:row-start-2">
-              We hebben een interessant project en/of zoeken een tijdelijke
-              vaste kracht. Kom jij ons team versterken?
+            <CardContent className="grow lg:row-start-2">
+              Jouw bedrijf heeft een interessant project dat vraagt om
+              tijdelijke versterking. Met 6+ jaar ervaring in development lever
+              ik een waardevolle bijdrage aan het team.
             </CardContent>
             <CardFooter className="lg:row-span-2 lg:pb-0">
               <NavLink href="/freelance">Bekijk de mogelijkheden</NavLink>
@@ -107,25 +112,27 @@ export default function Home() {
           className="grid gap-y-2 sm:grid-cols-2 xl:grid-cols-4"
           aria-labelledby="s2 s2b"
         >
-          <div className="px-4 pb-3 pt-4 sm:col-span-2 lg:flex lg:gap-x-6 lg:px-0 xl:col-span-4">
-            <hgroup className="w-full">
-              <h2 id="s2" className="font-serif text-lg">
-                Werkwijze
+          <div className="p-4 sm:col-span-2 lg:flex lg:gap-x-6 lg:px-0 xl:col-span-4">
+            <hgroup className="mb-1 w-full">
+              <h2 id="s2" className="-mb-1 font-serif text-lg font-light">
+                <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+                  Werkwijze
+                </span>
               </h2>
               <p
                 id="s2b"
                 role="subtitle"
-                className="font-serif text-3xl font-bold"
+                className="font-serif text-xl sm:text-3xl"
               >
                 Persoonlijke aandacht
               </p>
             </hgroup>
             <p className="text-lg">
               <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
-                We gaan iets moois en innovatiefs maken, zodat jullie boven het
-                maaiveld uitsteken. Staat er al een visie op papier of bestaat
-                ie nog uit flarden? Geen zorgen, ik neem jullie mee in het
-                ontwikkeltraject.
+                Jouw bedrijf levert maatwerk, dus je website doet dat ook. We
+                maken een aantrekkelijk en innovatief platform dat boven het
+                maaiveld uitsteekt. Hoe we daar komen? Stap voor stap neem ik je
+                mee in het ontwikkeltraject.
               </span>
             </p>
           </div>
@@ -137,19 +144,25 @@ export default function Home() {
           className="grid gap-y-2 sm:grid-cols-3 xl:grid-cols-5"
           aria-labelledby="s3"
         >
-          <h2
-            className="p-3 font-serif text-4xl font-bold sm:col-start-3 xl:col-span-2 xl:col-start-4"
-            id="s3"
-          >
-            Wat gaan we doen?
-          </h2>
+          <hgroup className="p-3 sm:col-start-3 xl:col-span-2 xl:col-start-4">
+            <h2 className="-mb-1 font-serif text-lg" id="s3">
+              Kom in actie
+            </h2>
+            <p
+              id="s3b"
+              role="subtitle"
+              className="font-serif text-xl sm:text-3xl"
+            >
+              Wat gaan we doen?
+            </p>
+          </hgroup>
           <Card
             as="article"
             aria-labelledby="s3c1"
             className="focus-within:bg-yellow-200  dark:focus-within:bg-yellow-700  sm:col-span-2 sm:col-start-1 sm:row-span-2 sm:row-start-1 xl:col-span-3"
           >
             <CardHeader>
-              <CardTitle id="s3c1">Ik wil praten</CardTitle>
+              <CardTitle id="s3c1">Neem contact op</CardTitle>
             </CardHeader>
             <CardContent>
               <ContactForm />
@@ -161,14 +174,18 @@ export default function Home() {
             className="sm:col-start-3 xl:col-span-2 xl:col-start-4"
           >
             <CardHeader>
-              <CardTitle id="s3c2">Ik wil beginnen</CardTitle>
+              <CardTitle id="s3c2">Begin zelf</CardTitle>
             </CardHeader>
-            <CardContent>Zet de eerste stappen</CardContent>
+            <CardContent className="grow">
+              Bij de eerste stappen van een nieuw ontwikkelproces komt veel
+              denk- en documentatiewerk kijken. Bereid je voor op dit proces in
+              je eigen tempo, zodat je daarna vliegend van start kan!
+            </CardContent>
             <CardFooter>
-              <NavLink href="/development/start-nu">go go go</NavLink>
+              <NavLink href="/development/start-nu">Start nu</NavLink>
             </CardFooter>
           </Card>
-          <Card
+          {/* <Card
             as="article"
             aria-labelledby="s3c3"
             className="sm:col-span-3 xl:col-span-5"
@@ -179,7 +196,7 @@ export default function Home() {
             <CardContent>
               Met wie heb je te maken? Bekijk mijn ervaring en portfolio.
             </CardContent>
-          </Card>
+          </Card> */}
         </section>
       </main>
       <Toaster />

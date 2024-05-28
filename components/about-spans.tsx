@@ -17,7 +17,7 @@ export function AboutSpans() {
   }, [spans.length]);
 
   return (
-    <span className="mr-2">
+    <span>
       {spans.map((text, i) => (
         <span
           key={text + i}
