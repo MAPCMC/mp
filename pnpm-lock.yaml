@@ -111,6 +111,9 @@ importers:
       tailwindcss-3d:
         specifier: ^1.0.6
         version: 1.0.6(tailwindcss@3.4.3)
+      tailwindcss-theme-variants:
+        specifier: 2.0.0-beta.0
+        version: 2.0.0-beta.0
       typescript:
         specifier: ^5
         version: 5.4.5
@@ -2133,6 +2136,9 @@ packages:
     resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
     peerDependencies:
       tailwindcss: '>=3.0.0 || insiders'
+
+  tailwindcss-theme-variants@2.0.0-beta.0:
+    resolution: {integrity: sha512-QXO3iQNFBwtUBZ8rGgJrh5kkQeoI3MNOPBmyA0Dm1OGFwsn/EmZGo4oKE7brjMBCxY4p78nD2qG0MSFyf+RoHw==}
 
   tailwindcss@3.4.3:
     resolution: {integrity: sha512-U7sxQk/n397Bmx4JHbJx/iSOOv5G+II3f1kpLpY2QeUv5DcPdcTsYLlusZfq1NthHS1c1cZoyFmmkex1rzke0A==}
@@ -4447,6 +4453,14 @@ snapshots:
   tailwindcss-animate@1.0.7(tailwindcss@3.4.3):
     dependencies:
       tailwindcss: 3.4.3
+
+  tailwindcss-theme-variants@2.0.0-beta.0:
+    dependencies:
+      lodash: 4.17.21
+      postcss-selector-parser: 6.0.16
+      tailwindcss: 3.4.3
+    transitivePeerDependencies:
+      - ts-node
 
   tailwindcss@3.4.3:
     dependencies:

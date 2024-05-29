@@ -140,7 +140,7 @@ export const MemoryGame = ({
           {[...Array(7)].map((n, i) => (
             <div
               key={i}
-              className="card size-12 rounded-md bg-yellow-400 lg:size-16"
+              className="card size-12 rounded-md bg-orange-400 lg:size-16"
             ></div>
           ))}
           <MemoryCard index={0} onClick={() => setCards(newCards())} />

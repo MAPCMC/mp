@@ -34,9 +34,11 @@ export default function RootLayout({
     <html lang="nl" suppressHydrationWarning>
       <body
         className={cn(
-          "h-full min-h-full min-w-full max-w-full",
-          "grid-light bg-white text-neutral-950",
-          "dark:grid-dark dark:bg-neutral-950 dark:text-white",
+          "h-full min-h-full w-full min-w-full max-w-full",
+          "bg-white text-neutral-950",
+          "basic:grid-basic basic:text-neutral-950",
+          "light:grid-light light:text-neutral-950",
+          "dark:grid-dark dark:text-white",
           sans.variable,
           serif.variable,
         )}
@@ -46,8 +48,9 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
+          themes={["basic", "light", "dark", "fun"]}
         >
-          <nav className="fixed z-50 flex w-full justify-between p-2 md:px-24">
+          <nav className="basic:border-b basic:bg-white fixed z-50 flex w-full justify-between p-2 md:px-24">
             <Navigation />
             <ThemeToggle />
           </nav>

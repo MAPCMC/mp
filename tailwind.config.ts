@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const { themeVariants } = require("tailwindcss-theme-variants");
 
 const config = {
   darkMode: ["class"],
@@ -30,7 +31,26 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("tailwindcss-3d")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("tailwindcss-3d"),
+    themeVariants({
+      themes: {
+        light: {
+          selector: ".light",
+        },
+        dark: {
+          selector: ".dark",
+        },
+        basic: {
+          selector: ".basic",
+        },
+        fun: {
+          selector: ".fun",
+        },
+      },
+    }),
+  ],
 } satisfies Config;
 
 export default config;

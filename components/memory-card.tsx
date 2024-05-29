@@ -87,7 +87,7 @@ export function MemoryCard({
       <div
         className={cn(
           "card-back absolute inset-0 flex h-full w-full items-center justify-center rounded-md backface-hidden",
-          isResetCard ? "bg-red-500" : "bg-yellow-500 dark:bg-yellow-300",
+          isResetCard ? "bg-red-500" : "bg-yellow-400 dark:bg-yellow-300",
         )}
       >
         {children}
