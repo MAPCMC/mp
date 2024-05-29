@@ -4,6 +4,12 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef, useImperativeHandle } from "react";
+
+gsap.registerPlugin(useGSAP);
+
 export function MemoryCard({
   children,
   onClick,
@@ -11,6 +17,7 @@ export function MemoryCard({
   isOpen,
   isResetCard,
   isCleared,
+  ref,
 }: {
   children?: React.ReactNode;
   onClick: (index: number) => void;
@@ -18,27 +25,53 @@ export function MemoryCard({
   isOpen?: boolean;
   isCleared?: boolean;
   isResetCard?: boolean;
+  ref?: React.Ref<HTMLButtonElement>;
 }) {
+  const localRef = useRef<HTMLButtonElement>(null);
+  useImperativeHandle(ref, () => localRef.current!, []);
+
+  const tl = useRef<gsap.core.Timeline | null>(null);
   const handleClick = () => {
     !isOpen && !isCleared && onClick(index);
   };
 
+  useGSAP(
+    () => {
+      gsap.set(".card-back", { rotationY: -180 });
+
+      if (isOpen) {
+        tl.current = gsap
+          .timeline({ paused: true })
+          .to(".card-front", { duration: 0.4, rotationY: 180 })
+          .to(".card-back", { duration: 0.4, rotationY: 0 }, 0)
+          .to(localRef.current, { z: 50 }, 0)
+          .to(localRef.current, { z: 0 }, 0.3);
+        tl.current?.play();
+      } else {
+        tl.current = gsap
+          .timeline({ paused: true })
+          .to(".card-front", { duration: 0.3, rotationY: 0 })
+          .to(".card-back", { duration: 0.3, rotationY: -180 }, 0);
+        tl.current?.play();
+      }
+    },
+    { scope: localRef, dependencies: [isOpen] },
+  );
+
   return (
-    <Button
+    <button
+      ref={localRef}
       className={cn(
-        "relative size-12 animate-in spin-in-90 focus-visible:rounded-md lg:size-16",
-        "transition-transform duration-300 transform-style-3d",
-        isOpen ? "rotate-y-180 disabled:opacity-100" : "",
-        isCleared ? "disabled:opacity-100" : "",
+        "card relative size-12 rounded-md text-white dark:text-black lg:size-16",
+        "perspective-1000 transform-style-3d",
       )}
       onClick={handleClick}
-      variant="default"
       disabled={isCleared || isOpen}
     >
       {/* front */}
-      <span
+      <div
         className={cn(
-          "absolute flex h-full w-full items-center justify-center rounded-md backface-hidden",
+          "card-front absolute inset-0 flex h-full w-full items-center justify-center rounded-md backface-hidden",
           isCleared
             ? "bg-orange-500 dark:bg-orange-900"
             : "bg-orange-400 dark:bg-orange-800",
@@ -48,21 +81,17 @@ export function MemoryCard({
         {!isCleared && (
           <span className="pl-4 pt-4 font-serif lg:text-3xl">M</span>
         )}
-      </span>
+      </div>
 
       {/* open card back */}
-      {isOpen ? (
-        <div
-          className={cn(
-            "absolute flex h-full w-full items-center justify-center rounded-md rotate-y-180 backface-hidden",
-            isResetCard ? "bg-red-500" : "bg-yellow-500 dark:bg-yellow-300",
-          )}
-        >
-          {children}
-        </div>
-      ) : (
-        <div className="absolute h-full w-full rounded-md bg-orange-400 rotate-y-180 backface-hidden"></div>
-      )}
-    </Button>
+      <div
+        className={cn(
+          "card-back absolute inset-0 flex h-full w-full items-center justify-center rounded-md backface-hidden",
+          isResetCard ? "bg-red-500" : "bg-yellow-500 dark:bg-yellow-300",
+        )}
+      >
+        {children}
+      </div>
+    </button>
   );
 }
