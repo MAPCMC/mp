@@ -140,10 +140,14 @@ export const MemoryGame = ({
           {[...Array(7)].map((n, i) => (
             <div
               key={i}
-              className="card size-12 rounded-md bg-orange-400 lg:size-16"
+              className="card size-12 rounded-md bg-orange-400 shadow-[.3rem_.3rem_solid] shadow-orange-200 lg:size-16"
             ></div>
           ))}
-          <MemoryCard index={0} onClick={() => setCards(newCards())} />
+          <MemoryCard
+            index={0}
+            className="bg-orange-500"
+            onClick={() => setCards(newCards())}
+          />
         </>
       )}
       {clearedCards.length === 4 && (

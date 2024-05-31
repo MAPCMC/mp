@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Check } from "lucide-react";
 
@@ -13,6 +12,7 @@ gsap.registerPlugin(useGSAP);
 export function MemoryCard({
   children,
   onClick,
+  className,
   index,
   isOpen,
   isResetCard,
@@ -21,6 +21,7 @@ export function MemoryCard({
 }: {
   children?: React.ReactNode;
   onClick: (index: number) => void;
+  className?: string;
   index: number;
   isOpen?: boolean;
   isCleared?: boolean;
@@ -62,7 +63,7 @@ export function MemoryCard({
     <button
       ref={localRef}
       className={cn(
-        "card relative size-12 rounded-md text-white dark:text-black lg:size-16",
+        "card relative size-12 rounded-md text-white outline-offset-2 dark:text-black lg:size-16",
         "perspective-1000 transform-style-3d",
       )}
       onClick={handleClick}
@@ -71,10 +72,12 @@ export function MemoryCard({
       {/* front */}
       <div
         className={cn(
-          "card-front absolute inset-0 flex h-full w-full items-center justify-center rounded-md backface-hidden",
+          "card-front absolute inset-0 flex h-full w-full items-center justify-center backface-hidden",
+          "rounded-md shadow-[.3rem_.3rem_solid] shadow-orange-300",
           isCleared
             ? "bg-orange-500 dark:bg-orange-900"
             : "bg-orange-400 dark:bg-orange-800",
+          className,
         )}
       >
         {isCleared && <Check className="h-full w-full p-2" />}
@@ -86,8 +89,11 @@ export function MemoryCard({
       {/* open card back */}
       <div
         className={cn(
-          "card-back absolute inset-0 flex h-full w-full items-center justify-center rounded-md backface-hidden",
-          isResetCard ? "bg-red-500" : "bg-yellow-400 dark:bg-yellow-300",
+          "card-back absolute inset-0 flex h-full w-full items-center justify-center backface-hidden",
+          "rounded-md border-2 border-amber-600 shadow-[.3rem_.3rem_solid] shadow-orange-300",
+          isResetCard
+            ? "border-red-700 bg-red-500 shadow-red-300"
+            : "bg-amber-400 dark:bg-yellow-300",
         )}
       >
         {children}

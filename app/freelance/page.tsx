@@ -1,4 +1,14 @@
 import type { Metadata } from "next";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { ContactForm } from "@/components/contact-form";
+import { NavLink } from "@/components/nav-link";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Freelance | Maarten Peene",
@@ -16,11 +26,67 @@ export default function Page() {
         <section>
           <article>
             Dikke klus en niemand paraat? Als freelance developer help ik graag
-            een handje mee. Voor meer over mijn werkervaring, bekijk mijn{" "}
+            een handje mee. Ik heb ruime ervaring met het ontwikkelen van
+            gepersonaliseerde informatieplatformen voor overheidsinstanties en
+            de zorg. Voor meer over mijn werkervaring, bekijk mijn{" "}
             <a href="/cv">CV</a>.
           </article>
+          <Card as="article" aria-labelledby="s3c3">
+            <CardHeader>
+              <CardTitle id="s3c3">Ervaring</CardTitle>
+            </CardHeader>
+            <CardContent>
+              Met wie heb je te maken? Bekijk mijn ervaring en portfolio.
+            </CardContent>
+          </Card>
+        </section>
+        <section
+          className="grid gap-y-2 sm:grid-cols-3 xl:grid-cols-5"
+          aria-labelledby="s3"
+        >
+          <hgroup className="p-3 sm:col-start-3 xl:col-span-2 xl:col-start-4">
+            <h2 className="-mb-1 font-serif text-lg font-light" id="s3">
+              Kom in actie
+            </h2>
+            <p
+              id="s3b"
+              role="subtitle"
+              className="font-serif text-xl sm:text-3xl"
+            >
+              Wat gaan we doen?
+            </p>
+          </hgroup>
+          <Card
+            as="article"
+            aria-labelledby="s3c1"
+            className="focus-within:bg-yellow-200  dark:focus-within:bg-yellow-700  sm:col-span-2 sm:col-start-1 sm:row-span-2 sm:row-start-1 xl:col-span-3"
+          >
+            <CardHeader>
+              <CardTitle id="s3c1">Neem contact op</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ContactForm />
+            </CardContent>
+          </Card>
+          <Card
+            as="article"
+            aria-labelledby="s3c2"
+            className="sm:col-start-3 xl:col-span-2 xl:col-start-4"
+          >
+            <CardHeader>
+              <CardTitle id="s3c2">Begin zelf</CardTitle>
+            </CardHeader>
+            <CardContent className="grow">
+              Bereid je voor op het ontwikkelproces in je eigen tempo, zodat je
+              daarna vliegend van start kan!
+            </CardContent>
+            <CardFooter>
+              <NavLink href="/development/start-nu">Start nu</NavLink>
+            </CardFooter>
+          </Card>
         </section>
       </main>
+      <Toaster />
     </>
   );
 }

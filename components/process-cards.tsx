@@ -37,8 +37,9 @@ export const ProcessCards = () => {
           </CardHeader>
           <CardContent>
             Samen gaan we de diepte in: wat is het doel van het platform en hoe
-            gaan we dit realiseren? Uit de bevindingen rolt een strategische
-            opzet en een visueel ontwerp.
+            gaan we dit realiseren? Ik denk graag mee over de mogelijkheden,
+            valkuilen en kansen van jouw concept. Uit de bevindingen rolt een
+            strategische opzet en een visueel ontwerp.
           </CardContent>
         </Card>
       </li>

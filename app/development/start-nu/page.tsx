@@ -13,10 +13,13 @@ export default function Page() {
       <main className="flex w-full flex-col items-center space-y-2 px-6 *:w-full *:gap-x-2 *:md:max-w-[70%]">
         <article>
           <h2 className="font-serif text-3xl font-bold">Wat kan ik doen?</h2>
-          Voordat je aan de bouw van een website begint, zijn er verschillende
-          stappen die je zelf al kunt zetten. Voor het maken van een plan is het
-          belangrijk om bepaalde informatie paraat te hebben. Stel jezelf de
-          volgende vragen:
+          <p>
+            Bij de eerste stappen van een nieuw ontwikkelproces komt veel denk-
+            en documentatiewerk kijken. Voordat je aan de bouw van een website
+            begint, zijn er verschillende stappen die je zelf al kunt zetten.
+            Voor het maken van een plan is het belangrijk om bepaalde informatie
+            paraat te hebben. Stel jezelf de volgende vragen:
+          </p>
           <ul>
             <li>Wat is het doel van de website?</li>
             <li>Wie is de doelgroep?</li>

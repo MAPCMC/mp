@@ -50,7 +50,7 @@ export default function RootLayout({
           disableTransitionOnChange
           themes={["basic", "light", "dark", "fun"]}
         >
-          <nav className="basic:border-b basic:bg-white fixed z-50 flex w-full justify-between p-2 md:px-24">
+          <nav className="fixed z-50 flex w-full justify-between p-2 basic:border-b basic:bg-white md:px-24">
             <Navigation />
             <ThemeToggle />
           </nav>
