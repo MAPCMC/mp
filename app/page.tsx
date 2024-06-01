@@ -6,13 +6,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { MemoryGame } from "@/components/memory-game";
 import { AboutSpans } from "@/components/about-spans";
 import { NavLink } from "@/components/nav-link";
-import { ExternalLink } from "lucide-react";
+import { DownloadIcon, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Home | Maarten Peene",
@@ -44,7 +44,7 @@ export default function Home() {
           </p>
         </div>
       </header>
-      <main className="flex flex-col items-stretch gap-y-12 px-6 pb-24 pt-8 *:md:px-[15%] ">
+      <main className="flex flex-col items-stretch gap-y-12 px-6 pb-24 pt-8 *:md:px-[15%]">
         {/* over mij */}
         <section className="space-y-2 sm:w-3/4">
           <hgroup className="mb-3">
@@ -77,10 +77,15 @@ export default function Home() {
         </section>
         {/* aanbod */}
         <section
-          className="grid gap-2 light:grid-cols-2 dark:grid-cols-2 basic:sm:grid-cols-[1fr_auto_1fr]"
+          className={cn(
+            "grid gap-4",
+            "light:sm:grid-cols-2",
+            "dark:sm:grid-cols-2",
+            "basic:-m-6 basic:border-y basic:bg-white basic:p-6 basic:sm:grid-cols-[1fr_auto_1fr] basic:md:m-auto basic:md:border-none basic:md:bg-inherit basic:md:px-[15%] basic:md:py-0",
+          )}
           aria-labelledby="s1"
         >
-          <hgroup className="mb-3 sm:col-span-3">
+          <hgroup className="mb-3 basic:sm:col-span-3">
             <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
               <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
                 Aanbod
@@ -114,8 +119,14 @@ export default function Home() {
             </CardFooter>
           </Card>
           <Separator
+            orientation="horizontal"
+            className="hidden basic:my-4 basic:block basic:sm:hidden"
+            decorative
+          />
+          <Separator
             orientation="vertical"
             className="hidden basic:mx-6 basic:sm:row-span-3 basic:sm:block"
+            decorative
           />
           <Card
             as="article"
@@ -234,8 +245,9 @@ export default function Home() {
                 ouderportaal voor het inzien van jeugdzorgdossiers.
               </p>
               <p>
-                Ik heb hier veel geleerd over gegevensbescherming, RESTful API's
-                en het rijmen van de belangen van klanten en eindgebruikers.
+                Ik heb hier veel geleerd over gegevensbescherming, RESTful
+                API&apos;s en het rijmen van de belangen van klanten en
+                eindgebruikers.
               </p>
               <p>
                 Ik droeg verantwoordelijkheid voor design, projectarchitectuur,
@@ -283,9 +295,14 @@ export default function Home() {
               </ul>
             </CardFooter>
           </Card>
-          <Button className="mt-4 w-max sm:col-start-2">
-            Bekijk mijn complete CV
-          </Button>
+          <a
+            className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline sm:col-start-2"
+            href="/cv.pdf"
+            download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
+          >
+            Download mijn complete CV
+            <DownloadIcon className="ml-2 inline-block h-4 w-4" />
+          </a>
         </section>
       </main>
     </>

@@ -55,6 +55,9 @@ export default function RootLayout({
             <ThemeToggle />
           </nav>
           {children}
+          <footer className="w-full p-2 basic:border-t basic:bg-white md:px-24">
+            <p className="text-sm">© 2024 Itoko door Maarten Peene</p>
+          </footer>
         </ThemeProvider>
       </body>
     </html>
