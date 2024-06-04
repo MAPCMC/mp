@@ -6,8 +6,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MemoryGame } from "@/components/memory-game";
-import { AboutSpans } from "@/components/about-spans";
+import { MemoryGame } from "@/app/_components/memory-game";
+import { AboutSpans } from "@/app/_components/about-spans";
 import { NavLink } from "@/components/nav-link";
 import { DownloadIcon, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";

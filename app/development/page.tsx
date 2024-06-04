@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ProcessCards } from "@/components/process-cards";
+import { ProcessCards } from "@/app/development/_components/process-cards";
 import {
   Card,
   CardContent,

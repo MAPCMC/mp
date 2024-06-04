@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import { Roboto_Slab, Roboto_Flex } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Navigation } from "@/components/navigation";
+import { ThemeProvider } from "@/app/_layout/theme-provider";
+import { ThemeToggle } from "@/app/_layout/theme-toggle";
+import { Navigation } from "@/app/_layout/navigation";
 
 // TODO - delete when https://github.com/radix-ui/primitives/pull/2811 gets merged
 import "./_suppressRefWarning";
