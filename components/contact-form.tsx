@@ -74,7 +74,7 @@ function FormContent({
         <Input
           {...register("subject")}
           type="text"
-          placeholder="Ik wil een site bouwen"
+          placeholder="Ik wil een idee bespreken"
           required
         />
         <span className="text-sm text-red-500">

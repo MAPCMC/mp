@@ -8,6 +8,7 @@ import { Navigation } from "@/app/_layout/navigation";
 
 // TODO - delete when https://github.com/radix-ui/primitives/pull/2811 gets merged
 import "./_suppressRefWarning";
+import { NavLink } from "@/components/nav-link";
 
 const serif = Roboto_Slab({
   subsets: ["latin"],
@@ -34,7 +35,7 @@ export default function RootLayout({
     <html lang="nl" suppressHydrationWarning>
       <body
         className={cn(
-          "h-full min-h-full w-full min-w-full max-w-full",
+          "flex h-full min-h-screen w-full min-w-full max-w-full flex-col",
           "bg-white text-neutral-950",
           "basic:grid-basic basic:text-neutral-950",
           "light:grid-light light:text-neutral-950",

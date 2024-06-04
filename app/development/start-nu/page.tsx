@@ -8,11 +8,11 @@ export default function Page() {
   return (
     <>
       <header className="mb-4 flex w-full flex-col items-center space-y-2 px-6 pt-24 *:w-full *:md:max-w-[70%]">
-        <h1 className="font-serif text-4xl font-bold">Start nu</h1>
+        <h1 className="font-serif text-4xl">Start nu</h1>
       </header>
-      <main className="flex w-full flex-col items-center space-y-2 px-6 *:w-full *:gap-x-2 *:md:max-w-[70%]">
+      <main className="flex w-full grow flex-col items-center space-y-2 px-6 *:w-full *:gap-x-2 *:md:max-w-[70%]">
         <article>
-          <h2 className="font-serif text-3xl font-bold">Wat kan ik doen?</h2>
+          <h2 className="font-serif text-3xl">Wat kan ik doen?</h2>
           <p>
             Bij de eerste stappen van een nieuw ontwikkelproces komt veel denk-
             en documentatiewerk kijken. Voordat je aan de bouw van een website

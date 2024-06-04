@@ -7,8 +7,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ContactForm } from "@/components/contact-form";
-import { NavLink } from "@/components/nav-link";
 import { Toaster } from "@/components/ui/toaster";
+import { DownloadIcon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Freelance | Maarten Peene",
@@ -18,71 +18,102 @@ export default function Page() {
   return (
     <>
       <header className="mb-4 flex w-full flex-col items-center space-y-2 px-6 pt-24 *:w-full *:md:max-w-[70%]">
-        <h1 className="self-end font-serif text-4xl font-bold sm:col-start-2">
-          Freelance
-        </h1>
+        <h1 className="font-serif text-4xl">Freelance</h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="#s1">Kwaliteiten</a>
+            </li>
+            <li>
+              <a href="#s2">Functieprofiel</a>
+            </li>
+            <li>
+              <a href="#s3">Contact</a>
+            </li>
+          </ul>
+        </nav>
       </header>
-      <main className="flex w-full flex-col items-center space-y-2 px-6 *:w-full *:gap-x-2 *:md:max-w-[70%]">
+      <main className="flex w-full flex-col items-center space-y-6 px-6 *:w-full *:gap-x-2 *:md:max-w-[70%]">
         <section>
-          <article>
-            Dikke klus en niemand paraat? Als freelance developer help ik graag
-            een handje mee. Ik heb ruime ervaring met het ontwikkelen van
-            gepersonaliseerde informatieplatformen voor overheidsinstanties en
-            de zorg. Voor meer over mijn werkervaring, bekijk mijn{" "}
-            <a href="/cv">CV</a>.
+          <article className="space-y-2">
+            <p>
+              Heb je een dikke klus en niemand paraat? Als freelance developer
+              help ik graag een handje mee.
+            </p>
+            <p>
+              Ik heb ruime ervaring met het ontwikkelen van gepersonaliseerde
+              informatieplatformen voor overheidsinstanties en de zorg. Voor
+              meer over mijn werkervaring, bekijk mijn cv.
+            </p>
+            <p>
+              <a
+                className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline sm:col-start-2"
+                href="/cv.pdf"
+                download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
+              >
+                Download mijn complete CV
+                <DownloadIcon className="ml-2 inline-block h-4 w-4" />
+              </a>
+            </p>
           </article>
-          <Card as="article" aria-labelledby="s3c3">
-            <CardHeader>
-              <CardTitle id="s3c3">Ervaring</CardTitle>
-            </CardHeader>
-            <CardContent>
-              Met wie heb je te maken? Bekijk mijn ervaring en portfolio.
-            </CardContent>
-          </Card>
         </section>
-        <section
-          className="grid gap-y-2 sm:grid-cols-3 xl:grid-cols-5"
-          aria-labelledby="s3"
-        >
-          <hgroup className="p-3 sm:col-start-3 xl:col-span-2 xl:col-start-4">
-            <h2 className="-mb-1 font-serif text-lg font-light" id="s3">
-              Kom in actie
+        <section aria-labelledby="s1 s1b">
+          <hgroup className="mb-1 w-full">
+            <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
+              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+                Kwaliteiten
+              </span>
             </h2>
             <p
-              id="s3b"
+              id="s1b"
               role="subtitle"
               className="font-serif text-xl sm:text-3xl"
             >
-              Wat gaan we doen?
+              Wat breng ik mee naar de werkvloer?
             </p>
           </hgroup>
-          <Card
-            as="article"
-            aria-labelledby="s3c1"
-            className="focus-within:bg-yellow-200  dark:focus-within:bg-yellow-700  sm:col-span-2 sm:col-start-1 sm:row-span-2 sm:row-start-1 xl:col-span-3"
-          >
+          <div>
+            <h3>Vakkennis</h3>
+            {/* ervaring in-en-outs langlopende projecten. Belang bij documentatie en protocollen. */}
+            <h3>Collegialiteit</h3>
+            {/* actieve communicator, aardig & enthousiast */}
+            <h3>Een frisse blik</h3>
+            {/* oog voor mooie dingen, puzzelaar die denkt in oplossignen, nieuwe ideeen, */}
+            <h3>Flexibiliteit</h3>
+            {/* breed inzetbaar, geinteresseerd in alle aspecten van web development */}
+          </div>
+        </section>
+        <section>
+          <hgroup className="mb-1 w-full">
+            <h2 id="s2" className="-mb-1 font-serif text-lg font-light">
+              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+                Functieprofiel
+              </span>
+            </h2>
+            <p
+              id="s2b"
+              role="subtitle"
+              className="font-serif text-xl sm:text-3xl"
+            >
+              Hoe kan je mij inzetten?
+            </p>
+          </hgroup>
+          front-end dev, full-stack JS, projectbeheerder, product owner, meer
+          (binnen ontwikkelproces)
+        </section>
+        <section aria-labelledby="s3">
+          <hgroup className="">
+            <h2 className="-mb-1 font-serif text-lg font-light" id="s3">
+              Contact
+            </h2>
+          </hgroup>
+          <Card as="article" aria-labelledby="s3c1">
             <CardHeader>
               <CardTitle id="s3c1">Neem contact op</CardTitle>
             </CardHeader>
             <CardContent>
               <ContactForm />
             </CardContent>
-          </Card>
-          <Card
-            as="article"
-            aria-labelledby="s3c2"
-            className="sm:col-start-3 xl:col-span-2 xl:col-start-4"
-          >
-            <CardHeader>
-              <CardTitle id="s3c2">Begin zelf</CardTitle>
-            </CardHeader>
-            <CardContent className="grow">
-              Bereid je voor op het ontwikkelproces in je eigen tempo, zodat je
-              daarna vliegend van start kan!
-            </CardContent>
-            <CardFooter>
-              <NavLink href="/development/start-nu">Start nu</NavLink>
-            </CardFooter>
           </Card>
         </section>
       </main>
