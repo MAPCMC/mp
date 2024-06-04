@@ -40,7 +40,7 @@ export default function Home() {
           </hgroup>
 
           <p className="w-full break-words font-serif text-3xl sm:text-5xl">
-            Samen creëeren we een unieke online ervaring
+            Samen bouwen we uitzonderlijke websites
           </p>
         </div>
       </header>
@@ -54,21 +54,20 @@ export default function Home() {
             </p>
           </hgroup>
           <p>
-            In 2017 ben ik developer geworden omdat ik iets concreets wilde
-            maken waarmee ik anderen kon helpen. In de afgelopen jaren heb ik
-            mogen werken aan grote informatieve platformen voor de overheid en
-            de zorg.
+            Ik ben developer omdat ik iets concreets wil maken waarmee ik
+            anderen kan helpen. De afgelopen zeven jaar heb ik mogen werken aan
+            grote informatieve platformen voor de overheid en de zorg.
           </p>
           <p>
-            In dit nieuwe hoofdstuk van mijn carrière zoek ik creatieve en
-            technische ontplooiing via kleinere, vrijmoedige opdrachten en bouw
-            ik aan ondersteunende software voor de vakmensen achter het web.
+            Gewapend met creativiteit en technische kennis werk ik nu aan
+            kleinere, dynamische opdrachten. Achter de schermen bouw ik aan
+            ondersteunende software voor vakmensen op het web.
           </p>
           <p>
             Eindgebruikers, opdrachtgevers en ontwikkelaars komen op het
             internet met een doel: we zijn allemaal op zoek naar toegevoegde
-            waarde. Met een passie voor maatwerk, samenwerking, ontwerp en
-            werkgeluk draag ik mijn steentje bij.
+            waarde. Met een passie voor maatwerk, samenwerking, taal en ontwerp
+            draag ik mijn steentje bij.
           </p>
           <p>
             Naast development houd ik van koken, klussen en kamperen. Je vindt
@@ -183,7 +182,8 @@ export default function Home() {
               </p>
               <p>
                 Door de focus op front-end had ik ruimte om mij te verdiepen in
-                responsive grid layouts en kon ik los met TailwindCSS.
+                toegankelijkheid en responsive grid layouts en kon ik los met
+                TailwindCSS.
               </p>
               <p>
                 Daarnaast verzorgde ik de tech support voor bestaande klanten.
@@ -241,7 +241,7 @@ export default function Home() {
             <CardContent className="space-y-2">
               <p>
                 Ik heb hier als uiteindelijke tech-lead klantportalen voor de
-                zorg uitgedacht en ontwikkelt, o.a. een toegankelijk
+                zorg uitgedacht en ontwikkelt, o.a. een gebruiksvriendelijk
                 ouderportaal voor het inzien van jeugdzorgdossiers.
               </p>
               <p>
