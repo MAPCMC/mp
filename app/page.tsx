@@ -6,12 +6,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MemoryGame } from "@/components/memory-game";
-import { ProcessCards } from "@/components/process-cards";
-import { ContactForm } from "@/components/contact-form";
-import { AboutSpans } from "@/components/about-spans";
-import { Toaster } from "@/components/ui/toaster";
+import { MemoryGame } from "@/app/_components/memory-game";
+import { AboutSpans } from "@/app/_components/about-spans";
 import { NavLink } from "@/components/nav-link";
+import { DownloadIcon, ExternalLink } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Home | Maarten Peene",
@@ -21,168 +22,289 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <header className="flex w-full flex-col items-center space-y-2 px-6 pt-24 *:w-full *:md:max-w-[70%]">
-        <div className="grid gap-3 sm:grid-cols-[auto_1fr] sm:gap-y-2 md:grid-rows-[1fr_auto]">
+      <header className="space-y-2 px-6 pt-24 *:w-full *:md:px-[15%]">
+        <div className="grid gap-x-4 gap-y-2 sm:grid-cols-[auto_auto] md:grid-rows-[1fr_auto]">
           {/* logo puzzle */}
-          <MemoryGame className="flex flex-wrap-reverse gap-1 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr] md:row-span-2" />
-          {/* page header & intro */}
-          <hgroup className="self-end font-serif text-2xl sm:col-start-2">
-            <h1 className=" font-serif text-4xl font-bold">Maarten Peene</h1>
-            <p role="doc-subtitle">
-              <AboutSpans />
-              <span>full-stack webdeveloper</span>
+          <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr]" />
+          <hgroup className="self-end font-serif font-light">
+            <h1 className="text-xl">
+              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+                Maarten Peene
+              </span>
+            </h1>
+            <p role="doc-subtitle" className="-mt-1 text-amber-600">
+              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+                <AboutSpans /> full-stack webdeveloper
+              </span>
             </p>
           </hgroup>
-          <p className="text-lg sm:col-span-2 md:col-span-1 md:col-start-2">
-            <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
-              Ik geloof in een internet waar creativiteit en functionaliteit
-              samenkomen. Als webontwikkelaar breng ik experimentele ideeën tot
-              leven; van concept tot unieke online ervaring.
-            </span>
+
+          <p className="w-full break-words font-serif text-3xl sm:text-5xl">
+            Samen bouwen we uitzonderlijke websites
           </p>
         </div>
       </header>
-      <main className="flex w-full flex-col items-center space-y-2 px-6 pb-24 *:w-full *:gap-x-2 *:md:max-w-[70%]">
+      <main className="flex flex-col items-stretch gap-y-12 px-6 pb-24 pt-8 *:md:px-[15%]">
+        {/* over mij */}
+        <section className="space-y-2 sm:w-3/4">
+          <hgroup className="mb-3">
+            <h2 className="font-serif text-lg font-light">Over mij</h2>
+            <p role="subtitle" className="font-serif text-xl sm:text-3xl">
+              Hallo, leuk je te ontmoeten!
+            </p>
+          </hgroup>
+          <p>
+            Ik ben developer omdat ik iets concreets wil maken waarmee ik
+            anderen kan helpen. De afgelopen zeven jaar heb ik mogen werken aan
+            grote informatieve platformen voor de overheid en de zorg.
+          </p>
+          <p>
+            Gewapend met creativiteit en technische kennis werk ik nu aan
+            kleinere, dynamische opdrachten. Achter de schermen bouw ik aan
+            ondersteunende software voor vakmensen op het web.
+          </p>
+          <p>
+            Eindgebruikers, opdrachtgevers en ontwikkelaars komen op het
+            internet met een doel: we zijn allemaal op zoek naar toegevoegde
+            waarde. Met een passie voor maatwerk, samenwerking, taal en ontwerp
+            draag ik mijn steentje bij.
+          </p>
+          <p>
+            Naast development houd ik van koken, klussen en kamperen. Je vindt
+            mij in Utrecht, waar ik woon met mijn vriendin en onze kat Toos.
+          </p>
+        </section>
+        {/* aanbod */}
         <section
-          className="grid gap-y-2 pt-6 sm:grid-cols-2 lg:grid-cols-5"
+          className={cn(
+            "grid gap-4",
+            "light:sm:grid-cols-2",
+            "dark:sm:grid-cols-2",
+            "basic:-m-6 basic:border-y basic:bg-white basic:p-6 basic:sm:grid-cols-[1fr_auto_1fr] basic:md:m-auto basic:md:border-none basic:md:bg-inherit basic:md:px-[15%] basic:md:py-0",
+          )}
           aria-labelledby="s1"
         >
-          <hgroup className="row-span-3 px-4 sm:col-span-2 lg:col-span-1 lg:px-0">
-            <h2 id="s1" className="font-serif text-3xl font-bold">
-              Aanbod
+          <hgroup className="mb-3 basic:sm:col-span-3">
+            <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
+              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+                Aanbod
+              </span>
             </h2>
-            <p role="subtitle" className="font-serif text-lg">
+            <p role="subtitle" className="font-serif text-xl sm:text-3xl">
               Wat kan ik voor je betekenen?
             </p>
           </hgroup>
           <Card
             as="article"
-            className="row-span-3 grid grid-rows-subgrid lg:col-span-2"
+            className="row-span-3 grid grid-rows-subgrid"
             aria-labelledby="s1c1"
           >
             <CardHeader>
               <CardTitle id="s1c1">Websites & applicaties</CardTitle>
             </CardHeader>
             <CardContent>
-              Ik wil samen aan de slag om van mijn idee een werkende website of
-              applicatie te maken.
+              We werken van een vernieuwend idee naar een succesvolle website of
+              applicatie.
             </CardContent>
             <CardFooter>
-              <NavLink href="/development">Meer over development</NavLink>
+              <NavLink
+                href="/development"
+                className={
+                  "light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline"
+                }
+              >
+                Meer over development
+              </NavLink>
             </CardFooter>
           </Card>
+          <Separator
+            orientation="horizontal"
+            className="hidden basic:my-4 basic:block basic:sm:hidden"
+            decorative
+          />
+          <Separator
+            orientation="vertical"
+            className="hidden basic:mx-6 basic:sm:row-span-3 basic:sm:block"
+            decorative
+          />
           <Card
             as="article"
-            className="row-span-3 grid grid-rows-subgrid lg:col-span-2"
-            aria-labelledby="s1c2"
-          >
-            <CardHeader>
-              <CardTitle id="s1c2">Advies</CardTitle>
-            </CardHeader>
-            <CardContent>
-              Ik weet niet waar ik moet beginnen. Wil je meedenken?
-            </CardContent>
-            <CardFooter>
-              <NavLink href="/advies">Naar advies</NavLink>
-            </CardFooter>
-          </Card>
-          <Card
-            as="article"
-            className="grid bg-orange-500 dark:bg-orange-900 sm:col-span-2 lg:col-span-5 lg:grid-cols-[1fr_auto]"
+            className="row-span-3 grid grid-rows-subgrid light:bg-amber-200 dark:bg-orange-900"
             aria-labelledby="s1c3"
           >
             <CardHeader>
               <CardTitle id="s1c3">Freelance</CardTitle>
             </CardHeader>
-            <CardContent className="lg:row-start-2">
-              We hebben een interessant project en/of zoeken een tijdelijke
-              vaste kracht. Kom jij ons team versterken?
+            <CardContent className="grow lg:row-start-2">
+              Jouw bedrijf heeft een interessant project dat vraagt om
+              tijdelijke versterking. Met 6+ jaar ervaring lever ik een
+              waardevolle bijdrage aan het team.
             </CardContent>
             <CardFooter className="lg:row-span-2 lg:pb-0">
-              <NavLink href="/freelance">Bekijk de mogelijkheden</NavLink>
-            </CardFooter>
-          </Card>
-        </section>
-        <section
-          className="grid gap-y-2 sm:grid-cols-2 xl:grid-cols-4"
-          aria-labelledby="s2 s2b"
-        >
-          <div className="px-4 pb-3 pt-4 sm:col-span-2 lg:flex lg:gap-x-6 lg:px-0 xl:col-span-4">
-            <hgroup className="w-full">
-              <h2 id="s2" className="font-serif text-lg">
-                Werkwijze
-              </h2>
-              <p
-                id="s2b"
-                role="subtitle"
-                className="font-serif text-3xl font-bold"
+              <NavLink
+                href="/freelance"
+                className={
+                  "light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline"
+                }
               >
-                Persoonlijke aandacht
-              </p>
-            </hgroup>
-            <p className="text-lg">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
-                We gaan iets moois en innovatiefs maken, zodat jullie boven het
-                maaiveld uitsteken. Staat er al een visie op papier of bestaat
-                ie nog uit flarden? Geen zorgen, ik neem jullie mee in het
-                ontwikkeltraject.
-              </span>
-            </p>
-          </div>
-          <div className="sm:col-span-2 xl:col-span-4">
-            <ProcessCards />
-          </div>
-        </section>
-        <section
-          className="grid gap-y-2 sm:grid-cols-3 xl:grid-cols-5"
-          aria-labelledby="s3"
-        >
-          <h2
-            className="p-3 font-serif text-4xl font-bold sm:col-start-3 xl:col-span-2 xl:col-start-4"
-            id="s3"
-          >
-            Wat gaan we doen?
-          </h2>
-          <Card
-            as="article"
-            aria-labelledby="s3c1"
-            className="focus-within:bg-yellow-200  dark:focus-within:bg-yellow-700  sm:col-span-2 sm:col-start-1 sm:row-span-2 sm:row-start-1 xl:col-span-3"
-          >
-            <CardHeader>
-              <CardTitle id="s3c1">Ik wil praten</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ContactForm />
-            </CardContent>
-          </Card>
-          <Card
-            as="article"
-            aria-labelledby="s3c2"
-            className="sm:col-start-3 xl:col-span-2 xl:col-start-4"
-          >
-            <CardHeader>
-              <CardTitle id="s3c2">Ik wil beginnen</CardTitle>
-            </CardHeader>
-            <CardContent>Zet de eerste stappen</CardContent>
-            <CardFooter>
-              <NavLink href="/development/start-nu">go go go</NavLink>
+                Bekijk de mogelijkheden
+              </NavLink>
             </CardFooter>
           </Card>
-          <Card
-            as="article"
-            aria-labelledby="s3c3"
-            className="sm:col-span-3 xl:col-span-5"
-          >
+        </section>
+        {/* ervaring */}
+        <section className="grid gap-x-6 gap-y-2 self-end sm:grid-cols-[1fr_auto] lg:w-5/6">
+          <hgroup className="mb-3 sm:col-span-2">
+            <h2 className="-mb-1 font-serif text-lg font-light">Ervaring</h2>
+            <p role="subtitle" className="font-serif text-xl sm:text-3xl">
+              Informatieplatformen, had ik die al genoemd?
+            </p>
+          </hgroup>
+          <p className="font-serif leading-[1.75rem]">2022-2024</p>
+          <Card className="mb-4">
             <CardHeader>
-              <CardTitle id="s3c3">Ik wil meer feiten</CardTitle>
+              <CardTitle>
+                Front-end developer |{" "}
+                <a
+                  href="https://notfound.nl/"
+                  className="text-lg hover:underline focus:underline"
+                >
+                  NotFound Digital Creativity
+                  <ExternalLink className="ml-2 inline-block h-4 w-4 -translate-y-1" />
+                </a>
+              </CardTitle>
             </CardHeader>
-            <CardContent>
-              Met wie heb je te maken? Bekijk mijn ervaring en portfolio.
+            <CardContent className="space-y-2">
+              <p>
+                Ik bouwde de front-end voor websites in de publieke sector en
+                onderhield bestaande applicaties, zoals de vernieuwde versie van
+                ons CMS.
+              </p>
+              <p>
+                Door de focus op front-end had ik ruimte om mij te verdiepen in
+                toegankelijkheid en responsive grid layouts en kon ik los met
+                TailwindCSS.
+              </p>
+              <p>
+                Daarnaast verzorgde ik de tech support voor bestaande klanten.
+              </p>
             </CardContent>
+            <CardFooter>
+              <ul className="flex flex-wrap gap-1">
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    React
+                  </Badge>
+                </li>
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    Vue
+                  </Badge>
+                </li>
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    Laravel Blade
+                  </Badge>
+                </li>
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    AlpineJS
+                  </Badge>
+                </li>
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    Cypress
+                  </Badge>
+                </li>
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    TailwindCSS
+                  </Badge>
+                </li>
+              </ul>
+            </CardFooter>
           </Card>
+          <p className="font-serif leading-[1.75rem]">2017-2022</p>
+          <Card>
+            <CardHeader>
+              <CardTitle>
+                Full-stack webdeveloper |{" "}
+                <a
+                  href="https://www.eljakim.nl/"
+                  className="text-lg hover:underline focus:underline"
+                >
+                  Eljakim Information Technology bv
+                  <ExternalLink className="ml-2 inline-block h-4 w-4 -translate-y-1" />
+                </a>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <p>
+                Ik heb hier als uiteindelijke tech-lead klantportalen voor de
+                zorg uitgedacht en ontwikkelt, o.a. een gebruiksvriendelijk
+                ouderportaal voor het inzien van jeugdzorgdossiers.
+              </p>
+              <p>
+                Ik heb hier veel geleerd over gegevensbescherming, RESTful
+                API&apos;s en het rijmen van de belangen van klanten en
+                eindgebruikers.
+              </p>
+              <p>
+                Ik droeg verantwoordelijkheid voor design, projectarchitectuur,
+                planning en klantcontact, nieuwe releases, de documentatie en de
+                begeleiding van nieuwe developers.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <ul className="flex flex-wrap gap-1">
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    React
+                  </Badge>
+                </li>
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    Redux
+                  </Badge>
+                </li>
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    Sass
+                  </Badge>
+                </li>
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    Express.js
+                  </Badge>
+                </li>
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    SAML Auth
+                  </Badge>
+                </li>
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    REST API design
+                  </Badge>
+                </li>
+                <li>
+                  <Badge variant="outline" className="font-normal">
+                    Gitlab CI/CD
+                  </Badge>
+                </li>
+              </ul>
+            </CardFooter>
+          </Card>
+          <a
+            className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline sm:col-start-2"
+            href="/cv.pdf"
+            download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
+          >
+            Download mijn complete CV
+            <DownloadIcon className="ml-2 inline-block h-4 w-4" />
+          </a>
         </section>
       </main>
-      <Toaster />
     </>
   );
 }

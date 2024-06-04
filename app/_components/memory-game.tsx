@@ -1,6 +1,6 @@
 "use client";
-import { useState, useEffect, useRef, forwardRef } from "react";
-import { MemoryCard } from "@/components/memory-card";
+import { useState, useEffect, useRef } from "react";
+import { MemoryCard } from "@/app/_components/memory-card";
 import {
   SiGithub,
   SiTypescript,
@@ -14,6 +14,11 @@ import { X, PartyPopper, IconNode } from "lucide-react";
 
 import { shuffle } from "@/lib/utils";
 import { cn } from "@/lib/utils";
+
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 type Card = {
   text: string;
@@ -30,23 +35,26 @@ const Cards = [
   { text: "Figma", icon: SiFigma },
 ];
 
-export const MemoryGame = forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
+export const MemoryGame = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => {
   const [cards, setCards] = useState<Card[]>([]);
   const [openCards, setOpenCards] = useState<number[]>([]);
   const [clearedCards, setClearedCards] = useState<string[]>([]);
   const TORestart = useRef<NodeJS.Timeout | null>(null);
   const TOEvaluate = useRef<NodeJS.Timeout | null>(null);
+  const game = useRef<HTMLDivElement>(null);
+  const reset = useRef<HTMLButtonElement>(null);
 
   const handleCardClick = (index: number): void => {
     if (cards[index].text === "Reset") {
       setOpenCards([index]);
+      onClickReset();
 
       TORestart.current = setTimeout(() => {
         handleRestart();
-      }, 800);
+      }, 1000);
     } else if (openCards.length === 1) {
       let newOpenCards = [...openCards, index];
       setOpenCards(newOpenCards);
@@ -101,10 +109,29 @@ export const MemoryGame = forwardRef<
     };
   }, []);
 
+  const { contextSafe } = useGSAP(
+    () => {
+      gsap.fromTo(
+        ".card",
+        { y: 40, x: 30, opacity: 0 },
+        { x: 0, opacity: 1, y: 0, duration: 0.5, stagger: 0.1 },
+      );
+    },
+    { scope: game },
+  );
+
+  const onClickReset = contextSafe(() => {
+    gsap.to(".card", {
+      rotation: 360,
+      duration: 0.5,
+      delay: 0.5,
+    });
+  });
+
   return (
     <div
       id="memory-game"
-      ref={ref}
+      ref={game}
       className={cn("relative", className)}
       {...props}
     >
@@ -113,10 +140,14 @@ export const MemoryGame = forwardRef<
           {[...Array(7)].map((n, i) => (
             <div
               key={i}
-              className="size-12 rounded-md bg-orange-300 animate-in slide-in-from-bottom-4 md:slide-in-from-right-4 lg:size-16"
+              className="card size-12 rounded-md bg-orange-400 shadow-[.3rem_.3rem_solid] shadow-orange-200 lg:size-16"
             ></div>
           ))}
-          <MemoryCard index={0} onClick={() => setCards(newCards())} />
+          <MemoryCard
+            index={0}
+            className="bg-orange-500"
+            onClick={() => setCards(newCards())}
+          />
         </>
       )}
       {clearedCards.length === 4 && (
@@ -141,5 +172,5 @@ export const MemoryGame = forwardRef<
       })}
     </div>
   );
-});
+};
 MemoryGame.displayName = "MemoryGame";

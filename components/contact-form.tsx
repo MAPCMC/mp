@@ -33,11 +33,15 @@ const initialState: State = {
 function FormContent({
   register,
   isValid,
+  isActive,
   errors,
+  onReset,
 }: {
   register: UseFormRegister<FormValues>;
   isValid: boolean;
+  isActive: boolean;
   errors: FieldErrors<FormValues>;
+  onReset: () => void;
 }) {
   const { pending } = useFormStatus();
 
@@ -70,7 +74,7 @@ function FormContent({
         <Input
           {...register("subject")}
           type="text"
-          placeholder="Ik wil een site bouwen"
+          placeholder="Ik wil een idee bespreken"
           required
         />
         <span className="text-sm text-red-500">
@@ -101,6 +105,11 @@ function FormContent({
         >
           Verzenden
         </Button>
+        {isActive && (
+          <Button variant="ghost" type="button" onClick={onReset}>
+            Wissen
+          </Button>
+        )}
       </div>
     </>
   );
@@ -114,6 +123,11 @@ export function ContactForm() {
     reset,
   } = useForm<FormValues>({
     mode: "all",
+    defaultValues: {
+      email: "",
+      subject: "",
+      text: "",
+    },
     resolver: zodResolver(emailSchema),
   });
   const [state, formAction] = useActionState<State, FormData>(
@@ -145,20 +159,14 @@ export function ContactForm() {
   }, [state, setError, reset, toast]);
 
   return (
-    <form action={formAction} className="group relative flex flex-col gap-2">
-      {(Object.keys(errors).length > 0 || isDirty) && (
-        <Button
-          variant="ghost"
-          type="button"
-          size="icon"
-          className="absolute -top-10 right-0"
-          onClick={() => reset()}
-        >
-          <span className="sr-only">Reset</span>
-          <X aria-hidden="true" />
-        </Button>
-      )}
-      <FormContent register={register} isValid={isValid} errors={errors} />
+    <form action={formAction} className="group flex flex-col gap-2">
+      <FormContent
+        register={register}
+        isValid={isValid}
+        errors={errors}
+        onReset={() => reset()}
+        isActive={Object.keys(errors).length > 0 || isDirty}
+      />
       {state.status === "ERROR" && (
         <p aria-live="polite" role="status" className="text-sm text-red-500">
           {state?.message}

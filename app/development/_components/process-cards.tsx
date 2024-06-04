@@ -19,7 +19,7 @@ export const ProcessCards = () => {
     <ul
       className={cn(
         "process-cards grid gap-2 sm:grid-cols-[2fr_1fr]",
-        reveal === 1 && "sm:grid-cols-[1fr_2fr]",
+        reveal === 1 && "sm:grid-cols-[1fr_1fr]",
         reveal === 2 && "sm:grid-cols-[2fr_1fr_1fr]",
         reveal === 3 && "sm:grid-cols-[2fr_1fr_3fr]",
       )}
@@ -27,7 +27,7 @@ export const ProcessCards = () => {
       <li
         aria-labelledby="s2c1"
         className={cn(
-          reveal === 0 ? "min-h-52" : "",
+          reveal === 0 ? "min-h-32" : "",
           reveal === 3 ? "sm:col-span-2" : "",
         )}
       >
@@ -36,9 +36,10 @@ export const ProcessCards = () => {
             <CardTitle id="s2c1">1. Ontwerp</CardTitle>
           </CardHeader>
           <CardContent>
-            Tijd om dromen concreet te maken. Wat willen we bereiken en hoe gaan
-            we dat doen? Hoe komt dit eruit te zien? We maken een plan en zetten
-            een visueel ontwerp neer.
+            Samen gaan we de diepte in: wat is het doel van het platform en hoe
+            gaan we dit realiseren? Ik denk graag mee over de mogelijkheden,
+            valkuilen en kansen van jouw concept. Uit de bevindingen rolt een
+            strategische opzet en een visueel ontwerp.
           </CardContent>
         </Card>
       </li>
@@ -47,7 +48,7 @@ export const ProcessCards = () => {
         aria-labelledby="s2c2"
         className={cn(
           reveal === 0 ? "hidden" : "",
-          reveal === 1 ? "min-h-52 sm:row-span-2" : "",
+          reveal === 1 ? "min-h-32 sm:row-span-2" : "",
           reveal === 2 ? "sm:col-span-2" : "",
         )}
       >
@@ -69,7 +70,7 @@ export const ProcessCards = () => {
         aria-labelledby="s2c3"
         className={cn(
           reveal < 2 ? "hidden" : "",
-          reveal === 2 ? "min-h-52 sm:col-span-2" : "",
+          reveal === 2 ? "min-h-32 sm:col-span-2" : "",
         )}
       >
         {reveal >= 2 && (
@@ -80,7 +81,7 @@ export const ProcessCards = () => {
             <CardContent>
               Jullie kunnen live! De content is gevuld en alle afbeeldingen
               staan recht. Ik zet jullie online en zorg dat jullie onbezorgd aan
-              de slag kunnen met jullie nieuwe platform.
+              de slag kunnen.
             </CardContent>
           </Card>
         )}
@@ -90,7 +91,7 @@ export const ProcessCards = () => {
         aria-labelledby="s2c4"
         className={cn(
           reveal < 3 ? "hidden" : "",
-          reveal === 3 ? "min-h-52 sm:col-span-2" : "",
+          reveal === 3 ? "min-h-32 sm:col-span-2" : "",
         )}
       >
         {reveal >= 3 && (

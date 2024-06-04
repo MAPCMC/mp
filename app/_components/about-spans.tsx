@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export function AboutSpans() {
   const [index, setIndex] = React.useState(0);
 
-  const spans = ["Creatieve", "Behulpzame", "Gedreven", "Enthousiaste"];
+  const spans = ["Creatieve", "Behulpzame", "Enthousiaste", "Gedreven"];
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -17,7 +17,7 @@ export function AboutSpans() {
   }, [spans.length]);
 
   return (
-    <span className="mr-2">
+    <span>
       {spans.map((text, i) => (
         <span
           key={text + i}

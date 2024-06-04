@@ -18,8 +18,8 @@ export function Navigation() {
 
   return (
     <div className="duration-400 -mt-2 transition-all delay-75 -translate-y-[calc(100%-2.75rem)] focus-within:translate-y-0 hover:translate-y-0  md:mt-0 md:flex md:items-center md:!translate-y-0">
-      <div className="-ml-px h-4 w-2.5 border-r-2 border-orange-500 md:hidden"></div>
-      <div className="hidden h-8 w-4 rounded-bl-md border-b-2 border-l-2 border-orange-500 -translate-y-[calc(50%-1px)] md:block"></div>
+      <div className="-ml-px h-4 w-2.5 border-r-2 border-orange-500 basic:hidden md:hidden"></div>
+      <div className="hidden h-8 w-4 rounded-bl-md border-b-2 border-l-2 border-orange-500 -translate-y-[calc(50%-1px)] md:block md:basic:hidden"></div>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
