@@ -13,6 +13,34 @@ import {
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
+function CarouselItemLocal({
+  children,
+  theme,
+  ...props
+}: {
+  children: React.ReactNode;
+  theme?: string;
+}) {
+  return (
+    <CarouselItem className="flex h-full w-full items-center">
+      <div
+        className={cn({
+          "flex h-8 w-full items-center justify-center gap-2 capitalize": true,
+          "basic:bg-basic basic:border-y basic:border-slate-900 basic:md:h-full basic:md:border-x basic:md:border-y-0":
+            theme === "basic",
+          " dark:border-y dark:border-neutral-800 dark:bg-neutral-950":
+            theme === "dark",
+          "light:border-y light:border-neutral-200 light:bg-white":
+            theme === "light",
+        })}
+        {...props}
+      >
+        {children}
+      </div>
+    </CarouselItem>
+  );
+}
+
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [api, setApi] = React.useState<CarouselApi>();
@@ -32,15 +60,7 @@ export function ThemeToggle() {
   }, [api, setTheme]);
 
   return (
-    <div
-      className={cn({
-        "relative mx-14 flex items-center": true,
-        "basic:bg-basic basic:border-x basic:border-slate-900":
-          theme === "basic",
-        "dark:bg-dark": theme === "dark",
-        "light:bg-light": theme === "light",
-      })}
-    >
+    <div className="relative flex items-stretch">
       {mounted && (
         <Carousel
           setApi={setApi}
@@ -51,22 +71,28 @@ export function ThemeToggle() {
             loop: true,
           }}
         >
-          <CarouselContent className="w-32 lg:w-40">
-            <CarouselItem className="flex items-center justify-center gap-2 capitalize">
+          <CarouselContent className="h-full w-32 lg:w-40">
+            <CarouselItemLocal theme={theme}>
               <Box className="h-4 w-4" />
               basic
-            </CarouselItem>
-            <CarouselItem className="flex items-center justify-center gap-2 capitalize">
+            </CarouselItemLocal>
+            <CarouselItemLocal theme={theme}>
               <Sun className="h-4 w-4" />
               licht
-            </CarouselItem>
-            <CarouselItem className="flex items-center justify-center gap-2 capitalize">
+            </CarouselItemLocal>
+            <CarouselItemLocal theme={theme}>
               <Moon className="h-4 w-4" />
               donker
-            </CarouselItem>
+            </CarouselItemLocal>
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious
+            variant="outline"
+            className="-left-8 rounded-r-none basic:rounded-none basic:border-slate-900 basic:md:border-none basic:md:border-inherit"
+          />
+          <CarouselNext
+            variant="outline"
+            className="-right-8 rounded-l-none basic:rounded-none basic:border-slate-900 basic:md:border-none basic:md:border-inherit"
+          />
         </Carousel>
       )}
     </div>
