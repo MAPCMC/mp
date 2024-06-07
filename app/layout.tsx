@@ -3,12 +3,11 @@ import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import { Roboto_Slab, Roboto_Flex } from "next/font/google";
 import { ThemeProvider } from "@/app/_layout/theme-provider";
-import { ThemeToggle } from "@/app/_layout/theme-toggle";
-import { Navigation } from "@/app/_layout/navigation";
+import { Footer } from "@/app/_layout/footer";
+import { NavBar } from "@/app/_layout/nav-bar";
 
 // TODO - delete when https://github.com/radix-ui/primitives/pull/2811 gets merged
 import "./_suppressRefWarning";
-import { NavLink } from "@/components/nav-link";
 
 const serif = Roboto_Slab({
   subsets: ["latin"],
@@ -51,14 +50,9 @@ export default function RootLayout({
           disableTransitionOnChange
           themes={["basic", "light", "dark", "fun"]}
         >
-          <nav className="fixed z-50 flex w-full justify-between p-2 basic:border-b basic:bg-white md:px-24">
-            <Navigation />
-            <ThemeToggle />
-          </nav>
+          <NavBar />
           {children}
-          <footer className="w-full p-2 basic:border-t basic:bg-white md:px-24">
-            <p className="text-sm">© 2024 Itoko door Maarten Peene</p>
-          </footer>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

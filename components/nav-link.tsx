@@ -10,7 +10,8 @@ export function NavLink({
     <Link
       {...props}
       className={cn(
-        "text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8",
+        "text-sky-600 underline underline-offset-4 outline-offset-4 transition-all first-letter:capitalize hover:underline-offset-8 focus:underline-offset-8",
+        "basic:text-sm basic:italic",
         className,
       )}
     >

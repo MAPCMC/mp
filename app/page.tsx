@@ -65,9 +65,9 @@ export default function Home() {
           </p>
           <p>
             Eindgebruikers, opdrachtgevers en ontwikkelaars komen op het
-            internet met een doel: we zijn allemaal op zoek naar toegevoegde
-            waarde. Met een passie voor maatwerk, samenwerking, taal en ontwerp
-            draag ik mijn steentje bij.
+            internet met een doel: we zoeken toegevoegde waarde. Met een passie
+            voor maatwerk, samenwerking, taal en ontwerp draag ik mijn steentje
+            bij.
           </p>
           <p>
             Naast development houd ik van koken, klussen en kamperen. Je vindt
