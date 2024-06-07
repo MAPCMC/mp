@@ -52,14 +52,17 @@ const MenuItem = ({ href, icon, text, className, isActive }: MenuItemProps) => {
             "basic:bg-white basic:hover:bg-slate-900 basic:hover:text-white",
             "basic:focus:bg-slate-900 basic:focus:text-white",
             // colors active page
-            'data-[active=""]:basic:bg-slate-200  data-[active=""]:basic:text-slate-900',
+            "data-active:basic:bg-slate-200  data-active:basic:text-slate-900",
+            "data-active:basic:focus:bg-slate-900  data-active:basic:focus:text-white",
+            "data-active:basic:hover:bg-slate-900  data-active:basic:hover:text-white",
             // indicator active page
             'after:absolute after:right-1 after:top-1 after:h-1.5 after:w-1.5 after:rounded-full after:bg-amber-600 after:content-[""]',
-            'after:hidden data-[active=""]:after:block',
+            "data-active:after:block after:hidden",
 
             // light
             // colors interaction
-            "light:h-auto light:bg-[var(--color-bg-light)] light:hover:bg-slate-900 light:hover:text-white light:md:rounded-full light:md:border light:md:border-[var(--color-bg-light-dots)]",
+            "light:md:border-light-dots light:bg-light light:h-auto light:hover:bg-slate-900  light:md:rounded-full light:md:border ",
+            "light:hover:bg-sky-800 light:hover:text-white light:focus:bg-sky-800 light:focus:text-white",
           )}
         >
           <MenuIcon className="h-4 w-4 shrink-0 md:hidden" strokeWidth={1} />

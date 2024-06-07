@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <>
-      <header className="space-y-2 px-6 pt-24 *:w-full *:md:px-[15%]">
-        <h1 className="font-serif text-4xl">Contact</h1>
+      <header className="space-y-2 px-6 pt-24 *:w-full  *:md:px-[15%]">
+        <h1 className="font-serif text-4xl first-letter:capitalize">contact</h1>
       </header>
       <main className="flex flex-col items-stretch px-6 pt-8 *:md:px-[15%]">
         <dl className="mb-8 grid gap-x-6 sm:grid-cols-[auto_1fr] sm:gap-y-2">
@@ -41,6 +41,10 @@ export default function Contact() {
           </dd>
           <dt className="-mb-1 text-sm leading-6 opacity-70 sm:mb-auto">KVK</dt>
           <dd className="mb-2 sm:mb-auto">93973225</dd>
+          <dt className="-mb-1 text-sm leading-6 opacity-70 first-letter:capitalize sm:mb-auto">
+            btw-id
+          </dt>
+          <dd className="mb-2 sm:mb-auto">NL005059450B24</dd>
         </dl>
 
         <Card as="article" aria-labelledby="s3c1">
