@@ -3,12 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --color-bg-basic: rgb(255, 255, 255);
+  --color-bg-basic: rgb(248, 250, 252);
   --color-bg-basic-grid: rgb(243, 243, 243);
   --color-bg-light: rgb(244, 233, 220);
   --color-bg-light-dots: rgb(245, 223, 198);
   --color-bg-dark: rgb(19, 28, 38);
   --color-bg-dark-dots: rgb(34, 47, 62);
+}
+
+h2 {
+  scroll-margin-top: 6rem;
 }
 
 @layer utilities {

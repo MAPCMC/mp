@@ -31,7 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nl" suppressHydrationWarning>
+    <html
+      lang="nl"
+      suppressHydrationWarning
+      className="motion-safe:scroll-smooth"
+    >
       <body
         className={cn(
           "flex h-full min-h-screen w-full min-w-full max-w-full flex-col",

@@ -13,6 +13,7 @@ import { DownloadIcon, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
+import { AnchorMenu } from "@/components/anchor-menu";
 
 export const metadata: Metadata = {
   title: "Home | Maarten Peene",
@@ -44,11 +45,20 @@ export default function Home() {
           </p>
         </div>
       </header>
+      <AnchorMenu
+        links={[
+          { text: "Over mij", href: "#s2" },
+          { text: "Aanbod", href: "#s1" },
+          { text: "Ervaring", href: "#s3" },
+        ]}
+      />
       <main className="flex flex-col items-stretch gap-y-12 px-6 pb-24 pt-8 *:md:px-[15%]">
         {/* over mij */}
-        <section className="space-y-2 sm:w-3/4">
+        <section className="space-y-2 sm:w-3/4" aria-labelledby="s2">
           <hgroup className="mb-3">
-            <h2 className="font-serif text-lg font-light">Over mij</h2>
+            <h2 id="s2" className="font-serif text-lg font-light">
+              Over mij
+            </h2>
             <p role="subtitle" className="font-serif text-xl sm:text-3xl">
               Hallo, leuk je te ontmoeten!
             </p>
@@ -153,9 +163,14 @@ export default function Home() {
           </Card>
         </section>
         {/* ervaring */}
-        <section className="grid gap-x-6 gap-y-2 self-end sm:grid-cols-[1fr_auto] lg:w-5/6">
+        <section
+          aria-labelledby="s3"
+          className="grid gap-x-6 gap-y-2 self-end sm:grid-cols-[1fr_auto] lg:w-5/6"
+        >
           <hgroup className="mb-3 sm:col-span-2">
-            <h2 className="-mb-1 font-serif text-lg font-light">Ervaring</h2>
+            <h2 id="s3" className="-mb-1 font-serif text-lg font-light">
+              Ervaring
+            </h2>
             <p role="subtitle" className="font-serif text-xl sm:text-3xl">
               Informatieplatformen, had ik die al genoemd?
             </p>
