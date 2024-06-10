@@ -20,7 +20,7 @@ export default function Contact() {
       <header className="space-y-2 px-6 pt-24 *:w-full  *:md:px-[15%]">
         <h1 className="font-serif text-4xl first-letter:capitalize">contact</h1>
       </header>
-      <main className="flex flex-col items-stretch px-6 pt-8 *:md:px-[15%]">
+      <main className="flex flex-col items-stretch px-6 pt-8 *:md:mx-[15%]">
         <dl className="mb-8 grid gap-x-6 sm:grid-cols-[auto_1fr] sm:gap-y-2">
           <dt className="-mb-1 text-sm leading-6 opacity-70 sm:mb-auto">
             naam
@@ -47,7 +47,7 @@ export default function Contact() {
           <dd className="mb-2 sm:mb-auto">NL005059450B24</dd>
         </dl>
 
-        <Card as="article" aria-labelledby="s3c1">
+        <Card as="article" aria-labelledby="s3c1" className="md:mx-[15%]">
           <CardHeader>
             <CardTitle id="s3c1">Neem contact op</CardTitle>
             <p>

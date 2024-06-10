@@ -10,6 +10,7 @@ import {
 import { ContactForm } from "@/components/contact-form";
 import { NavLink } from "@/components/nav-link";
 import { Toaster } from "@/components/ui/toaster";
+import { AnchorMenu } from "@/components/anchor-menu";
 
 export const metadata: Metadata = {
   title: "Development | Maarten Peene",
@@ -20,20 +21,14 @@ export default function Page() {
     <>
       <header className="mb-4 flex w-full flex-col items-center space-y-2 px-6 pt-24 *:w-full *:md:max-w-[70%]">
         <h1 className="font-serif text-4xl">Development</h1>
-        <nav>
-          <ul>
-            <li>
-              <a href="#s1">Het product</a>
-            </li>
-            <li>
-              <a href="#s2">De werkwijze</a>
-            </li>
-            <li>
-              <a href="#s3">Kom in actie</a>
-            </li>
-          </ul>
-        </nav>
       </header>
+      <AnchorMenu
+        links={[
+          { href: "#s1", text: "product" },
+          { href: "#s2", text: "werkwijze" },
+          { href: "#s3", text: "Kom in actie" },
+        ]}
+      />
       <main className="flex w-full grow flex-col items-center space-y-8 px-6 *:w-full *:gap-x-2 *:md:max-w-[70%]">
         <section aria-labelledby="s1 s1b">
           <hgroup className="mb-1 w-full">
