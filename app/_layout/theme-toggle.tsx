@@ -25,7 +25,7 @@ function CarouselItemLocal({
     <CarouselItem className="flex h-full w-full items-center">
       <div
         className={cn({
-          "flex h-8 w-full items-center justify-center gap-2 capitalize": true,
+          "flex h-10 w-full items-center justify-center gap-2 capitalize": true,
           "basic:bg-basic basic:border-y basic:border-slate-900 basic:md:h-full basic:md:border-x basic:md:border-y-0":
             theme === "basic",
           " dark:border-y dark:border-neutral-800 dark:bg-neutral-950":
@@ -60,7 +60,7 @@ export function ThemeToggle() {
   }, [api, setTheme]);
 
   return (
-    <div className="relative flex items-stretch">
+    <div className="relative mr-12 flex items-stretch lg:mr-0">
       {mounted && (
         <Carousel
           setApi={setApi}
@@ -73,25 +73,25 @@ export function ThemeToggle() {
         >
           <CarouselContent className="h-full w-32 lg:w-40">
             <CarouselItemLocal theme={theme}>
-              <Box className="h-4 w-4" />
+              <Box className="h-4 w-4 text-slate-900" />
               basic
             </CarouselItemLocal>
             <CarouselItemLocal theme={theme}>
-              <Sun className="h-4 w-4" />
+              <Sun className="h-4 w-4 text-amber-600" />
               licht
             </CarouselItemLocal>
             <CarouselItemLocal theme={theme}>
-              <Moon className="h-4 w-4" />
+              <Moon className="h-4 w-4 text-orange-200" />
               donker
             </CarouselItemLocal>
           </CarouselContent>
           <CarouselPrevious
             variant="outline"
-            className="-left-8 rounded-r-none basic:rounded-none basic:border-slate-900 basic:md:border-none basic:md:border-inherit"
+            className="-left-8 h-10 rounded-r-none basic:rounded-none basic:border-slate-900 basic:md:border-none basic:md:border-inherit"
           />
           <CarouselNext
             variant="outline"
-            className="-right-8 rounded-l-none basic:rounded-none basic:border-slate-900 basic:md:border-none basic:md:border-inherit"
+            className="-right-8 h-10 rounded-l-none basic:rounded-none basic:border-slate-900 basic:md:border-none basic:md:border-inherit"
           />
         </Carousel>
       )}
