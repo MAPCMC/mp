@@ -31,7 +31,7 @@ type MenuItemProps = {
 };
 
 const MenuItem = ({ href, icon, text, className, isActive }: MenuItemProps) => {
-  const MenuIcon = icon as unknown as React.ElementType;
+  const MenuItemIcon = icon as unknown as React.ElementType;
 
   return (
     <NavigationMenuItem
@@ -49,7 +49,7 @@ const MenuItem = ({ href, icon, text, className, isActive }: MenuItemProps) => {
             "md:h-full md:px-4 md:py-2 md:text-sm",
             // basic
             // colors interaction
-            "basic:bg-white basic:hover:bg-slate-900 basic:hover:text-white",
+            "basic:bg-basic basic:hover:bg-slate-900 basic:hover:text-white",
             "basic:focus:bg-slate-900 basic:focus:text-white",
             // colors active page
             "data-active:basic:bg-slate-200  data-active:basic:text-slate-900",
@@ -65,7 +65,10 @@ const MenuItem = ({ href, icon, text, className, isActive }: MenuItemProps) => {
             "light:hover:bg-sky-800 light:hover:text-white light:focus:bg-sky-800 light:focus:text-white",
           )}
         >
-          <MenuIcon className="h-4 w-4 shrink-0 md:hidden" strokeWidth={1} />
+          <MenuItemIcon
+            className="h-4 w-4 shrink-0 md:hidden"
+            strokeWidth={1}
+          />
           <span className="block max-w-full truncate">{text}</span>
         </NavigationMenuLink>
       </Link>
@@ -81,7 +84,7 @@ export function NavMenu() {
       aria-labelledby="mainnav"
       className={cn(
         "fixed inset-x-0 bottom-0  md:relative ",
-        "basic:border-t basic:border-slate-900 basic:bg-white md:basic:border-t-0",
+        "basic:bg-basic basic:border-t basic:border-slate-900 md:basic:border-t-0",
         "md:flex md:items-stretch",
       )}
     >

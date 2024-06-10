@@ -12,7 +12,7 @@ export function NavBar() {
       <div
         className={cn(
           "fixed z-50 flex w-full items-stretch justify-between md:px-[15%]",
-          "md:basic:border-b md:basic:border-slate-900 md:basic:bg-white",
+          "md:basic:bg-basic md:basic:border-b md:basic:border-slate-900",
         )}
       >
         <div className="flex items-stretch md:-translate-x-[calc(41px+1rem)]">
@@ -21,15 +21,11 @@ export function NavBar() {
             className={cn(
               "block shrink-0 p-2 md:px-4",
               "basic:md:border-r basic:md:border-slate-900",
+              " basic:hover:bg-slate-900 basic:hover:text-white",
+              "basic:focus:bg-slate-900 basic:focus:text-white",
             )}
           >
-            <Image
-              width={40}
-              height={40}
-              src="/logo.svg"
-              alt="home"
-              className="scale-90 md:scale-100"
-            />
+            <Image width={40} height={40} src="/logo.svg" alt="home" />
           </Link>
           <NavMenu />
         </div>

@@ -34,7 +34,7 @@ export default function Page() {
           <hgroup className="mb-1 w-full">
             <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
               <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
-                Het product
+                product
               </span>
             </h2>
             <p
@@ -66,7 +66,7 @@ export default function Page() {
             <hgroup className="mb-1 w-full">
               <h2 id="s2" className="-mb-1 font-serif text-lg font-light">
                 <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
-                  De werkwijze
+                  werkwijze
                 </span>
               </h2>
               <p
