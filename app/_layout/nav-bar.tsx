@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { ThemeToggle } from "@/app/_layout/theme-toggle";
-// import { Breadcrumb } from "@/app/_layout/breadcrumb";
+import { Breadcrumb } from "@/app/_layout/breadcrumb";
 import { NavMenu } from "@/app/_layout/nav-menu";
 import { cn } from "@/lib/utils";
 
@@ -25,13 +25,13 @@ export function NavBar() {
               "basic:focus:bg-slate-900 basic:focus:text-white",
             )}
           >
-            <Image width={40} height={40} src="/logo.svg" alt="home" />
+            <Image width={40} height={40} src="/logo.svg" alt="home" priority />
           </Link>
           <NavMenu />
         </div>
         <ThemeToggle />
       </div>
-      {/* <Breadcrumb /> */}
+      <Breadcrumb />
     </>
   );
 }

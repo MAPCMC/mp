@@ -29,7 +29,7 @@ export function AnchorLink({
 
 export function AnchorMenu({ links }: AnchorMenuProps) {
   return (
-    <aside className="fixed bottom-12 left-0 z-10 w-screen md:left-0 md:right-auto md:top-24 md:w-[15%]">
+    <aside className="fixed bottom-12 left-0 z-10 w-screen md:left-0 md:right-auto md:top-36 md:w-[15%]">
       <nav aria-labelledby="a1">
         <h2 id="a10" className="sr-only">
           paginamenu

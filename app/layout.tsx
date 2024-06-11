@@ -38,7 +38,7 @@ export default function RootLayout({
     >
       <body
         className={cn(
-          "flex h-full min-h-screen w-full min-w-full max-w-full flex-col",
+          "flex h-full min-h-screen w-full min-w-full max-w-full flex-col items-center",
           "bg-white text-neutral-950",
           "basic:grid-basic basic:text-neutral-950",
           "light:grid-light light:text-neutral-950",

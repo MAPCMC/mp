@@ -23,18 +23,18 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <header className="space-y-2 px-6 pt-24 *:w-full *:md:px-[15%]">
+      <header className="mb-4 w-full px-6 pt-24 md:w-[70%]">
         <div className="grid gap-x-4 gap-y-2 sm:grid-cols-[auto_auto] md:grid-rows-[1fr_auto]">
           {/* logo puzzle */}
           <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr]" />
           <hgroup className="self-end font-serif font-light">
             <h1 className="text-xl">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+              <span className="basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
                 Maarten Peene
               </span>
             </h1>
             <p role="doc-subtitle" className="-mt-1 text-amber-600">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+              <span className="basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
                 <AboutSpans /> full-stack webdeveloper
               </span>
             </p>
@@ -96,7 +96,7 @@ export default function Home() {
         >
           <hgroup className="mb-3 basic:sm:col-span-3">
             <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+              <span className=" basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
                 Aanbod
               </span>
             </h2>

@@ -19,8 +19,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <header className="mb-4 flex w-full flex-col items-center space-y-2 px-6 pt-24 *:w-full *:md:max-w-[70%]">
-        <h1 className="font-serif text-4xl">Development</h1>
+      <header className="mb-4 w-full px-6 pt-24 md:w-[70%]">
+        <h1 className="font-serif text-4xl first-letter:capitalize">
+          development
+        </h1>
       </header>
       <AnchorMenu
         links={[
@@ -29,11 +31,11 @@ export default function Page() {
           { href: "#s3", text: "Kom in actie" },
         ]}
       />
-      <main className="flex w-full grow flex-col items-center space-y-8 px-6 *:w-full *:gap-x-2 *:md:max-w-[70%]">
+      <main className="flex w-full grow flex-col items-center space-y-8 px-6 *:w-full *:gap-x-2 md:w-[70%]">
         <section aria-labelledby="s1 s1b">
           <hgroup className="mb-1 w-full">
             <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+              <span className=" basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
                 product
               </span>
             </h2>
@@ -65,7 +67,7 @@ export default function Page() {
           <div className="sm:col-span-2 xl:col-span-4">
             <hgroup className="mb-1 w-full">
               <h2 id="s2" className="-mb-1 font-serif text-lg font-light">
-                <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+                <span className=" basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
                   werkwijze
                 </span>
               </h2>
@@ -78,7 +80,7 @@ export default function Page() {
               </p>
             </hgroup>
             <p className="text-lg">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+              <span className=" basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
                 Jouw bedrijf levert maatwerk, dus je website doet dat ook. We
                 maken een aantrekkelijk en innovatief platform dat boven het
                 maaiveld uitsteekt. Hoe we daar komen? Stap voor stap neem ik je
