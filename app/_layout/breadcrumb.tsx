@@ -17,7 +17,7 @@ export function Breadcrumb() {
   const pathNames = paths.split("/").filter((path) => path);
 
   return (
-    <BreadcrumbPrimitive className="z-10 -mb-16 w-full px-4 pt-16 md:-mb-16 md:w-[70%] md:pt-20">
+    <BreadcrumbPrimitive className="z-10 -mb-16 w-full px-6 pt-16 md:-mb-16 md:w-[70%] md:pt-20">
       <BreadcrumbList className="flex-nowrap">
         {/* home */}
         <BreadcrumbItem>
@@ -28,7 +28,7 @@ export function Breadcrumb() {
                   href="/"
                   className="group flex items-center text-inherit no-underline hover:underline focus:underline"
                 >
-                  <span className="-ml-[calc(15vw+1rem)] h-0 w-[calc(15vw+1.2rem)] border-b-2 border-orange-500"></span>
+                  <span className="-ml-[calc(15vw+1.5rem)] h-0 w-[calc(15vw+1.8rem)] border-b-2 border-orange-500"></span>
                   <span
                     className={cn(
                       "mr-1.5 block h-2.5 w-2.5 rounded-full border-2 shadow-[0_0_0_2px] shadow-orange-500 md:mr-3",

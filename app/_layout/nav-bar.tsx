@@ -15,7 +15,7 @@ export function NavBar() {
           "md:basic:bg-basic md:basic:border-b md:basic:border-slate-900",
         )}
       >
-        <div className="flex items-stretch md:-translate-x-[calc(41px+1rem)]">
+        <div className="flex items-stretch md:-translate-x-[calc(40px+2rem)]">
           <Link
             href="/"
             className={cn(

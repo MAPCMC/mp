@@ -83,7 +83,7 @@ export function NavMenu() {
     <NavigationMenu
       aria-labelledby="mainnav"
       className={cn(
-        "fixed inset-x-0 bottom-0  md:relative ",
+        "fixed inset-x-0 bottom-0 md:relative",
         "basic:bg-basic basic:border-t basic:border-slate-900 md:basic:border-t-0",
         "md:flex md:items-stretch",
       )}

@@ -3,7 +3,7 @@ import { SiGithub, SiLinkedin } from "@icons-pack/react-simple-icons";
 
 export function Footer() {
   return (
-    <footer className="w-full gap-4 p-2 pb-16 pt-24 text-sm *:self-end sm:grid sm:grid-cols-3 md:px-[15%] md:pb-8 lg:grid-cols-4">
+    <footer className="!mt-24 w-full gap-4 border-t border-slate-900 px-6 py-16 text-sm *:self-end sm:grid sm:grid-cols-3 md:px-[15%] md:pb-8 lg:grid-cols-4">
       <nav className="sm:col-span-3">
         <ul className="gap-4 *:self-end sm:grid sm:grid-cols-3">
           <li>

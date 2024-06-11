@@ -52,7 +52,7 @@ export default function Home() {
           { text: "Ervaring", href: "#s3" },
         ]}
       />
-      <main className="flex flex-col items-stretch gap-y-12 px-6 pb-24 pt-8 *:md:px-[15%]">
+      <main className="flex flex-col items-stretch gap-y-12 px-6 pb-24 pt-8 md:w-[70%]">
         {/* over mij */}
         <section className="space-y-2 sm:w-3/4" aria-labelledby="s2">
           <hgroup className="mb-3">
@@ -90,7 +90,7 @@ export default function Home() {
             "grid gap-4",
             "light:sm:grid-cols-2",
             "dark:sm:grid-cols-2",
-            "basic:-m-6 basic:border-y basic:bg-white basic:p-6 basic:sm:grid-cols-[1fr_auto_1fr] basic:md:m-auto basic:md:border-none basic:md:bg-inherit basic:md:px-[15%] basic:md:py-0",
+            "basic:-m-6 basic:border-y basic:bg-white basic:p-6 basic:sm:grid-cols-[1fr_auto_1fr] basic:md:border-none basic:md:bg-inherit basic:md:py-0",
           )}
           aria-labelledby="s1"
         >
