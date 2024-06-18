@@ -11,7 +11,7 @@ export function AboutSpans() {
   React.useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % spans.length);
-    }, 6000);
+    }, 12000);
 
     return () => clearInterval(interval);
   }, [spans.length]);
