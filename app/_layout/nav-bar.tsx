@@ -12,7 +12,7 @@ export function NavBar() {
       <div
         className={cn(
           "fixed z-50 flex w-full items-stretch justify-between md:px-[15%]",
-          "md:basic:bg-basic md:basic:border-b md:basic:border-slate-900",
+          "md:basic:border-b md:basic:border-slate-900 md:basic:bg-basic",
         )}
       >
         <div className="flex items-stretch md:-translate-x-[calc(40px+2rem)]">

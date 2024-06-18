@@ -57,11 +57,11 @@ const MenuItem = ({ href, icon, text, className, isActive }: MenuItemProps) => {
             "data-active:basic:hover:bg-slate-900  data-active:basic:hover:text-white",
             // indicator active page
             'after:absolute after:right-1 after:top-1 after:h-1.5 after:w-1.5 after:rounded-full after:bg-amber-600 after:content-[""]',
-            "data-active:after:block after:hidden",
+            "after:hidden data-active:after:block",
 
             // light
             // colors interaction
-            "light:md:border-light-dots light:bg-light light:h-auto light:hover:bg-slate-900  light:md:rounded-full light:md:border ",
+            "light:h-auto light:bg-light light:hover:bg-slate-900 light:md:rounded-full  light:md:border light:md:border-light-dots ",
             "light:hover:bg-sky-800 light:hover:text-white light:focus:bg-sky-800 light:focus:text-white",
           )}
         >
@@ -84,7 +84,7 @@ export function NavMenu() {
       aria-labelledby="mainnav"
       className={cn(
         "fixed inset-x-0 bottom-0 md:relative",
-        "basic:bg-basic basic:border-t basic:border-slate-900 md:basic:border-t-0",
+        "basic:border-t basic:border-slate-900 basic:bg-basic md:basic:border-t-0",
         "md:flex md:items-stretch",
       )}
     >

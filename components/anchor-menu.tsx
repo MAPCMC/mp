@@ -17,7 +17,8 @@ export function AnchorLink({
     <Link
       {...props}
       className={cn(
-        "text-orange-500 underline underline-offset-4 outline-offset-4 transition-all first-letter:capitalize hover:underline-offset-8 focus:underline-offset-8",
+        "first-letter:capitalize",
+        "underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8",
         "basic:text-sm basic:italic",
         className,
       )}
@@ -29,16 +30,17 @@ export function AnchorLink({
 
 export function AnchorMenu({ links }: AnchorMenuProps) {
   return (
-    <aside className="fixed bottom-12 left-0 z-10 w-screen md:left-0 md:right-auto md:top-36 md:w-[15%]">
+    <aside className="fixed bottom-12 left-0 z-10 w-screen md:-right-6 md:left-6 md:top-36 md:w-[15%] md:pr-6">
       <nav aria-labelledby="a1">
         <h2 id="a10" className="sr-only">
-          paginamenu
+          Kopjes op deze pagina
         </h2>
         <ul
           className={cn(
             "flex w-full max-w-full md:flex-col",
-            "duration-500 animate-in slide-in-from-bottom-full md:slide-in-from-bottom-0 md:slide-in-from-left-full",
-            "basic:md:border-basic-grid basic:md:bg-basic-grid gap-px bg-slate-900 basic:border-y basic:border-slate-900 basic:md:border-r",
+            "duration-500 animate-in slide-in-from-bottom-full md:fade-in md:slide-in-from-bottom-8 md:slide-in-from-right-16",
+            "gap-px bg-slate-900 basic:border-y basic:border-slate-900 basic:md:border-r basic:md:border-basic-grid basic:md:bg-basic-grid",
+            "light:bg-light dark:bg-dark",
           )}
         >
           {links.map((link) => (
@@ -50,6 +52,11 @@ export function AnchorMenu({ links }: AnchorMenuProps) {
                   " basic:text-inherit basic:no-underline",
                   "basic:bg-basic basic:hover:bg-slate-700 basic:hover:text-white",
                   "basic:focus:bg-slate-700 basic:focus:text-white",
+                  "light:bg-light light:hover:bg-slate-700 light:hover:text-white",
+                  "light:focus:bg-slate-700 light:focus:text-white",
+                  "dark:bg-dark dark:hover:bg-slate-700 dark:hover:text-white",
+                  "dark:focus:bg-slate-700 dark:focus:text-white",
+                  "text-sm",
                 )}
               >
                 {link.text}
