@@ -1,20 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlusCircleIcon } from "lucide-react";
-
-import { wrapGrid } from "animate-css-grid";
 
 import { cn } from "@/lib/utils";
 
 export const ProcessCards = () => {
   const [reveal, setReveal] = useState(0);
 
-  useEffect(() => {
-    const grid: HTMLElement | null = document.querySelector(".process-cards");
-    if (grid) wrapGrid(grid);
-  }, []);
   return (
     <ul
       className={cn(
