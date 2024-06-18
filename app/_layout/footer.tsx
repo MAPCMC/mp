@@ -1,51 +1,36 @@
-import { NavLink } from "@/components/nav-link";
 import { SiGithub, SiLinkedin } from "@icons-pack/react-simple-icons";
+import { cn } from "@/lib/utils";
+import { FooterMenu } from "./footer-menu";
+import { Copyright } from "./copyright";
 
 export function Footer() {
   return (
-    <footer className="!mt-24 w-full gap-4 border-t border-slate-900 px-6 py-16 text-sm *:self-end sm:grid sm:grid-cols-3 md:px-[15%] md:pb-8 lg:grid-cols-4">
-      <nav className="sm:col-span-3">
-        <ul className="gap-4 *:self-end sm:grid sm:grid-cols-3">
+    <footer
+      className={cn(
+        "!mt-24 w-full px-6 pb-32 pt-12 md:px-[15%] md:pb-12",
+        "grid gap-6 sm:grid-cols-2",
+        "text-sm",
+        "border-t basic:border-slate-900",
+      )}
+    >
+      <FooterMenu />
+      <div className="space-y-2 self-end text-right">
+        <ul className="flex justify-end gap-2">
           <li>
-            <NavLink href="/">Home</NavLink>
+            <a href="https://github.com/MAPCMC">
+              <SiGithub className="h-6 w-6" />
+              <span className="sr-only">GitHub</span>
+            </a>
           </li>
-          <ul className="pl-4 sm:col-span-2 sm:pl-0">
-            <li className="gap-4 sm:grid sm:grid-cols-2">
-              <NavLink href="/development">Development</NavLink>
-              <ul className="pl-4 sm:pl-0">
-                <li>
-                  <NavLink href="/development/start-nu">Start nu</NavLink>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <NavLink href="/freelance">Freelance</NavLink>
-            </li>
-            <li>
-              <NavLink href="/contact">Contact</NavLink>
-            </li>
-          </ul>
+          <li>
+            <a href="https://www.linkedin.com/in/maarten-peene-432635146/">
+              <SiLinkedin className="h-6 w-6" />
+              <span className="sr-only">LinkedIn</span>
+            </a>
+          </li>
         </ul>
-      </nav>
-      <ul className="sm:col-span-full lg:col-span-1">
-        <li>
-          <ul className="flex gap-2">
-            <li>
-              <a href="https://github.com/MAPCMC">
-                <SiGithub className="h-6 w-6" />
-                <span className="sr-only">GitHub</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/maarten-peene-432635146/">
-                <SiLinkedin className="h-6 w-6" />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>© 2024 Itoko door Maarten Peene</li>
-      </ul>
+        <Copyright />
+      </div>
     </footer>
   );
 }
