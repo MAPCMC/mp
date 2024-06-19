@@ -26,11 +26,10 @@ function CarouselItemLocal({
       <div
         className={cn({
           "flex h-10 w-full items-center justify-center gap-2 capitalize": true,
-          "basic:bg-basic basic:border-y basic:border-slate-900 basic:md:h-full basic:md:border-x basic:md:border-y-0":
+          "basic:border-y basic:border-slate-900 basic:bg-basic basic:md:h-full basic:md:border-x basic:md:border-y-0":
             theme === "basic",
-          " dark:border-y dark:border-neutral-800 dark:bg-neutral-950":
-            theme === "dark",
-          "light:border-y light:border-neutral-200 light:bg-white":
+          "dark:border-y dark:border-dark-dots dark:bg-dark": theme === "dark",
+          "light:border-y light:border-light-dots light:bg-light":
             theme === "light",
         })}
         {...props}
@@ -60,7 +59,7 @@ export function ThemeToggle() {
   }, [api, setTheme]);
 
   return (
-    <div className="relative mr-12 flex items-stretch lg:mr-0">
+    <div className="relative flex items-stretch px-10 md:px-12">
       {mounted && (
         <Carousel
           setApi={setApi}
@@ -71,7 +70,7 @@ export function ThemeToggle() {
             loop: true,
           }}
         >
-          <CarouselContent className="h-full w-32 lg:w-40">
+          <CarouselContent className="h-full w-40 text-sm">
             <CarouselItemLocal theme={theme}>
               <Box className="h-4 w-4 text-slate-900" />
               basic
@@ -87,11 +86,11 @@ export function ThemeToggle() {
           </CarouselContent>
           <CarouselPrevious
             variant="outline"
-            className="-left-8 h-10 rounded-r-none basic:rounded-none basic:border-slate-900 basic:md:border-none basic:md:border-inherit"
+            className="-left-8 h-10 rounded-r-none light:border-light-dots light:bg-light basic:rounded-none basic:border-slate-900 basic:bg-basic dark:border-dark-dots dark:bg-dark basic:md:h-full basic:md:border-none basic:md:border-inherit"
           />
           <CarouselNext
             variant="outline"
-            className="-right-8 h-10 rounded-l-none basic:rounded-none basic:border-slate-900 basic:md:border-none basic:md:border-inherit"
+            className="-right-8 h-10 rounded-l-none light:border-light-dots light:bg-light basic:rounded-none basic:border-slate-900 basic:bg-basic dark:border-dark-dots dark:bg-dark basic:md:h-full basic:md:border-none basic:md:border-inherit"
           />
         </Carousel>
       )}
