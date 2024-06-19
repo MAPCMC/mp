@@ -29,12 +29,12 @@ export default function Home() {
           <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr]" />
           <hgroup className="self-end font-serif font-light">
             <h1 className="text-xl">
-              <span className="basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
+              <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Maarten Peene
               </span>
             </h1>
             <p role="doc-subtitle" className="-mt-1 text-amber-600">
-              <span className="basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
+              <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 <AboutSpans /> full-stack webdeveloper
               </span>
             </p>
@@ -96,7 +96,7 @@ export default function Home() {
         >
           <hgroup className="mb-3 basic:sm:col-span-3">
             <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
-              <span className=" basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
+              <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Aanbod
               </span>
             </h2>
@@ -120,7 +120,7 @@ export default function Home() {
               <NavLink
                 href="/development"
                 className={
-                  "light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline"
+                  "light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-slate-50 light:no-underline"
                 }
               >
                 Meer over development
@@ -154,7 +154,7 @@ export default function Home() {
               <NavLink
                 href="/freelance"
                 className={
-                  "light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline"
+                  "light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-slate-50 light:no-underline"
                 }
               >
                 Bekijk de mogelijkheden
@@ -311,7 +311,7 @@ export default function Home() {
             </CardFooter>
           </Card>
           <a
-            className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline sm:col-start-2"
+            className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-slate-50 light:no-underline sm:col-start-2"
             href="/cv.pdf"
             download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
           >

@@ -39,10 +39,10 @@ export default function RootLayout({
       <body
         className={cn(
           "flex h-full min-h-screen w-full min-w-full max-w-full flex-col items-center",
-          "bg-white text-neutral-950",
-          "basic:grid-basic basic:text-neutral-950",
-          "light:grid-light light:text-neutral-950",
-          "dark:grid-dark dark:text-white",
+          "bg-white text-slate-950",
+          "basic:grid-basic basic:text-slate-950",
+          "light:grid-light light:text-slate-950",
+          "dark:grid-dark dark:text-slate-50",
           sans.variable,
           serif.variable,
         )}

@@ -63,7 +63,7 @@ export function MemoryCard({
     <button
       ref={localRef}
       className={cn(
-        "card relative size-12 rounded-md text-white outline-offset-2 dark:text-black lg:size-16",
+        "card relative size-12 rounded-md text-slate-50 outline-offset-2 dark:text-slate-950 lg:size-16",
         "perspective-1000 transform-style-3d",
       )}
       onClick={handleClick}

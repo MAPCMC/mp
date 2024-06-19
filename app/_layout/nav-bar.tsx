@@ -21,8 +21,8 @@ export function NavBar() {
             className={cn(
               "group block shrink-0 p-2 focus:outline-none md:px-4",
               "basic:md:border-r basic:md:border-slate-900",
-              " basic:hover:bg-slate-900 basic:hover:text-white",
-              "basic:focus:bg-slate-900 basic:focus:text-white",
+              " basic:hover:bg-slate-900 basic:hover:text-slate-50",
+              "basic:focus:bg-slate-900 basic:focus:text-slate-50",
             )}
           >
             <Image

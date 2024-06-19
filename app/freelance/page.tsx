@@ -44,7 +44,7 @@ export default function Page() {
             </p>
             <p>
               <a
-                className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline sm:col-start-2"
+                className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-slate-50 light:no-underline sm:col-start-2"
                 href="/cv.pdf"
                 download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
               >
@@ -57,7 +57,7 @@ export default function Page() {
         <section aria-labelledby="s1 s1b">
           <hgroup className="mb-1 w-full">
             <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
-              <span className="basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
+              <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Kwaliteiten
               </span>
             </h2>
@@ -83,7 +83,7 @@ export default function Page() {
         <section>
           <hgroup className="mb-1 w-full">
             <h2 id="s2" className="-mb-1 font-serif text-lg font-light">
-              <span className="basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
+              <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Functieprofiel
               </span>
             </h2>
