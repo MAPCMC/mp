@@ -45,7 +45,7 @@ const MenuItem = ({ href, icon, text, className, isActive }: MenuItemProps) => {
           active={isActive}
           className={cn(
             navigationMenuTriggerStyle(),
-            "group w-full flex-col gap-px p-2 pt-3 text-xs basic:px-5",
+            "group w-full flex-col gap-px p-2 pt-3 text-xs basic:md:px-5",
             "md:h-full md:px-4 md:py-2 md:text-sm",
             // basic
             // colors interaction
@@ -76,7 +76,7 @@ const MenuItem = ({ href, icon, text, className, isActive }: MenuItemProps) => {
             className="h-4 w-4 shrink-0 md:hidden"
             strokeWidth={1}
           />
-          <span className="block max-w-full first-letter:capitalize">
+          <span className="block max-w-full truncate first-letter:capitalize md:overflow-auto">
             {text}
           </span>
         </NavigationMenuLink>

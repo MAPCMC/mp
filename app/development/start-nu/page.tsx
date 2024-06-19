@@ -7,12 +7,12 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <header className="mb-4 w-full px-6 pt-24 md:w-[70%]">
+      <header className="mb-4 w-full px-6 pt-24 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
         <h1 className="font-serif text-4xl first-letter:capitalize">
           start nu
         </h1>
       </header>
-      <main className="flex w-full grow flex-col items-center space-y-2 px-6 *:w-full *:gap-x-2 md:w-[70%]">
+      <main className="flex w-full grow flex-col items-center space-y-2 px-6 *:w-full *:gap-x-2 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
         <article>
           <h2 className="font-serif text-3xl">Wat kan ik doen?</h2>
           <p>

@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <>
-      <header className="mb-4 w-full px-6 pt-24 md:w-[70%]">
+      <header className="mb-4 w-full px-6 pt-24 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
         <h1 className="font-serif text-4xl first-letter:capitalize">contact</h1>
       </header>
-      <main className="flex flex-col items-stretch px-6 pt-8 md:w-[70%]">
+      <main className="flex w-full flex-col items-stretch px-6 pt-8 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
         <dl className="mb-8 grid gap-x-6 sm:grid-cols-[auto_1fr] sm:gap-y-2">
           <dt className="-mb-1 text-sm leading-6 opacity-70 sm:mb-auto">
             naam

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <header className="mb-4 w-full px-6 pt-24 md:w-[70%]">
+      <header className="mb-4 w-full px-6 pt-24 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
         <div className="grid gap-x-4 gap-y-2 sm:grid-cols-[auto_auto] md:grid-rows-[1fr_auto]">
           {/* logo puzzle */}
           <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr]" />
@@ -52,7 +52,7 @@ export default function Home() {
           { text: "Ervaring", href: "#s3" },
         ]}
       />
-      <main className="flex flex-col items-stretch gap-y-12 px-6 pb-24 pt-8 md:w-[70%]">
+      <main className="flex flex-col items-stretch gap-y-12 px-6 pb-24 pt-8 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
         {/* over mij */}
         <section className="space-y-2 sm:w-3/4" aria-labelledby="s2">
           <hgroup className="mb-3">

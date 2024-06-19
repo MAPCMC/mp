@@ -90,12 +90,12 @@ export function FooterMenu() {
     <NavigationMenu
       aria-labelledby="footernav"
       orientation="vertical"
-      className="footer-menu"
+      className="footer-menu pl-6"
     >
-      <h2 id="footernav" className="sr-only">
+      <h2 id="footernav" className="pb-2 font-serif first-letter:capitalize">
         menu
       </h2>
-      <NavigationMenuList className="relative before:absolute before:-left-3 before:bottom-1/2 before:top-[calc(1rem-1px)] before:w-4 before:rounded-tl-md before:border-l-2 before:border-t-2 before:border-orange-500 before:content-[''] after:absolute after:right-[calc(100%+.75rem-2px)] after:top-1/2 after:h-4 after:w-4 after:rounded-br-md after:border-b-2 after:border-r-2 after:border-orange-500 after:content-[''] md:after:w-[16vw]">
+      <NavigationMenuList className="relative before:absolute before:-left-3 before:bottom-1/2 before:top-[calc(1rem-1px)] before:w-4 before:rounded-tl-md before:border-l-2 before:border-t-2 before:border-orange-500 before:content-[''] after:absolute after:right-[calc(100%+.75rem-2px)] after:top-1/2 after:h-4 after:w-10 after:rounded-br-md after:border-b-2 after:border-r-2 after:border-orange-500 after:content-[''] md:after:w-[22vw] lg:after:w-[18vw]">
         <MenuItem isActive={pathname === "/"} href="/" text="home" />
         <NavigationMenuPrimitive.Sub>
           <NavigationMenuList className="relative ml-6 before:absolute before:-left-3 before:-top-[calc(.5rem+1px)] before:bottom-[calc(1rem-1px)] before:w-4 before:rounded-bl-md before:border-b-2 before:border-l-2 before:border-orange-500 before:content-['']">

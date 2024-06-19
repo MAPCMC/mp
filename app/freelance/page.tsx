@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <header className="mb-4 w-full px-6 pt-24 md:w-[70%]">
+      <header className="mb-4 w-full px-6 pt-24 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
         <h1 className="font-serif text-4xl first-letter:capitalize">
           freelance
         </h1>
@@ -30,7 +30,7 @@ export default function Page() {
           { href: "#s3", text: "contact" },
         ]}
       />
-      <main className="flex w-full flex-col items-center space-y-6 px-6 *:w-full *:gap-x-2 md:w-[70%]">
+      <main className="flex w-full flex-col items-center space-y-6 px-6 *:w-full *:gap-x-2 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
         <section>
           <article className="space-y-2">
             <p>

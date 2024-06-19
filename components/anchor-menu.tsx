@@ -30,7 +30,7 @@ export function AnchorLink({
 
 export function AnchorMenu({ links }: AnchorMenuProps) {
   return (
-    <aside className="fixed bottom-12 left-0 z-10 w-screen md:-right-6 md:left-6 md:top-36 md:w-[15%] md:pr-6">
+    <aside className="fixed bottom-12 left-0 z-10 w-screen md:-right-6 md:bottom-1/2 md:left-6 md:top-36 md:w-[20%] md:pr-6 lg:w-[15%]">
       <nav aria-labelledby="a1">
         <h2 id="a10" className="sr-only">
           Kopjes op deze pagina

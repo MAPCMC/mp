@@ -37,7 +37,7 @@ export function Breadcrumb() {
   });
 
   return (
-    <BreadcrumbPrimitive className="breadcrumb-nav z-10 -mb-16 w-full px-6 pt-16 md:-mb-16 md:w-[70%] md:pt-20">
+    <BreadcrumbPrimitive className="breadcrumb-nav z-10 -mb-16 w-full px-6 pt-16 md:ml-[20%] md:w-[80%] md:pt-20 lg:ml-0 lg:w-[70%]">
       <BreadcrumbList className="flex-nowrap">
         {/* home */}
         <BreadcrumbItem>
@@ -48,7 +48,7 @@ export function Breadcrumb() {
                   href="/"
                   className="group flex items-center no-underline underline-offset-4 hover:underline focus:underline basic:italic"
                 >
-                  <span className="-ml-[calc(15vw+1.5rem)] h-0 w-[calc(15vw+1.8rem+100px)] border-b-2 border-orange-500"></span>
+                  <span className="-ml-[calc(20vw+1.5rem)] h-0 w-[calc(20vw+1.8rem+100px)] border-b-2 border-orange-500"></span>
                   <span
                     className={cn(
                       "mr-2 block h-2.5 w-2.5 rounded-full border-2 shadow-[0_0_0_2px] shadow-orange-500 md:mr-3",

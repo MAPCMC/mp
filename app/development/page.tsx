@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <header className="mb-4 w-full px-6 pt-24 md:w-[70%]">
+      <header className="mb-4 w-full px-6 pt-24 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
         <h1 className="font-serif text-4xl first-letter:capitalize">
           development
         </h1>
@@ -31,11 +31,11 @@ export default function Page() {
           { href: "#s3", text: "Kom in actie" },
         ]}
       />
-      <main className="flex w-full grow flex-col items-center space-y-8 px-6 *:w-full *:gap-x-2 md:w-[70%]">
+      <main className="flex w-full grow flex-col items-center space-y-8 px-6 *:w-full *:gap-x-2 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
         <section aria-labelledby="s1 s1b">
           <hgroup className="mb-1 w-full">
             <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
-              <span className=" basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
+              <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 product
               </span>
             </h2>
@@ -67,7 +67,7 @@ export default function Page() {
           <div className="sm:col-span-2 xl:col-span-4">
             <hgroup className="mb-1 w-full">
               <h2 id="s2" className="-mb-1 font-serif text-lg font-light">
-                <span className=" basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
+                <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                   werkwijze
                 </span>
               </h2>
@@ -80,7 +80,7 @@ export default function Page() {
               </p>
             </hgroup>
             <p className="text-lg">
-              <span className=" basic:bg-basic light:bg-light dark:bg-dark box-decoration-clone">
+              <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Jouw bedrijf levert maatwerk, dus je website doet dat ook. We
                 maken een aantrekkelijk en innovatief platform dat boven het
                 maaiveld uitsteekt. Hoe we daar komen? Stap voor stap neem ik je
