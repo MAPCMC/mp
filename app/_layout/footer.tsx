@@ -22,7 +22,7 @@ export function Footer() {
               target="_blank"
               className="group"
             >
-              <SiGithub className="h-6 w-6 group-hover:text-sky-700 group-focus:text-sky-700" />
+              <SiGithub className="h-6 w-6 group-hover:text-sky-700 group-focus-visible:text-sky-700" />
               <span className="sr-only">GitHub</span>
             </a>
           </li>
@@ -32,7 +32,7 @@ export function Footer() {
               target="_blank"
               className="group"
             >
-              <SiLinkedin className="h-6 w-6 group-hover:text-sky-700 group-focus:text-sky-700" />
+              <SiLinkedin className="h-6 w-6 group-hover:text-sky-700 group-focus-visible:text-sky-700" />
               <span className="sr-only">LinkedIn</span>
             </a>
           </li>

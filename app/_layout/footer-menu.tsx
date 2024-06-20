@@ -41,7 +41,7 @@ const MenuItem = ({
           className={cn(
             // navigationMenuTriggerStyle(),
             "group flex h-8 items-center pr-4 text-inherit",
-            "underline-offset-4 hover:underline focus:underline",
+            "underline-offset-4 hover:underline focus-visible:underline",
             // "light:bg-light basic:bg-basic dark:bg-dark",
           )}
         >
@@ -53,9 +53,9 @@ const MenuItem = ({
           <span
             className={cn(
               "mr-3 block h-2.5 w-2.5 shrink-0 rounded-full border-2 shadow-[0_0_0_2px] shadow-orange-500",
-              "dark:border-dark dark:bg-dark dark:group-hover:bg-sky-300 dark:group-focus:bg-sky-300",
-              "light:border-light light:bg-light light:group-hover:bg-sky-800 light:group-focus:bg-sky-800",
-              "basic:border-basic basic:bg-basic basic:group-hover:bg-sky-800 basic:group-focus:bg-sky-800",
+              "dark:border-dark dark:bg-dark dark:group-hover:bg-sky-300 dark:group-focus-visible:bg-sky-300",
+              "light:border-light light:bg-light light:group-hover:bg-sky-800 light:group-focus-visible:bg-sky-800",
+              "basic:border-basic basic:bg-basic basic:group-hover:bg-sky-800 basic:group-focus-visible:bg-sky-800",
               { " !bg-orange-500": isActive },
             )}
           ></span>

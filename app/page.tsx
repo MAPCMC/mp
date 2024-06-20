@@ -184,7 +184,7 @@ export default function Home() {
                 Front-end developer |{" "}
                 <a
                   href="https://notfound.nl/"
-                  className="text-lg hover:underline focus:underline"
+                  className="text-lg hover:underline focus-visible:underline"
                 >
                   NotFound Digital Creativity
                   <ExternalLink className="ml-2 inline-block h-4 w-4 -translate-y-1" />
@@ -248,7 +248,7 @@ export default function Home() {
                 Full-stack webdeveloper |{" "}
                 <a
                   href="https://www.eljakim.nl/"
-                  className="text-lg hover:underline focus:underline"
+                  className="text-lg hover:underline focus-visible:underline"
                 >
                   Eljakim Information Technology bv
                   <ExternalLink className="ml-2 inline-block h-4 w-4 -translate-y-1" />
@@ -313,7 +313,7 @@ export default function Home() {
             </CardFooter>
           </Card>
           <a
-            className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-slate-50 light:no-underline sm:col-start-2"
+            className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus-visible:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-slate-50 light:no-underline sm:col-start-2"
             href="/cv.pdf"
             download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
           >

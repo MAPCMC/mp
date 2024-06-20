@@ -46,15 +46,15 @@ export function Breadcrumb() {
               <BreadcrumbLink asChild>
                 <Link
                   href="/"
-                  className="group flex items-center no-underline underline-offset-4 hover:underline focus:underline basic:italic"
+                  className="group flex items-center no-underline underline-offset-4 hover:underline focus-visible:underline basic:italic"
                 >
                   <span className="-ml-[calc(20vw+1.5rem)] h-0 w-[calc(20vw+1.8rem+100px)] border-b-2 border-orange-500"></span>
                   <span
                     className={cn(
                       "mr-2 block h-2.5 w-2.5 rounded-full border-2 shadow-[0_0_0_2px] shadow-orange-500 md:mr-3",
-                      "dark:border-dark dark:bg-dark dark:group-hover:bg-sky-300 dark:group-focus:bg-sky-300",
-                      "light:border-light light:bg-light light:group-hover:bg-sky-800 light:group-focus:bg-sky-800",
-                      "basic:border-basic basic:bg-basic basic:group-hover:bg-sky-800 basic:group-focus:bg-sky-800",
+                      "dark:border-dark dark:bg-dark dark:group-hover:bg-sky-300 dark:group-focus-visible:bg-sky-300",
+                      "light:border-light light:bg-light light:group-hover:bg-sky-800 light:group-focus-visible:bg-sky-800",
+                      "basic:border-basic basic:bg-basic basic:group-hover:bg-sky-800 basic:group-focus-visible:bg-sky-800",
                     )}
                   ></span>
                   <span className="truncate first-letter:capitalize light:bg-light basic:bg-basic dark:bg-dark">
@@ -92,15 +92,15 @@ export function Breadcrumb() {
                 <BreadcrumbLink asChild>
                   <Link
                     href={href}
-                    className="group flex w-auto items-center text-inherit no-underline underline-offset-4 hover:underline focus:underline"
+                    className="group flex w-auto items-center text-inherit no-underline underline-offset-4 hover:underline focus-visible:underline"
                   >
                     <span className="h-0 w-4 border-b-2 border-orange-500"></span>
                     <span
                       className={cn(
                         "mr-2 block h-2.5 w-2.5 rounded-full border-2 shadow-[0_0_0_2px] shadow-orange-500 md:mr-3",
-                        "dark:border-dark dark:bg-dark dark:group-hover:bg-sky-300 dark:group-focus:bg-sky-300",
-                        "light:border-light light:bg-light light:group-hover:bg-sky-800 light:group-focus:bg-sky-800",
-                        "basic:border-basic basic:bg-basic basic:group-hover:bg-sky-800 basic:group-focus:bg-sky-800",
+                        "dark:border-dark dark:bg-dark dark:group-hover:bg-sky-300 dark:group-focus-visible:bg-sky-300",
+                        "light:border-light light:bg-light light:group-hover:bg-sky-800 light:group-focus-visible:bg-sky-800",
+                        "basic:border-basic basic:bg-basic basic:group-hover:bg-sky-800 basic:group-focus-visible:bg-sky-800",
                       )}
                     ></span>
                     <span className="truncate first-letter:capitalize light:bg-light basic:bg-basic dark:bg-dark">

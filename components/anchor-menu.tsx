@@ -18,7 +18,7 @@ export function AnchorLink({
       {...props}
       className={cn(
         "first-letter:capitalize",
-        "underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8",
+        "underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus-visible:underline-offset-8",
         "basic:text-sm basic:italic",
         className,
       )}
@@ -51,11 +51,11 @@ export function AnchorMenu({ links }: AnchorMenuProps) {
                   "block truncate bg-slate-50 px-4 pb-3 pt-2 text-center md:pb-2 md:text-right",
                   " basic:text-inherit basic:no-underline",
                   "basic:bg-basic basic:hover:bg-slate-700 basic:hover:text-slate-50",
-                  "basic:focus:bg-slate-700 basic:focus:text-slate-50",
+                  "basic:focus-visible:bg-slate-700 basic:focus-visible:text-slate-50",
                   "light:bg-light light:hover:bg-slate-700 light:hover:text-slate-50",
-                  "light:focus:bg-slate-700 light:focus:text-slate-50",
+                  "light:focus-visible:bg-slate-700 light:focus-visible:text-slate-50",
                   "dark:bg-dark dark:hover:bg-slate-700 dark:hover:text-slate-50",
-                  "dark:focus:bg-slate-700 dark:focus:text-slate-50",
+                  "dark:focus-visible:bg-slate-700 dark:focus-visible:text-slate-50",
                   "text-sm",
                 )}
               >
