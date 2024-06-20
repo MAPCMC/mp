@@ -56,7 +56,7 @@ const MenuItem = ({
               "dark:border-dark dark:bg-dark dark:group-hover:bg-sky-300 dark:group-focus:bg-sky-300",
               "light:border-light light:bg-light light:group-hover:bg-sky-800 light:group-focus:bg-sky-800",
               "basic:border-basic basic:bg-basic basic:group-hover:bg-sky-800 basic:group-focus:bg-sky-800",
-              { "!bg-orange-500": isActive },
+              { " !bg-orange-500": isActive },
             )}
           ></span>
           <span className="grow first-letter:capitalize">{text}</span>

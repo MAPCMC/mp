@@ -15,16 +15,24 @@ export function Footer() {
     >
       <FooterMenu />
       <div className="space-y-2 self-end text-right">
-        <ul className="flex justify-end gap-2">
+        <ul className="flex justify-end gap-4">
           <li>
-            <a href="https://github.com/MAPCMC">
-              <SiGithub className="h-6 w-6" />
+            <a
+              href="https://github.com/MAPCMC"
+              target="_blank"
+              className="group"
+            >
+              <SiGithub className="h-6 w-6 group-hover:text-sky-700 group-focus:text-sky-700" />
               <span className="sr-only">GitHub</span>
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/maarten-peene-432635146/">
-              <SiLinkedin className="h-6 w-6" />
+            <a
+              href="https://www.linkedin.com/in/maarten-peene-432635146/"
+              target="_blank"
+              className="group"
+            >
+              <SiLinkedin className="h-6 w-6 group-hover:text-sky-700 group-focus:text-sky-700" />
               <span className="sr-only">LinkedIn</span>
             </a>
           </li>

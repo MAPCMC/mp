@@ -106,7 +106,7 @@ function FormContent({
           Verzenden
         </Button>
         {isActive && (
-          <Button variant="ghost" type="button" onClick={onReset}>
+          <Button type="button" onClick={onReset}>
             Wissen
           </Button>
         )}

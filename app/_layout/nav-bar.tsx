@@ -1,10 +1,10 @@
-import Link from "next/link";
 import Image from "next/image";
 
 import { ThemeToggle } from "@/app/_layout/theme-toggle";
 import { Breadcrumb } from "@/app/_layout/breadcrumb";
 import { NavMenu } from "@/app/_layout/nav-menu";
 import { cn } from "@/lib/utils";
+import { NavLink } from "@/components/nav-link";
 
 export function NavBar() {
   return (
@@ -16,14 +16,10 @@ export function NavBar() {
         )}
       >
         <div className="flex items-stretch">
-          <Link
+          <NavLink
             href="/"
-            className={cn(
-              "group block shrink-0 p-2 focus:outline-none md:px-4",
-              "basic:md:border-r basic:md:border-slate-900",
-              " basic:hover:bg-slate-900 basic:hover:text-slate-50",
-              "basic:focus:bg-slate-900 basic:focus:text-slate-50",
-            )}
+            variant="menu"
+            className="group shrink-0 bg-transparent p-2 md:px-4 basic:md:border-r basic:md:border-slate-900"
           >
             <Image
               width={40}
@@ -32,13 +28,11 @@ export function NavBar() {
               alt="home"
               priority
               className={cn(
-                "outline-2 outline-offset-2 outline-sky-700 group-hover:outline group-focus:outline",
                 "light:rounded-md light:border-2 light:border-orange-500 light:bg-orange-500",
                 "dark:rounded-md dark:border-2 dark:border-orange-500 dark:bg-orange-500",
-                "basic:outline-slate-900",
               )}
             />
-          </Link>
+          </NavLink>
           <NavMenu />
         </div>
         <ThemeToggle />

@@ -84,14 +84,8 @@ export function ThemeToggle() {
               donker
             </CarouselItemLocal>
           </CarouselContent>
-          <CarouselPrevious
-            variant="outline"
-            className="-left-8 h-10 rounded-r-none light:border-light-dots light:bg-light basic:rounded-none basic:border-slate-900 basic:bg-basic dark:border-dark-dots dark:bg-dark basic:md:h-full basic:md:border-none basic:md:border-inherit"
-          />
-          <CarouselNext
-            variant="outline"
-            className="-right-8 h-10 rounded-l-none light:border-light-dots light:bg-light basic:rounded-none basic:border-slate-900 basic:bg-basic dark:border-dark-dots dark:bg-dark basic:md:h-full basic:md:border-none basic:md:border-inherit"
-          />
+          <CarouselPrevious className="-left-8 h-10 rounded-r-none basic:md:h-full basic:md:border-none basic:md:border-inherit" />
+          <CarouselNext className="-right-8 h-10 rounded-l-none basic:md:h-full basic:md:border-none basic:md:border-inherit" />
         </Carousel>
       )}
     </div>

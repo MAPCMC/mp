@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import react from "react";
 import {
   NavigationMenu,
@@ -19,6 +18,7 @@ import {
   Send,
   LucideProps,
 } from "lucide-react";
+import { NavLink } from "@/components/nav-link";
 
 type MenuItemProps = {
   text: string;
@@ -40,35 +40,33 @@ const MenuItem = ({ href, icon, text, className, isActive }: MenuItemProps) => {
         className,
       )}
     >
-      <Link href={href} legacyBehavior passHref>
-        <NavigationMenuLink
-          active={isActive}
+      <NavigationMenuLink active={isActive} asChild>
+        <NavLink
+          href={href}
+          variant="menu"
           className={cn(
             navigationMenuTriggerStyle(),
             "group w-full flex-col gap-px p-2 pt-3 text-xs basic:md:px-5",
             "md:h-full md:px-4 md:py-2 md:text-sm",
-            // basic
-            // colors interaction
-            "basic:bg-basic basic:hover:bg-slate-900 basic:hover:text-slate-50",
-            "basic:focus:bg-slate-900 basic:focus:text-slate-50",
+
             // colors active page
-            "data-active:basic:bg-slate-200  data-active:basic:text-slate-900",
-            "data-active:basic:focus:bg-slate-900  data-active:basic:focus:text-slate-50",
+            "data-active:basic:bg-slate-300  data-active:basic:text-slate-900",
+            "data-active:basic:focus-visible:bg-slate-900  data-active:basic:focus-visible:text-slate-50",
             "data-active:basic:hover:bg-slate-900  data-active:basic:hover:text-slate-50",
             // indicator active page
-            'after:absolute after:right-1 after:top-1 after:h-1.5 after:w-1.5 after:rounded-full after:bg-amber-600 after:content-[""]',
+            'after:absolute after:right-1 after:top-1 after:h-1.5 after:w-1.5 after:rounded-full after:bg-amber-500 after:content-[""]',
             "after:hidden data-active:after:block",
             "light:md:after:top-0.5 dark:md:after:top-0.5",
 
             // light
             // colors interaction
             "light:h-auto light:bg-light light:hover:bg-slate-900 light:md:rounded-full light:md:border light:md:border-light-dots",
-            "light:hover:border-transparent light:hover:bg-sky-800 light:hover:text-slate-50 light:focus:border-transparent light:focus:bg-sky-800 light:focus:text-slate-50",
+            "light:hover:border-transparent light:hover:bg-sky-800 light:hover:text-slate-50 light:focus-visible:border-transparent light:focus-visible:bg-sky-800 light:focus-visible:text-slate-50",
             "data-active:light:bg-light-dots data-active:light:text-slate-900",
 
             // dark
             "dark:h-auto dark:bg-dark dark:hover:bg-slate-900 dark:md:rounded-full dark:md:border dark:md:border-dark-dots",
-            "dark:hover:bg-sky-800 dark:hover:text-slate-50 dark:focus:bg-sky-800 dark:focus:text-slate-50",
+            "dark:hover:bg-sky-800 dark:hover:text-slate-50 dark:focus-visible:bg-sky-800 dark:focus-visible:text-slate-50",
             "data-active:dark:bg-dark-dots",
           )}
         >
@@ -79,8 +77,8 @@ const MenuItem = ({ href, icon, text, className, isActive }: MenuItemProps) => {
           <span className="block max-w-full truncate first-letter:capitalize md:overflow-auto">
             {text}
           </span>
-        </NavigationMenuLink>
-      </Link>
+        </NavLink>
+      </NavigationMenuLink>
     </NavigationMenuItem>
   );
 };
