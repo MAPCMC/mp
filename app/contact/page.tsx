@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/card";
 
 import { ContactForm } from "@/components/contact-form";
+import { PageHeader } from "@/components/page-header";
+import { PageMain } from "@/components/page-main";
 
 export const metadata: Metadata = {
   title: "Contact | Maarten Peene",
@@ -17,10 +19,10 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <>
-      <header className="mb-4 w-full px-6 pt-24 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
+      <PageHeader>
         <h1 className="font-serif text-4xl first-letter:capitalize">contact</h1>
-      </header>
-      <main className="flex w-full flex-col items-stretch px-6 pt-8 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
+      </PageHeader>
+      <PageMain>
         <dl className="mb-8 grid gap-x-6 sm:grid-cols-[auto_1fr] sm:gap-y-2">
           <dt className="-mb-1 text-sm leading-6 opacity-70 sm:mb-auto">
             naam
@@ -59,7 +61,7 @@ export default function Contact() {
             <ContactForm />
           </CardContent>
         </Card>
-      </main>
+      </PageMain>
     </>
   );
 }

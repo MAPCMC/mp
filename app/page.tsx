@@ -14,6 +14,8 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { AnchorMenu } from "@/components/anchor-menu";
+import { PageHeader } from "@/components/page-header";
+import { PageMain } from "@/components/page-main";
 
 export const metadata: Metadata = {
   title: "Home | Maarten Peene",
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <header className="mb-4 w-full px-6 pt-24 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
+      <PageHeader>
         <div className="grid gap-x-4 gap-y-2 sm:grid-cols-[auto_auto] md:grid-rows-[1fr_auto]">
           {/* logo puzzle */}
           <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr]" />
@@ -40,11 +42,11 @@ export default function Home() {
             </p>
           </hgroup>
 
-          <p className="w-full break-words font-serif text-3xl sm:text-5xl">
+          <p className="w-full break-words font-serif text-3xl sm:text-4xl lg:text-5xl">
             Samen bouwen we uitzonderlijke websites
           </p>
         </div>
-      </header>
+      </PageHeader>
       <AnchorMenu
         links={[
           { text: "Over mij", href: "#s2" },
@@ -52,7 +54,7 @@ export default function Home() {
           { text: "Ervaring", href: "#s3" },
         ]}
       />
-      <main className="flex flex-col items-stretch gap-y-12 px-6 pb-24 pt-8 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
+      <PageMain className="pt-8">
         {/* over mij */}
         <section className="space-y-2 sm:w-3/4" aria-labelledby="s2">
           <hgroup className="mb-3">
@@ -319,7 +321,7 @@ export default function Home() {
             <DownloadIcon className="ml-2 inline-block h-4 w-4" />
           </a>
         </section>
-      </main>
+      </PageMain>
     </>
   );
 }

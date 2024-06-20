@@ -10,6 +10,8 @@ import { ContactForm } from "@/components/contact-form";
 import { Toaster } from "@/components/ui/toaster";
 import { DownloadIcon } from "lucide-react";
 import { AnchorMenu } from "@/components/anchor-menu";
+import { PageHeader } from "@/components/page-header";
+import { PageMain } from "@/components/page-main";
 
 export const metadata: Metadata = {
   title: "Freelance | Maarten Peene",
@@ -18,11 +20,11 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <header className="mb-4 w-full px-6 pt-24 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
+      <PageHeader>
         <h1 className="font-serif text-4xl first-letter:capitalize">
           freelance
         </h1>
-      </header>
+      </PageHeader>
       <AnchorMenu
         links={[
           { href: "#s1", text: "kwaliteiten" },
@@ -30,7 +32,7 @@ export default function Page() {
           { href: "#s3", text: "contact" },
         ]}
       />
-      <main className="flex w-full flex-col items-center space-y-6 px-6 *:w-full *:gap-x-2 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
+      <PageMain>
         <section>
           <article className="space-y-2">
             <p>
@@ -113,7 +115,7 @@ export default function Page() {
             </CardContent>
           </Card>
         </section>
-      </main>
+      </PageMain>
       <Toaster />
     </>
   );

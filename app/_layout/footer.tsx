@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer
       className={cn(
-        "!mt-24 w-full px-6 pb-32 pt-12 md:pb-12 md:pl-[20%] lg:px-[15%]",
+        "mt-24 w-full px-6 pb-32 pt-12 md:pb-12 md:pl-[20%] lg:px-[15%]",
         "grid gap-6 sm:grid-cols-2",
         "text-sm",
         "border-t basic:border-slate-900",

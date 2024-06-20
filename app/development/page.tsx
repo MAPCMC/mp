@@ -11,6 +11,8 @@ import { ContactForm } from "@/components/contact-form";
 import { NavLink } from "@/components/nav-link";
 import { Toaster } from "@/components/ui/toaster";
 import { AnchorMenu } from "@/components/anchor-menu";
+import { PageHeader } from "@/components/page-header";
+import { PageMain } from "@/components/page-main";
 
 export const metadata: Metadata = {
   title: "Development | Maarten Peene",
@@ -19,11 +21,11 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <header className="mb-4 w-full px-6 pt-24 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
+      <PageHeader>
         <h1 className="font-serif text-4xl first-letter:capitalize">
           development
         </h1>
-      </header>
+      </PageHeader>
       <AnchorMenu
         links={[
           { href: "#s1", text: "product" },
@@ -31,7 +33,7 @@ export default function Page() {
           { href: "#s3", text: "Kom in actie" },
         ]}
       />
-      <main className="flex w-full grow flex-col items-center space-y-8 px-6 *:w-full *:gap-x-2 md:ml-[20%] md:w-[80%] lg:ml-0 lg:w-[70%]">
+      <PageMain>
         <section aria-labelledby="s1 s1b">
           <hgroup className="mb-1 w-full">
             <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
@@ -127,7 +129,7 @@ export default function Page() {
             </CardFooter>
           </Card>
         </section>
-      </main>
+      </PageMain>
       <Toaster />
     </>
   );
