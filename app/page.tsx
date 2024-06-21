@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { MemoryGame } from "@/app/_components/memory-game";
 import { AboutSpans } from "@/app/_components/about-spans";
-import { NavLink } from "@/components/nav-link";
+import { NavLink, SimpleLink } from "@/components/nav-link";
 import { DownloadIcon, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -28,7 +28,7 @@ export default function Home() {
       <PageHeader>
         <div className="grid gap-x-4 gap-y-2 sm:grid-cols-[auto_auto] md:grid-rows-[1fr_auto]">
           {/* logo puzzle */}
-          <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr]" />
+          <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr] lg:gap-2" />
           <hgroup className="self-end font-serif font-light">
             <h1 className="text-xl">
               <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
@@ -119,12 +119,7 @@ export default function Home() {
               applicatie.
             </CardContent>
             <CardFooter>
-              <NavLink
-                href="/development"
-                className={
-                  "light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-slate-50 light:no-underline"
-                }
-              >
+              <NavLink href="/development" variant="button">
                 Meer over development
               </NavLink>
             </CardFooter>
@@ -153,12 +148,7 @@ export default function Home() {
               waardevolle bijdrage aan het team.
             </CardContent>
             <CardFooter className="lg:row-span-2 lg:pb-0">
-              <NavLink
-                href="/freelance"
-                className={
-                  "light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-slate-50 light:no-underline"
-                }
-              >
+              <NavLink href="/freelance" variant="button">
                 Bekijk de mogelijkheden
               </NavLink>
             </CardFooter>
@@ -312,14 +302,15 @@ export default function Home() {
               </ul>
             </CardFooter>
           </Card>
-          <a
-            className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus-visible:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-slate-50 light:no-underline sm:col-start-2"
+          <SimpleLink
+            variant="download"
+            className="mt-4 sm:col-start-2"
             href="/cv.pdf"
             download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
           >
-            Download mijn complete CV
+            download mijn complete CV
             <DownloadIcon className="ml-2 inline-block h-4 w-4" />
-          </a>
+          </SimpleLink>
         </section>
       </PageMain>
     </>

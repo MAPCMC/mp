@@ -125,7 +125,9 @@ export default function Page() {
               daarna vliegend van start kan!
             </CardContent>
             <CardFooter>
-              <NavLink href="/development/start-nu">Start nu</NavLink>
+              <NavLink href="/development/start-nu" variant="button">
+                Start nu
+              </NavLink>
             </CardFooter>
           </Card>
         </section>

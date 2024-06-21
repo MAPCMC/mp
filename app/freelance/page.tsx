@@ -12,6 +12,7 @@ import { DownloadIcon } from "lucide-react";
 import { AnchorMenu } from "@/components/anchor-menu";
 import { PageHeader } from "@/components/page-header";
 import { PageMain } from "@/components/page-main";
+import { SimpleLink } from "@/components/nav-link";
 
 export const metadata: Metadata = {
   title: "Freelance | Maarten Peene",
@@ -45,14 +46,15 @@ export default function Page() {
               meer over mijn werkervaring, bekijk mijn cv.
             </p>
             <p>
-              <a
-                className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus-visible:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-slate-50 light:no-underline sm:col-start-2"
+              <SimpleLink
+                variant="download"
+                className="mt-4 sm:col-start-2"
                 href="/cv.pdf"
                 download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
               >
                 Download mijn complete CV
                 <DownloadIcon className="ml-2 inline-block h-4 w-4" />
-              </a>
+              </SimpleLink>
             </p>
           </article>
         </section>

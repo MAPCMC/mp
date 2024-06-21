@@ -4,7 +4,7 @@ import { ThemeToggle } from "@/app/_layout/theme-toggle";
 import { Breadcrumb } from "@/app/_layout/breadcrumb";
 import { NavMenu } from "@/app/_layout/nav-menu";
 import { cn } from "@/lib/utils";
-import { NavLink } from "@/components/nav-link";
+import { NavLink, SimpleLink } from "@/components/nav-link";
 
 export function NavBar() {
   return (
@@ -15,11 +15,22 @@ export function NavBar() {
           "md:basic:border-b md:basic:border-slate-900 md:basic:bg-basic",
         )}
       >
+        {/* No use of next/link because does not refocus to anchor */}
+        <SimpleLink
+          href="#main"
+          variant="button"
+          className={cn(
+            "absolute left-2 top-2 z-50 whitespace-nowrap",
+            "transition-all -translate-y-16  focus:translate-y-0",
+          )}
+        >
+          Naar paginainhoud
+        </SimpleLink>
         <div className="flex items-stretch">
           <NavLink
             href="/"
             variant="menu"
-            className="group shrink-0 bg-transparent p-2 md:px-4 basic:md:border-r basic:md:border-slate-900"
+            className="group shrink-0 p-2 basic:bg-transparent md:px-4 basic:md:border-r basic:md:border-slate-900"
           >
             <Image
               width={40}
