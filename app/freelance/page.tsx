@@ -8,11 +8,10 @@ import {
 } from "@/components/ui/card";
 import { ContactForm } from "@/components/contact-form";
 import { Toaster } from "@/components/ui/toaster";
-import { DownloadIcon } from "lucide-react";
 import { AnchorMenu } from "@/components/anchor-menu";
 import { PageHeader } from "@/components/page-header";
 import { PageMain } from "@/components/page-main";
-import { SimpleLink } from "@/components/nav-link";
+import { SimpleLink } from "@/components/links";
 
 export const metadata: Metadata = {
   title: "Freelance | Maarten Peene",
@@ -48,12 +47,11 @@ export default function Page() {
             <p>
               <SimpleLink
                 variant="download"
-                className="mt-4 sm:col-start-2"
+                className="!mt-4 block"
                 href="/cv.pdf"
                 download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
               >
                 Download mijn complete CV
-                <DownloadIcon className="ml-2 inline-block h-4 w-4" />
               </SimpleLink>
             </p>
           </article>

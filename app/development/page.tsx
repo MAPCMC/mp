@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ContactForm } from "@/components/contact-form";
-import { NavLink } from "@/components/nav-link";
+import { NavLink } from "@/components/links";
 import { Toaster } from "@/components/ui/toaster";
 import { AnchorMenu } from "@/components/anchor-menu";
 import { PageHeader } from "@/components/page-header";

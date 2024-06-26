@@ -1,5 +1,15 @@
+"use client";
+
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { NavLink } from "@/components/links";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
 
 type AnchorMenuProps = {
   links: {
@@ -8,63 +18,70 @@ type AnchorMenuProps = {
   }[];
 };
 
-export function AnchorLink({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<typeof Link>) {
+type MenuItemProps = {
+  text: string;
+  href: string;
+  className?: string;
+  isActive?: boolean;
+};
+
+const AnchorMenuItem = ({ href, text, isActive }: MenuItemProps) => {
   return (
-    <Link
-      {...props}
-      className={cn(
-        "first-letter:capitalize",
-        "underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus-visible:underline-offset-8",
-        "basic:text-sm basic:italic",
-        className,
-      )}
-    >
-      {children}
-    </Link>
+    <NavigationMenuItem key={href} className="shrink grow truncate">
+      <NavigationMenuLink active={isActive} asChild>
+        <NavLink variant="anchor" href={href}>
+          {text}
+        </NavLink>
+      </NavigationMenuLink>
+    </NavigationMenuItem>
   );
-}
+};
 
 export function AnchorMenu({ links }: AnchorMenuProps) {
+  const params = useParams();
+  const [hash, setHash] = useState<string | null>(null);
+
+  useEffect(() => {
+    const currentHash = window?.location?.hash ?? null;
+    setHash(currentHash);
+  }, [params]);
+
   return (
-    <aside className="fixed bottom-12 left-0 z-10 w-screen md:-right-6 md:bottom-1/2 md:left-6 md:top-36 md:w-[20%] md:pr-6 lg:w-[15%]">
-      <nav aria-labelledby="a1">
+    <aside
+      className={cn(
+        "fixed bottom-14 left-0 z-20",
+        "md:bottom-1/2 md:top-36 md:w-[20%] lg:w-[15%]",
+        "basic:left-0 basic:right-0",
+        "basic:md:left-6 basic:md:w-[calc(20vw-1.5rem)] basic:lg:w-[calc(15vw-1.5rem)]",
+        "light:bottom-16 light:left-2 light:right-2",
+        "light:md:left-6 light:md:w-[calc(20vw-1.5rem)] light:lg:w-[calc(15vw-1.5rem)]",
+        "dark:bottom-16 dark:left-2 dark:right-2",
+        "dark:md:left-6 dark:md:w-[calc(20vw-1.5rem)] dark:lg:w-[calc(15vw-1.5rem)]",
+      )}
+    >
+      <NavigationMenu aria-labelledby="a1">
         <h2 id="a10" className="sr-only">
-          Kopjes op deze pagina
+          kopjes op deze pagina
         </h2>
-        <ul
+        <NavigationMenuList
           className={cn(
             "flex w-full max-w-full md:flex-col",
-            "duration-500 animate-in slide-in-from-bottom-full md:fade-in md:slide-in-from-bottom-8 md:slide-in-from-right-16",
-            "gap-px bg-slate-900 basic:border-y basic:border-slate-900 basic:md:border-r basic:md:border-basic-grid basic:md:bg-basic-grid",
-            "light:bg-light dark:bg-dark",
+            "duration-500 animate-in slide-in-from-bottom-full md:fade-in md:slide-in-from-bottom-2 md:slide-in-from-bottom-8 md:slide-in-from-right-6",
+            "gap-px border-slate-950 bg-slate-950 md:bg-transparent",
+            "basic:border-y basic:md:border-none",
+            "light:border light:md:border-none",
+            "dark:gap-1 dark:border-none dark:bg-transparent",
           )}
         >
           {links.map((link) => (
-            <li key={link.href} className="shrink grow">
-              <AnchorLink
-                href={link.href}
-                className={cn(
-                  "block truncate bg-slate-50 px-4 pb-3 pt-2 text-center md:pb-2 md:text-right",
-                  " basic:text-inherit basic:no-underline",
-                  "basic:bg-basic basic:hover:bg-slate-700 basic:hover:text-slate-50",
-                  "basic:focus-visible:bg-slate-700 basic:focus-visible:text-slate-50",
-                  "light:bg-light light:hover:bg-slate-700 light:hover:text-slate-50",
-                  "light:focus-visible:bg-slate-700 light:focus-visible:text-slate-50",
-                  "dark:bg-dark dark:hover:bg-slate-700 dark:hover:text-slate-50",
-                  "dark:focus-visible:bg-slate-700 dark:focus-visible:text-slate-50",
-                  "text-sm",
-                )}
-              >
-                {link.text}
-              </AnchorLink>
-            </li>
+            <AnchorMenuItem
+              key={link.href}
+              {...link}
+              isActive={hash === link.href}
+            />
           ))}
-        </ul>
-      </nav>
+        </NavigationMenuList>
+      </NavigationMenu>
     </aside>
   );
 }

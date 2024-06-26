@@ -7,20 +7,20 @@ import { cn } from "@/lib/utils";
 const buttonVariants = cva(
   [
     "inline-flex items-center justify-center whitespace-nowrap rounded-full transition-colors",
-    "light:border-light-dots light:bg-light basic:rounded-none basic:border-slate-900 basic:bg-basic dark:border-dark-dots dark:bg-dark",
-    "basic:hover:bg-slate-900 basic:focus-visible:bg-slate-900 basic:hover:text-slate-50 basic:focus-visible:text-slate-50",
+    "light:border-light-dots light:bg-light basic:bg-basic basic:border-slate-950 dark:border-dark-dots dark:bg-dark",
+    "basic:rounded-none basic:text-slate-950",
+    "basic:hover:bg-slate-950 basic:hover:text-slate-50",
+    "basic:focus-visible:bg-slate-950 basic:focus-visible:text-slate-50",
+    "light:hover:bg-amber-500 dark:hover:bg-amber-500 hover:dark:text-slate-950",
     "focus-visible:outline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300",
-    "disabled:pointer-events-none disabled:opacity-70",
-    "basic:text-slate-950",
   ],
   {
     variants: {
       variant: {
-        default: "bg-slate-900 text-slate-50 hover:bg-sky-300",
+        default: "bg-slate-950 text-slate-50",
         // destructive:
         //   "bg-red-500 text-neutral-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-neutral-50 dark:hover:bg-red-900/90",
-        outline:
-          "border border-neutral-200 bg-white hover:bg-neutral-100 hover:text-neutral-900 dark:border-neutral-800 dark:bg-slate-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50",
+        outline: "border hover:border-none",
         secondary:
           "bg-neutral-100 text-neutral-900 hover:bg-neutral-100/80 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-800/80",
         // ghost:

@@ -30,12 +30,12 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       colors: {
-        basic: "var(--color-bg-basic)",
-        "basic-grid": "var(--color-bg-basic-grid)",
-        light: "var(--color-bg-light)",
-        "light-dots": "var(--color-bg-light-dots)",
-        dark: "var(--color-bg-dark)",
-        "dark-dots": "var(--color-bg-dark-dots)",
+        basic: "rgb(var(--color-bg-basic) / <alpha-value>)",
+        "basic-grid": "rgb(var(--color-bg-basic-grid) / <alpha-value>)",
+        light: "rgb(var(--color-bg-light)/<alpha-value>)",
+        "light-dots": "rgb(var(--color-bg-light-dots) / <alpha-value>)",
+        dark: "rgb(var(--color-bg-dark) / <alpha-value>)",
+        "dark-dots": "rgb(var(--color-bg-dark-dots) / <alpha-value>)",
       },
       data: {
         active: "active=''",

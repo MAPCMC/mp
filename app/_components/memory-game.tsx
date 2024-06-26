@@ -198,7 +198,7 @@ export const MemoryGame = ({
       {cards.length > 0 && (
         <Button
           className={cn(
-            "absolute -top-8 right-0 sm:inset-auto sm:inset-x-0 sm:-bottom-8",
+            "absolute -top-8 right-0 sm:inset-x-0 sm:-bottom-8 sm:top-auto",
             "animate-in fade-in slide-in-from-right-24 sm:slide-in-from-right-0 sm:slide-in-from-top-full",
           )}
           size="xs"
@@ -216,7 +216,7 @@ export const MemoryGame = ({
             }
           }}
         >
-          Ik geef op
+          <span className="first-letter:capitalize">sluit spel</span>
         </Button>
       )}
     </div>

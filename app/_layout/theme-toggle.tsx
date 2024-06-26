@@ -22,11 +22,11 @@ function CarouselItemLocal({
   theme?: string;
 }) {
   return (
-    <CarouselItem className="flex h-full w-full items-center">
+    <CarouselItem className="flex h-full w-full cursor-grab items-center active:cursor-grabbing">
       <div
         className={cn({
           "flex h-10 w-full items-center justify-center gap-2 capitalize": true,
-          "basic:border-y basic:border-slate-900 basic:bg-basic basic:md:h-full basic:md:border-x basic:md:border-y-0":
+          "basic:border-y basic:border-slate-950 basic:bg-basic basic:md:h-full basic:md:border-x basic:md:border-y-0":
             theme === "basic",
           "dark:border-y dark:border-dark-dots dark:bg-dark": theme === "dark",
           "light:border-y light:border-light-dots light:bg-light":
@@ -72,7 +72,7 @@ export function ThemeToggle() {
         >
           <CarouselContent className="h-full w-40 text-sm">
             <CarouselItemLocal theme={theme}>
-              <Box className="h-4 w-4 text-slate-900" />
+              <Box className="h-4 w-4 text-slate-950" />
               basic
             </CarouselItemLocal>
             <CarouselItemLocal theme={theme}>

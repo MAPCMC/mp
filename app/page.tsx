@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { MemoryGame } from "@/app/_components/memory-game";
 import { AboutSpans } from "@/app/_components/about-spans";
-import { NavLink, SimpleLink } from "@/components/nav-link";
+import { NavLink, SimpleLink } from "@/components/links";
 import { DownloadIcon, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -96,7 +96,7 @@ export default function Home() {
           )}
           aria-labelledby="s1"
         >
-          <hgroup className="mb-3 basic:sm:col-span-3">
+          <hgroup className="col-span-full mb-3">
             <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
               <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Aanbod
@@ -136,7 +136,7 @@ export default function Home() {
           />
           <Card
             as="article"
-            className="row-span-3 grid grid-rows-subgrid light:bg-amber-200 dark:bg-orange-900"
+            className="row-span-3 grid grid-rows-subgrid "
             aria-labelledby="s1c3"
           >
             <CardHeader>
@@ -309,7 +309,6 @@ export default function Home() {
             download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
           >
             download mijn complete CV
-            <DownloadIcon className="ml-2 inline-block h-4 w-4" />
           </SimpleLink>
         </section>
       </PageMain>

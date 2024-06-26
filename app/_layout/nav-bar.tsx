@@ -4,7 +4,8 @@ import { ThemeToggle } from "@/app/_layout/theme-toggle";
 import { Breadcrumb } from "@/app/_layout/breadcrumb";
 import { NavMenu } from "@/app/_layout/nav-menu";
 import { cn } from "@/lib/utils";
-import { NavLink, SimpleLink } from "@/components/nav-link";
+import { NavLink, SimpleLink } from "@/components/links";
+import { Home } from "lucide-react";
 
 export function NavBar() {
   return (
@@ -12,7 +13,7 @@ export function NavBar() {
       <div
         className={cn(
           "fixed z-50 flex w-full items-stretch justify-between lg:px-[calc(15vw-40px-2rem)]",
-          "md:basic:border-b md:basic:border-slate-900 md:basic:bg-basic",
+          "md:basic:border-b md:basic:border-slate-950 md:basic:bg-basic",
         )}
       >
         {/* No use of next/link because does not refocus to anchor */}
@@ -30,19 +31,31 @@ export function NavBar() {
           <NavLink
             href="/"
             variant="menu"
-            className="group shrink-0 p-2 basic:bg-transparent md:px-4 basic:md:border-r basic:md:border-slate-900"
+            className="group shrink-0 p-2 basic:bg-transparent md:px-4 basic:md:border-r basic:md:border-slate-950"
           >
-            <Image
-              width={40}
-              height={40}
-              src="/logo.svg"
-              alt="home"
-              priority
-              className={cn(
-                "light:rounded-md light:border-2 light:border-orange-500 light:bg-orange-500",
-                "dark:rounded-md dark:border-2 dark:border-orange-500 dark:bg-orange-500",
-              )}
-            />
+            <span className="sr-only">Home</span>
+            <div className="relative">
+              <Image
+                width={40}
+                height={40}
+                src="/logo.svg"
+                alt="home"
+                priority
+                className={cn(
+                  "light:rounded-md light:border-2 light:border-orange-500 light:bg-orange-500",
+                  "dark:rounded-md dark:border-2 dark:border-orange-500 dark:bg-orange-500",
+                )}
+              />
+              <div
+                className={cn(
+                  "absolute inset-0 z-10 flex items-center justify-center  text-slate-50 opacity-0 transition-all ",
+                  "group-hover:opacity-100 light:rounded-md dark:rounded-md",
+                  "light:bg-sky-800 basic:bg-slate-950 dark:bg-sky-800",
+                )}
+              >
+                <Home className="h-5 w-5" />
+              </div>
+            </div>
           </NavLink>
           <NavMenu />
         </div>

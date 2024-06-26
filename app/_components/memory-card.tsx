@@ -76,6 +76,7 @@ export function MemoryCard({
         "card relative size-12 text-slate-50 outline-offset-2 dark:text-slate-950 lg:size-16",
         "perspective-1000 transform-style-3d",
         "light:rounded-md *:light:rounded-md dark:rounded-md *:dark:rounded-md",
+        "hover:z-20 hover:outline hover:outline-2 hover:outline-offset-2 hover:outline-sky-400",
         "focus-visible:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400",
         "shadow-[.2rem_.2rem_solid] shadow-orange-200 lg:shadow-[.3rem_.3rem_solid] lg:shadow-orange-200",
       )}

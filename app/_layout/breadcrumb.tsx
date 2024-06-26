@@ -8,7 +8,7 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
 } from "@/components/ui/breadcrumb";
-import Link from "next/link";
+import { NavLink } from "@/components/links";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
@@ -44,7 +44,8 @@ export function Breadcrumb() {
           {pathNames.length ? (
             <>
               <BreadcrumbLink asChild>
-                <Link
+                <NavLink
+                  variant="breadcrumb"
                   href="/"
                   className="group flex items-center no-underline underline-offset-4 hover:underline focus-visible:underline basic:italic"
                 >
@@ -60,7 +61,7 @@ export function Breadcrumb() {
                   <span className="truncate first-letter:capitalize light:bg-light basic:bg-basic dark:bg-dark">
                     home
                   </span>
-                </Link>
+                </NavLink>
               </BreadcrumbLink>
             </>
           ) : null}
@@ -90,7 +91,8 @@ export function Breadcrumb() {
             <React.Fragment key={`${text}${href}${index}`}>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link
+                  <NavLink
+                    variant="breadcrumb"
                     href={href}
                     className="group flex w-auto items-center text-inherit no-underline underline-offset-4 hover:underline focus-visible:underline"
                   >
@@ -106,7 +108,7 @@ export function Breadcrumb() {
                     <span className="truncate first-letter:capitalize light:bg-light basic:bg-basic dark:bg-dark">
                       {text}
                     </span>
-                  </Link>
+                  </NavLink>
                 </BreadcrumbLink>
               </BreadcrumbItem>
             </React.Fragment>
