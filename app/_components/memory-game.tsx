@@ -11,7 +11,7 @@ import {
   IconType,
 } from "@icons-pack/react-simple-icons";
 import { X, PartyPopper, IconNode } from "lucide-react";
-
+import { Button } from "@/components/ui/button";
 import { shuffle } from "@/lib/utils";
 import { cn } from "@/lib/utils";
 
@@ -45,7 +45,6 @@ export const MemoryGame = ({
   const TORestart = useRef<NodeJS.Timeout | null>(null);
   const TOEvaluate = useRef<NodeJS.Timeout | null>(null);
   const game = useRef<HTMLDivElement>(null);
-  const reset = useRef<HTMLButtonElement>(null);
 
   const handleCardClick = (index: number): void => {
     if (cards[index].text === "Reset") {
@@ -76,6 +75,12 @@ export const MemoryGame = ({
         id: new Date().getTime() + i,
       })),
     );
+  };
+
+  const handleQuit = () => {
+    setCards([]);
+    setClearedCards([]);
+    setOpenCards([]);
   };
 
   const handleRestart = () => {
@@ -122,6 +127,7 @@ export const MemoryGame = ({
 
   const onClickReset = contextSafe(() => {
     gsap.to(".card", {
+      boxShadow: "0 0",
       rotation: 360,
       duration: 0.5,
       delay: 0.5,
@@ -140,16 +146,22 @@ export const MemoryGame = ({
           {[...Array(7)].map((n, i) => (
             <div
               key={i}
-              className="card size-12 rounded-md bg-orange-400 shadow-[.3rem_.3rem_solid] shadow-orange-200 lg:size-16"
+              className={cn(
+                "card size-12 shadow-[.2rem_.2rem_solid] dark:rounded-md lg:size-16 lg:shadow-[.3rem_.3rem_solid]",
+                "basic:border basic:border-slate-300 basic:bg-basic basic:shadow-slate-100",
+                "light:rounded-md light:bg-orange-500/70 light:shadow-orange-200",
+              )}
             ></div>
           ))}
           <MemoryCard
             index={0}
-            className="bg-orange-500"
-            onClick={() => setCards(newCards())}
+            onClick={() => {
+              setCards(newCards());
+            }}
           />
         </>
       )}
+      {/* celebrate */}
       {clearedCards.length === 4 && (
         <PartyPopper className="absolute -top-8 h-6 w-6 animate-in fade-in slide-in-from-bottom md:right-0" />
       )}
@@ -164,12 +176,49 @@ export const MemoryGame = ({
             isOpen={openCards.includes(index)}
             isResetCard={card.text === "Reset"}
             isCleared={clearedCards.includes(card.text)}
+            onKeyDown={(e) => {
+              if (
+                e.key === "Escape" ||
+                e.key === "Esc" ||
+                e.key === "Delete" ||
+                e.key === "Backspace"
+              ) {
+                e.preventDefault();
+                handleQuit();
+              }
+            }}
           >
             <CardIcon className="h-full w-full p-2" />
             <span className="sr-only">{card.text}</span>
           </MemoryCard>
         );
       })}
+
+      {/* give up */}
+      {cards.length > 0 && (
+        <Button
+          className={cn(
+            "absolute -top-8 right-0 sm:inset-x-0 sm:-bottom-8 sm:top-auto",
+            "animate-in fade-in slide-in-from-right-24 sm:slide-in-from-right-0 sm:slide-in-from-top-full",
+          )}
+          size="xs"
+          variant="outline"
+          onClick={handleQuit}
+          onKeyDown={(e) => {
+            if (
+              e.key === "Escape" ||
+              e.key === "Esc" ||
+              e.key === "Delete" ||
+              e.key === "Backspace"
+            ) {
+              e.preventDefault();
+              handleQuit();
+            }
+          }}
+        >
+          <span className="first-letter:capitalize">sluit spel</span>
+        </Button>
+      )}
     </div>
   );
 };

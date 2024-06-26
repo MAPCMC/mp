@@ -29,6 +29,17 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      colors: {
+        basic: "rgb(var(--color-bg-basic) / <alpha-value>)",
+        "basic-grid": "rgb(var(--color-bg-basic-grid) / <alpha-value>)",
+        light: "rgb(var(--color-bg-light)/<alpha-value>)",
+        "light-dots": "rgb(var(--color-bg-light-dots) / <alpha-value>)",
+        dark: "rgb(var(--color-bg-dark) / <alpha-value>)",
+        "dark-dots": "rgb(var(--color-bg-dark-dots) / <alpha-value>)",
+      },
+      data: {
+        active: "active=''",
+      },
     },
   },
   plugins: [

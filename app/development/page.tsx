@@ -8,8 +8,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ContactForm } from "@/components/contact-form";
-import { NavLink } from "@/components/nav-link";
+import { NavLink } from "@/components/links";
 import { Toaster } from "@/components/ui/toaster";
+import { AnchorMenu } from "@/components/anchor-menu";
+import { PageHeader } from "@/components/page-header";
+import { PageMain } from "@/components/page-main";
 
 export const metadata: Metadata = {
   title: "Development | Maarten Peene",
@@ -18,28 +21,24 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <header className="mb-4 flex w-full flex-col items-center space-y-2 px-6 pt-24 *:w-full *:md:max-w-[70%]">
-        <h1 className="font-serif text-4xl">Development</h1>
-        <nav>
-          <ul>
-            <li>
-              <a href="#s1">Het product</a>
-            </li>
-            <li>
-              <a href="#s2">De werkwijze</a>
-            </li>
-            <li>
-              <a href="#s3">Kom in actie</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <main className="flex w-full grow flex-col items-center space-y-8 px-6 *:w-full *:gap-x-2 *:md:max-w-[70%]">
+      <PageHeader>
+        <h1 className="font-serif text-4xl first-letter:capitalize">
+          development
+        </h1>
+      </PageHeader>
+      <AnchorMenu
+        links={[
+          { href: "#s1", text: "product" },
+          { href: "#s2", text: "werkwijze" },
+          { href: "#s3", text: "Kom in actie" },
+        ]}
+      />
+      <PageMain>
         <section aria-labelledby="s1 s1b">
           <hgroup className="mb-1 w-full">
             <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
-                Het product
+              <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
+                product
               </span>
             </h2>
             <p
@@ -70,8 +69,8 @@ export default function Page() {
           <div className="sm:col-span-2 xl:col-span-4">
             <hgroup className="mb-1 w-full">
               <h2 id="s2" className="-mb-1 font-serif text-lg font-light">
-                <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
-                  De werkwijze
+                <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
+                  werkwijze
                 </span>
               </h2>
               <p
@@ -83,7 +82,7 @@ export default function Page() {
               </p>
             </hgroup>
             <p className="text-lg">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+              <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Jouw bedrijf levert maatwerk, dus je website doet dat ook. We
                 maken een aantrekkelijk en innovatief platform dat boven het
                 maaiveld uitsteekt. Hoe we daar komen? Stap voor stap neem ik je
@@ -126,11 +125,13 @@ export default function Page() {
               daarna vliegend van start kan!
             </CardContent>
             <CardFooter>
-              <NavLink href="/development/start-nu">Start nu</NavLink>
+              <NavLink href="/development/start-nu" variant="button">
+                Start nu
+              </NavLink>
             </CardFooter>
           </Card>
         </section>
-      </main>
+      </PageMain>
       <Toaster />
     </>
   );

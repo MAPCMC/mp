@@ -8,7 +8,10 @@ import {
 } from "@/components/ui/card";
 import { ContactForm } from "@/components/contact-form";
 import { Toaster } from "@/components/ui/toaster";
-import { DownloadIcon } from "lucide-react";
+import { AnchorMenu } from "@/components/anchor-menu";
+import { PageHeader } from "@/components/page-header";
+import { PageMain } from "@/components/page-main";
+import { SimpleLink } from "@/components/links";
 
 export const metadata: Metadata = {
   title: "Freelance | Maarten Peene",
@@ -17,23 +20,19 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <header className="mb-4 flex w-full flex-col items-center space-y-2 px-6 pt-24 *:w-full *:md:max-w-[70%]">
-        <h1 className="font-serif text-4xl">Freelance</h1>
-        <nav>
-          <ul>
-            <li>
-              <a href="#s1">Kwaliteiten</a>
-            </li>
-            <li>
-              <a href="#s2">Functieprofiel</a>
-            </li>
-            <li>
-              <a href="#s3">Contact</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <main className="flex w-full flex-col items-center space-y-6 px-6 *:w-full *:gap-x-2 *:md:max-w-[70%]">
+      <PageHeader>
+        <h1 className="font-serif text-4xl first-letter:capitalize">
+          freelance
+        </h1>
+      </PageHeader>
+      <AnchorMenu
+        links={[
+          { href: "#s1", text: "kwaliteiten" },
+          { href: "#s2", text: "functieprofiel" },
+          { href: "#s3", text: "contact" },
+        ]}
+      />
+      <PageMain>
         <section>
           <article className="space-y-2">
             <p>
@@ -46,21 +45,21 @@ export default function Page() {
               meer over mijn werkervaring, bekijk mijn cv.
             </p>
             <p>
-              <a
-                className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline sm:col-start-2"
+              <SimpleLink
+                variant="download"
+                className="!mt-4 block"
                 href="/cv.pdf"
                 download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
               >
                 Download mijn complete CV
-                <DownloadIcon className="ml-2 inline-block h-4 w-4" />
-              </a>
+              </SimpleLink>
             </p>
           </article>
         </section>
         <section aria-labelledby="s1 s1b">
           <hgroup className="mb-1 w-full">
             <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+              <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Kwaliteiten
               </span>
             </h2>
@@ -86,7 +85,7 @@ export default function Page() {
         <section>
           <hgroup className="mb-1 w-full">
             <h2 id="s2" className="-mb-1 font-serif text-lg font-light">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+              <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Functieprofiel
               </span>
             </h2>
@@ -116,7 +115,7 @@ export default function Page() {
             </CardContent>
           </Card>
         </section>
-      </main>
+      </PageMain>
       <Toaster />
     </>
   );

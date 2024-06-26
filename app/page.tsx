@@ -8,11 +8,14 @@ import {
 } from "@/components/ui/card";
 import { MemoryGame } from "@/app/_components/memory-game";
 import { AboutSpans } from "@/app/_components/about-spans";
-import { NavLink } from "@/components/nav-link";
+import { NavLink, SimpleLink } from "@/components/links";
 import { DownloadIcon, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
+import { AnchorMenu } from "@/components/anchor-menu";
+import { PageHeader } from "@/components/page-header";
+import { PageMain } from "@/components/page-main";
 
 export const metadata: Metadata = {
   title: "Home | Maarten Peene",
@@ -22,33 +25,42 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <header className="space-y-2 px-6 pt-24 *:w-full *:md:px-[15%]">
+      <PageHeader>
         <div className="grid gap-x-4 gap-y-2 sm:grid-cols-[auto_auto] md:grid-rows-[1fr_auto]">
           {/* logo puzzle */}
-          <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr]" />
+          <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr] lg:gap-2" />
           <hgroup className="self-end font-serif font-light">
             <h1 className="text-xl">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+              <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Maarten Peene
               </span>
             </h1>
             <p role="doc-subtitle" className="-mt-1 text-amber-600">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+              <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 <AboutSpans /> full-stack webdeveloper
               </span>
             </p>
           </hgroup>
 
-          <p className="w-full break-words font-serif text-3xl sm:text-5xl">
+          <p className="w-full break-words font-serif text-3xl sm:text-4xl lg:text-5xl">
             Samen bouwen we uitzonderlijke websites
           </p>
         </div>
-      </header>
-      <main className="flex flex-col items-stretch gap-y-12 px-6 pb-24 pt-8 *:md:px-[15%]">
+      </PageHeader>
+      <AnchorMenu
+        links={[
+          { text: "Over mij", href: "#s2" },
+          { text: "Aanbod", href: "#s1" },
+          { text: "Ervaring", href: "#s3" },
+        ]}
+      />
+      <PageMain className="pt-8">
         {/* over mij */}
-        <section className="space-y-2 sm:w-3/4">
+        <section className="space-y-2 sm:w-3/4" aria-labelledby="s2">
           <hgroup className="mb-3">
-            <h2 className="font-serif text-lg font-light">Over mij</h2>
+            <h2 id="s2" className="font-serif text-lg font-light">
+              Over mij
+            </h2>
             <p role="subtitle" className="font-serif text-xl sm:text-3xl">
               Hallo, leuk je te ontmoeten!
             </p>
@@ -65,9 +77,9 @@ export default function Home() {
           </p>
           <p>
             Eindgebruikers, opdrachtgevers en ontwikkelaars komen op het
-            internet met een doel: we zijn allemaal op zoek naar toegevoegde
-            waarde. Met een passie voor maatwerk, samenwerking, taal en ontwerp
-            draag ik mijn steentje bij.
+            internet met een doel: we zoeken toegevoegde waarde. Met een passie
+            voor maatwerk, samenwerking, taal en ontwerp draag ik mijn steentje
+            bij.
           </p>
           <p>
             Naast development houd ik van koken, klussen en kamperen. Je vindt
@@ -80,13 +92,13 @@ export default function Home() {
             "grid gap-4",
             "light:sm:grid-cols-2",
             "dark:sm:grid-cols-2",
-            "basic:-m-6 basic:border-y basic:bg-white basic:p-6 basic:sm:grid-cols-[1fr_auto_1fr] basic:md:m-auto basic:md:border-none basic:md:bg-inherit basic:md:px-[15%] basic:md:py-0",
+            "basic:-m-6 basic:border-y basic:bg-white basic:p-6 basic:sm:grid-cols-[1fr_auto_1fr] basic:md:border-none basic:md:bg-inherit basic:md:py-0",
           )}
           aria-labelledby="s1"
         >
-          <hgroup className="mb-3 basic:sm:col-span-3">
+          <hgroup className="col-span-full mb-3">
             <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
-              <span className=" bg-white box-decoration-clone dark:bg-neutral-950">
+              <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Aanbod
               </span>
             </h2>
@@ -107,12 +119,7 @@ export default function Home() {
               applicatie.
             </CardContent>
             <CardFooter>
-              <NavLink
-                href="/development"
-                className={
-                  "light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline"
-                }
-              >
+              <NavLink href="/development" variant="button">
                 Meer over development
               </NavLink>
             </CardFooter>
@@ -129,7 +136,7 @@ export default function Home() {
           />
           <Card
             as="article"
-            className="row-span-3 grid grid-rows-subgrid light:bg-amber-200 dark:bg-orange-900"
+            className="row-span-3 grid grid-rows-subgrid "
             aria-labelledby="s1c3"
           >
             <CardHeader>
@@ -141,21 +148,21 @@ export default function Home() {
               waardevolle bijdrage aan het team.
             </CardContent>
             <CardFooter className="lg:row-span-2 lg:pb-0">
-              <NavLink
-                href="/freelance"
-                className={
-                  "light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline"
-                }
-              >
+              <NavLink href="/freelance" variant="button">
                 Bekijk de mogelijkheden
               </NavLink>
             </CardFooter>
           </Card>
         </section>
         {/* ervaring */}
-        <section className="grid gap-x-6 gap-y-2 self-end sm:grid-cols-[1fr_auto] lg:w-5/6">
+        <section
+          aria-labelledby="s3"
+          className="grid gap-x-6 gap-y-2 self-end sm:grid-cols-[1fr_auto] lg:w-5/6"
+        >
           <hgroup className="mb-3 sm:col-span-2">
-            <h2 className="-mb-1 font-serif text-lg font-light">Ervaring</h2>
+            <h2 id="s3" className="-mb-1 font-serif text-lg font-light">
+              Ervaring
+            </h2>
             <p role="subtitle" className="font-serif text-xl sm:text-3xl">
               Informatieplatformen, had ik die al genoemd?
             </p>
@@ -167,7 +174,7 @@ export default function Home() {
                 Front-end developer |{" "}
                 <a
                   href="https://notfound.nl/"
-                  className="text-lg hover:underline focus:underline"
+                  className="text-lg hover:underline focus-visible:underline"
                 >
                   NotFound Digital Creativity
                   <ExternalLink className="ml-2 inline-block h-4 w-4 -translate-y-1" />
@@ -231,7 +238,7 @@ export default function Home() {
                 Full-stack webdeveloper |{" "}
                 <a
                   href="https://www.eljakim.nl/"
-                  className="text-lg hover:underline focus:underline"
+                  className="text-lg hover:underline focus-visible:underline"
                 >
                   Eljakim Information Technology bv
                   <ExternalLink className="ml-2 inline-block h-4 w-4 -translate-y-1" />
@@ -295,16 +302,16 @@ export default function Home() {
               </ul>
             </CardFooter>
           </Card>
-          <a
-            className="mt-4 w-max text-sky-600 underline underline-offset-4 outline-offset-4 transition-all hover:underline-offset-8 focus:underline-offset-8 light:rounded-full light:bg-amber-500 light:px-6 light:py-2 light:text-white light:no-underline sm:col-start-2"
+          <SimpleLink
+            variant="download"
+            className="mt-4 sm:col-start-2"
             href="/cv.pdf"
             download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
           >
-            Download mijn complete CV
-            <DownloadIcon className="ml-2 inline-block h-4 w-4" />
-          </a>
+            download mijn complete CV
+          </SimpleLink>
         </section>
-      </main>
+      </PageMain>
     </>
   );
 }

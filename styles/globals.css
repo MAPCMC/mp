@@ -3,47 +3,51 @@
 @tailwind utilities;
 
 :root {
-  --color-bg-basic: rgb(255, 255, 255);
-  --color-bg-basic-grid: rgb(243, 243, 243);
-  --color-bg-light: rgb(244, 233, 220);
-  --color-bg-light-dots: rgb(245, 223, 198);
-  --color-bg-dark: rgb(19, 28, 38);
-  --color-bg-dark-dots: rgb(34, 47, 62);
+  --color-bg-basic: 248 250 252;
+  --color-bg-basic-grid: 243 243 243;
+  --color-bg-light: 244 233 220;
+  --color-bg-light-dots: 245 223 198;
+  --color-bg-dark: 2 6 23;
+  --color-bg-dark-dots: 30 41 59;
+}
+
+h2 {
+  scroll-margin-top: 6rem;
 }
 
 @layer utilities {
   .grid-basic {
     background-image: linear-gradient(
         to right,
-        var(--color-bg-basic-grid) 1px,
+        rgb(var(--color-bg-basic-grid)) 1px,
         transparent 1px
       ),
       linear-gradient(
         to bottom,
-        var(--color-bg-basic-grid) 1px,
+        rgb(var(--color-bg-basic-grid)) 1px,
         transparent 1px
       );
     background-size: 1.5rem 1.5rem;
-    background-color: var(--color-bg-basic);
+    background-color: rgb(var(--color-bg-basic));
   }
 
   .grid-light {
     background-image: radial-gradient(
       circle at 1rem 1rem,
-      var(--color-bg-light-dots) 0.2rem,
+      rgb(var(--color-bg-light-dots)) 0.2rem,
       transparent 0
     );
     background-size: 1.5rem 1.5rem;
-    background-color: var(--color-bg-light);
+    background-color: rgb(var(--color-bg-light));
   }
 
   .grid-dark {
     background-image: radial-gradient(
       circle at 1rem 1rem,
-      var(--color-bg-dark-dots) 0.2rem,
+      rgb(var(--color-bg-dark-dots)) 0.1rem,
       transparent 0
     );
     background-size: 1.5rem 1.5rem;
-    background-color: var(--color-bg-dark);
+    background-color: rgb(var(--color-bg-dark));
   }
 }
