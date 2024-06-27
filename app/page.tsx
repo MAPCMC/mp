@@ -53,7 +53,7 @@ export default function Home() {
           { text: "Ervaring", href: "#cv" },
         ]}
       />
-      <PageMain className="mt-12 animate-in">
+      <PageMain className="mt-12">
         {/* over mij */}
         <section className="space-y-2 sm:w-3/4" aria-labelledby="about">
           <hgroup className="mb-3">
@@ -91,7 +91,7 @@ export default function Home() {
             "grid gap-x-4 gap-y-3",
             "light:sm:grid-cols-2",
             "dark:sm:grid-cols-2",
-            "basic:-m-6 basic:border-y basic:border-basic-grid basic:bg-white basic:px-6 basic:py-16",
+            "basic:-mx-6 basic:border-y basic:border-basic-grid basic:bg-white basic:px-6 basic:py-16",
             "basic:sm:grid-cols-[1fr_auto_1fr] basic:md:border-none basic:md:bg-inherit basic:md:py-0 basic:md:pr-8 basic:lg:pr-6",
           )}
           aria-labelledby="offers"

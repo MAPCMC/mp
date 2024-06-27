@@ -56,7 +56,7 @@ const MenuItem = ({ href, icon, text, className, isActive }: MenuItemProps) => {
             // indicator active page
             'after:absolute after:right-1 after:top-1 after:h-1.5 after:w-1.5 after:rounded-full after:bg-amber-500 after:content-[""]',
             "after:hidden data-active:after:block",
-            "light:md:after:top-0.5 dark:md:after:top-0.5",
+            "light:md:after:top-0.5",
 
             // light
             // colors interaction
@@ -66,9 +66,9 @@ const MenuItem = ({ href, icon, text, className, isActive }: MenuItemProps) => {
             "data-active:light:hover:bg-sky-800 data-active:light:hover:text-slate-50",
 
             // dark
-            "dark:bg-dark dark:hover:bg-slate-950 dark:md:rounded-full dark:md:border dark:md:border-dark-dots",
-            "dark:hover:bg-sky-800 dark:hover:text-slate-50 dark:focus-visible:bg-sky-800 dark:focus-visible:text-slate-50",
-            "data-active:dark:bg-dark-dots data-active:dark:hover:bg-sky-800",
+            "dark:bg-dark dark:hover:bg-slate-950 dark:md:rounded-md dark:md:border dark:md:border-dark-dots",
+            "dark:hover:border-sky-300 dark:hover:bg-sky-300 dark:hover:text-slate-950 dark:focus-visible:border-sky-300 dark:focus-visible:bg-sky-300 dark:focus-visible:text-slate-950",
+            "data-active:dark:bg-dark-dots data-active:dark:hover:bg-sky-300",
           )}
         >
           <MenuItemIcon

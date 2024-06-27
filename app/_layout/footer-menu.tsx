@@ -43,6 +43,7 @@ const MenuItem = ({
             "group flex h-8 items-center pr-4 text-inherit",
             "underline-offset-4 hover:underline focus-visible:underline",
             // "light:bg-light basic:bg-basic dark:bg-dark",
+            "outline-2 outline-offset-4 outline-sky-300 focus-visible:outline",
           )}
         >
           <span

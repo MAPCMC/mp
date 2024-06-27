@@ -2,6 +2,7 @@ import { SiGithub, SiLinkedin } from "@icons-pack/react-simple-icons";
 import { cn } from "@/lib/utils";
 import { FooterMenu } from "./footer-menu";
 import { Copyright } from "./copyright";
+import { SimpleLink } from "@/components/links";
 
 export function Footer() {
   return (
@@ -17,24 +18,26 @@ export function Footer() {
       <div className="space-y-2 self-end text-right">
         <ul className="flex justify-end gap-4">
           <li>
-            <a
+            <SimpleLink
               href="https://github.com/MAPCMC"
               target="_blank"
               className="group"
+              variant="icon"
             >
-              <SiGithub className="h-6 w-6 group-hover:text-sky-700 group-focus-visible:text-sky-700" />
+              <SiGithub className="h-6 w-6" />
               <span className="sr-only">GitHub</span>
-            </a>
+            </SimpleLink>
           </li>
           <li>
-            <a
+            <SimpleLink
               href="https://www.linkedin.com/in/maarten-peene-432635146/"
               target="_blank"
               className="group"
+              variant="icon"
             >
-              <SiLinkedin className="h-6 w-6 group-hover:text-sky-700 group-focus-visible:text-sky-700" />
+              <SiLinkedin className="h-6 w-6" />
               <span className="sr-only">LinkedIn</span>
-            </a>
+            </SimpleLink>
           </li>
         </ul>
         <Copyright />
