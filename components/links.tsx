@@ -2,7 +2,13 @@ import Link, { LinkProps as NextLinkProps } from "next/link";
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
-import { DownloadIcon } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowDownToLine,
+  ArrowRight,
+  DownloadIcon,
+  ExternalLink,
+} from "lucide-react";
 
 const linkVariants = cva(
   ["text-sky-800", "disabled:pointer-events-none disabled:opacity-70"],
@@ -33,8 +39,9 @@ const linkVariants = cva(
           "dark:py-2 dark:hover:bg-slate-50 dark:hover:text-slate-950 dark:rounded-full dark:outline-offset-8",
         ],
         button: [
-          "whitespace-nowrap first-letter:capitalize",
-          "bg-amber-500 text-slate-950 px-5 py-2 light:rounded-full dark:rounded-full",
+          "whitespace-nowrap first-letter:capitalize px-5 py-2",
+          "bg-amber-500 text-slate-950 light:rounded-full dark:rounded-full",
+          "basic:bg-white basic:hover:bg-slate-950 basic:border-slate-950 basic:border basic:italic  basic:text-sm",
           "hover:bg-slate-950 hover:text-slate-50 dark:hover:bg-slate-700",
           "outline-2 outline-offset-4 outline-sky-300 focus-visible:outline",
           "shadow-[.2rem_.2rem_solid] basic:shadow-slate-100 light:shadow-orange-200 dark:shadow-slate-700",
@@ -47,6 +54,10 @@ const linkVariants = cva(
           "light:bg-slate-950 light:text-slate-50 light:hover:bg-amber-500 light:hover:text-slate-950",
           "dark:bg-slate-700 dark:text-slate-50 dark:hover:bg-amber-500 dark:hover:text-slate-950",
           "shadow-[.2rem_.2rem_solid] basic:shadow-slate-100 light:shadow-orange-200 dark:shadow-slate-700",
+        ],
+        external: [
+          "hover:underline focus-visible:underline underline-offset-4",
+          "outline-2 outline-offset-4 outline-sky-300 focus-visible:outline",
         ],
       },
       size: {
@@ -74,11 +85,14 @@ const NavLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
   ({ className, children, variant, size, ...props }, ref) => {
     return (
       <Link
-        className={cn(linkVariants({ variant, size }), className)}
+        className={cn("group", linkVariants({ variant, size }), className)}
         ref={ref}
         {...props}
       >
         {children}
+        {variant === "button" && (
+          <ArrowRight className="-mr-1 ml-2 inline-block h-4 w-4 basic:!animate-none basic:transition-transform basic:group-hover:translate-x-2 basic:group-focus:translate-x-2 group-hover:motion-safe:animate-bounce-x-2 group-focus-visible:motion-safe:animate-bounce-x-2" />
+        )}
       </Link>
     );
   },
@@ -103,7 +117,13 @@ const SimpleLink = React.forwardRef<HTMLAnchorElement, SimpleLinkProps>(
       >
         {children}
         {variant === "download" && (
-          <DownloadIcon className="ml-2 inline-block h-4 w-4 group-hover:motion-safe:animate-bounce" />
+          <>
+            <ArrowDownToLine className="ml-2 inline-block h-4 w-4 group-hover:hidden group-focus-visible:hidden" />
+            <DownloadIcon className="ml-2 hidden h-4 w-4 group-hover:inline-block group-focus-visible:inline-block basic:!animate-none group-hover:motion-safe:animate-bounce" />
+          </>
+        )}
+        {variant === "external" && (
+          <ExternalLink className="ml-2 inline-block h-4 w-4 transition-all -translate-y-1 group-hover:-translate-y-[.4rem] group-hover:translate-x-[.25rem] group-focus:-translate-y-[.4rem] group-focus:translate-x-[.25rem] light:opacity-50 light:group-hover:opacity-100" />
         )}
       </a>
     );
