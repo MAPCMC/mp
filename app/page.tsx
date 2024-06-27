@@ -57,7 +57,10 @@ export default function Home() {
         {/* over mij */}
         <section className="space-y-2 sm:w-3/4" aria-labelledby="about">
           <hgroup className="mb-3">
-            <h2 id="about" className="-mb-1 font-serif text-lg font-light">
+            <h2
+              id="about"
+              className="-mb-1 font-serif text-lg font-light dark:text-slate-300"
+            >
               Over mij
             </h2>
             <p role="subtitle" className="font-serif text-xl sm:text-3xl">
@@ -98,7 +101,7 @@ export default function Home() {
         >
           <hgroup className="col-span-full mb-3">
             <h2 id="offers" className="-mb-1 font-serif text-lg font-light">
-              <span className="box-decoration-clone light:bg-light dark:bg-dark md:basic:bg-basic">
+              <span className="box-decoration-clone light:bg-light dark:bg-dark dark:text-slate-300 md:basic:bg-basic">
                 Aanbod
               </span>
             </h2>
@@ -168,7 +171,7 @@ export default function Home() {
             </p>
           </hgroup>
           <p className="font-serif text-sm basic:-mb-2 basic:font-light sm:font-normal sm:leading-[1.75rem]  light:sm:pt-5 basic:sm:mb-0 dark:sm:pt-5">
-            <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
+            <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark dark:text-slate-300">
               2022-2024
             </span>
           </p>
@@ -236,7 +239,7 @@ export default function Home() {
             </CardFooter>
           </Card>
           <p className="font-serif text-sm basic:-mb-2 basic:font-light sm:font-normal sm:leading-[1.75rem] light:sm:pt-5 basic:sm:mb-0 dark:sm:pt-5">
-            <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
+            <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark dark:text-slate-300">
               2017-2022
             </span>
           </p>

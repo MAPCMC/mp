@@ -13,6 +13,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { AnchorMenu } from "@/components/anchor-menu";
 import { PageHeader } from "@/components/page-header";
 import { PageMain } from "@/components/page-main";
+import {
+  Sparkles,
+  Goal,
+  MonitorSmartphone,
+  PencilRuler,
+  PenLine,
+  Smile,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Development | Maarten Peene",
@@ -28,63 +36,167 @@ export default function Page() {
       </PageHeader>
       <AnchorMenu
         links={[
-          { href: "#s1", text: "product" },
-          { href: "#s2", text: "werkwijze" },
-          { href: "#s3", text: "Kom in actie" },
+          { href: "#product", text: "product" },
+          { href: "#how", text: "werkwijze" },
+          { href: "#action", text: "Kom in actie" },
         ]}
       />
       <PageMain>
-        <section aria-labelledby="s1 s1b">
-          <hgroup className="mb-1 w-full">
-            <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
+        <section aria-labelledby="product productsub">
+          <hgroup className="mb-1">
+            <h2
+              id="product"
+              className="-mb-1 font-serif text-lg font-light dark:text-slate-300"
+            >
               <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 product
               </span>
             </h2>
             <p
-              id="s1b"
+              id="productsub"
               role="subtitle"
               className="font-serif text-xl sm:text-3xl"
             >
               Wat mag je verwachten?
             </p>
           </hgroup>
-          <div>
-            <h3>Maatwerk</h3>
-            {/* jouw belangen, jouw inbreng, jij als gebruiker */}
-            <h3>Gebruiksvriendelijk</h3>
-            {/* mooi om naar te kijken, aandacht voor ux */}
-            <h3>Toegankelijk</h3>
-            {/* alle gebruikers, alle apparaten (responsive) */}
-            <h3>Doelgericht</h3>
-            {/* vanuit concept, SEO op orde */}
-            <h3>Verzorgd</h3>
-            {/* communicatie, mogelijkheid content creatie */}
-          </div>
+          <p className="mb-5 text-lg">
+            <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
+              Iedere developer heeft een eigen stijl; dit zie je terug in de
+              producten die ze leveren. Mijn aandacht gaat uit naar het maken
+              van websites en applicaties die je écht gebruiken wilt. Voor zowel
+              bezoekers als beheerders zet ik in op een plezierige ervaring.
+            </span>
+          </p>
+          <ul className="grid gap-3 light:gap-x-4 light:gap-y-6 sm:grid-cols-2 xl:grid-cols-3">
+            <Card as="li">
+              <CardHeader>
+                <PencilRuler
+                  width={52}
+                  height={52}
+                  strokeWidth={1.25}
+                  className="origin-bottom-left scale-75 light:text-orange-400 dark:text-orange-200 md:scale-100"
+                />
+                <CardTitle>Maatwerk</CardTitle>
+              </CardHeader>
+              <CardContent>
+                Opvallen online doe je met een eigen verhaal; ik wil jouw
+                perspectief uitdragen. Samen onderzoeken we wat jouw website of
+                webapplicatie uniek maakt, en dat vertaal ik in code.
+              </CardContent>
+            </Card>
+            <Card as="li">
+              <CardHeader className="items-start">
+                <Smile
+                  width={52}
+                  height={52}
+                  strokeWidth={1.25}
+                  className="origin-bottom-left scale-75 light:text-orange-400 dark:text-orange-200 md:scale-100"
+                />
+                <CardTitle>Gebruiksvriendelijk</CardTitle>
+              </CardHeader>
+              <CardContent>
+                Ik ben de meest kritische eindgebruiker van iedere site die ik
+                maak. Ben ik niet onder de indruk, dan valt er werk te
+                verzetten. Zo zorg ik dat jij en je bezoekers nergens tegenaan
+                lopen.
+              </CardContent>
+            </Card>
+            <Card as="li">
+              <CardHeader>
+                <MonitorSmartphone
+                  width={52}
+                  height={52}
+                  strokeWidth={1.25}
+                  className="origin-bottom-left scale-75 light:text-orange-400 dark:text-orange-200 md:scale-100"
+                />
+                <CardTitle>Toegankelijk</CardTitle>
+              </CardHeader>
+              <CardContent>
+                Ben je hier via je telefoon of je computer? Het maakt mij niet
+                uit, de vormgeving staat. En of je nou gebruik maakt van een
+                muis, een toetsenbord of een screenreader - ik zorg dat je je
+                weg kunt vinden.
+              </CardContent>
+            </Card>
+            <Card as="li">
+              <CardHeader>
+                <Goal
+                  width={52}
+                  height={52}
+                  strokeWidth={1.25}
+                  className="origin-bottom-left scale-75 light:text-orange-400 dark:text-orange-200 md:scale-100"
+                />
+                <CardTitle>Doelgericht</CardTitle>
+              </CardHeader>
+              <CardContent>
+                Zelf kan ik eindeloos genieten van een mooie site, maar jij en
+                je bezoekers zien een middel tot een doel. Of het nu gaat om
+                vindbaarheid, veiligheid of snelheid - als gereedschap doet je
+                site wat het moet doen.
+              </CardContent>
+            </Card>
+            <Card as="li">
+              <CardHeader>
+                <PenLine
+                  width={52}
+                  height={52}
+                  strokeWidth={1.25}
+                  className="origin-bottom-left scale-75 light:text-orange-400 dark:text-orange-200 md:scale-100"
+                />
+                <CardTitle>Beheerbaar</CardTitle>
+              </CardHeader>
+              <CardContent>
+                Je site is af, en nu? Ik zorg dat je aan de slag kunt met de
+                content. Samen maken we de balans op tussen flexibiliteit en
+                gebruiksgemak: jij bepaalt wat je zelf wilt doen en waar je hulp
+                bij nodig hebt.
+              </CardContent>
+            </Card>
+            <Card as="li">
+              <CardHeader>
+                <Sparkles
+                  width={52}
+                  height={52}
+                  strokeWidth={1.25}
+                  className="origin-bottom-left scale-75 light:text-orange-400 dark:text-orange-200 md:scale-100"
+                />
+                <CardTitle>Verzorgd</CardTitle>
+              </CardHeader>
+              <CardContent>
+                Of het nu gaat om de code, de vormgeving of de content - ik vind
+                het belangrijk dat je met vertrouwen je site de wereld in
+                stuurt. Wat is er voor nodig om hier te komen? Weet dat ik graag
+                meedenk en met je de details in wil duiken.
+              </CardContent>
+            </Card>
+          </ul>
         </section>
         <section
-          className="grid gap-y-2 sm:grid-cols-2 xl:grid-cols-4"
-          aria-labelledby="s2 s2b"
+          className="grid gap-x-4 gap-y-3 sm:grid-cols-2 xl:grid-cols-4"
+          aria-labelledby="how howsub"
         >
-          <div className="sm:col-span-2 xl:col-span-4">
-            <hgroup className="mb-1 w-full">
-              <h2 id="s2" className="-mb-1 font-serif text-lg font-light">
+          <div className="mb-3 sm:col-span-2 xl:col-span-4">
+            <hgroup className="w-full">
+              <h2
+                id="how"
+                className="-mb-1 font-serif text-lg font-light dark:text-slate-300"
+              >
                 <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                   werkwijze
                 </span>
               </h2>
               <p
-                id="s2b"
+                id="howsub"
                 role="subtitle"
                 className="font-serif text-xl sm:text-3xl"
               >
                 Persoonlijke aandacht
               </p>
             </hgroup>
-            <p className="text-lg">
-              <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
-                Jouw bedrijf levert maatwerk, dus je website doet dat ook. We
-                maken een aantrekkelijk en innovatief platform dat boven het
+            <p className="mt-2 text-lg">
+              <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
+                Het doel is een aantrekkelijke nieuwe site die boven het
                 maaiveld uitsteekt. Hoe we daar komen? Stap voor stap neem ik je
                 mee in het ontwikkeltraject.
               </span>
@@ -94,31 +206,37 @@ export default function Page() {
             <ProcessCards />
           </div>
         </section>
-        <section aria-labelledby="s3" className="gap-12 sm:grid sm:grid-cols-2">
+        <section
+          aria-labelledby="action"
+          className="gap-12 sm:grid sm:grid-cols-2"
+        >
           <hgroup className="col-span-2">
-            <h2 className="-mb-1 font-serif text-lg font-light" id="s3">
+            <h2
+              className="-mb-1 font-serif text-lg font-light dark:text-slate-300"
+              id="action"
+            >
               Kom in actie
             </h2>
             <p
-              id="s3b"
+              id="actionsub"
               role="subtitle"
               className="font-serif text-xl sm:text-3xl"
             >
               Wat gaan we doen?
             </p>
           </hgroup>
-          <Card as="article" aria-labelledby="s3c1">
+          <Card as="article" aria-labelledby="quotation">
             <CardHeader>
-              <CardTitle id="s3c1">Offerte aanvragen</CardTitle>
+              <CardTitle id="quotation">Offerte aanvragen</CardTitle>
             </CardHeader>
             <CardContent>
               {/* TODO details opdracht */}
               <ContactForm />
             </CardContent>
           </Card>
-          <Card as="article" aria-labelledby="s3c2">
+          <Card as="article" aria-labelledby="plan">
             <CardHeader>
-              <CardTitle id="s3c2">Begin zelf</CardTitle>
+              <CardTitle id="plan">Begin zelf</CardTitle>
             </CardHeader>
             <CardContent className="grow">
               Bereid je voor op het ontwikkelproces in je eigen tempo, zodat je

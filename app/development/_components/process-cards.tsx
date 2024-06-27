@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlusCircleIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 export const ProcessCards = () => {
   const [reveal, setReveal] = useState(0);
@@ -103,8 +104,8 @@ export const ProcessCards = () => {
       </li>
       <li className={cn("h-full w-full", reveal === 3 ? "hidden" : "")}>
         {reveal < 3 && (
-          <button
-            className="group mx-auto flex h-full w-full flex-col items-center justify-center rounded-lg p-6 hover:bg-slate-50 focus-visible:bg-slate-50 dark:hover:bg-slate-700 dark:focus-visible:bg-slate-50"
+          <Button
+            className="group mx-auto flex h-full w-full flex-col items-center justify-center light:rounded-md"
             onClick={() => setReveal(reveal + 1)}
           >
             <PlusCircleIcon
@@ -114,7 +115,7 @@ export const ProcessCards = () => {
             <span className="opacity-70 group-hover:opacity-100 group-hover:translate-y-2">
               Meer
             </span>
-          </button>
+          </Button>
         )}
       </li>
     </ul>
