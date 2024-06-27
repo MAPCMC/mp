@@ -6,9 +6,6 @@ import { ThemeProvider } from "@/app/_layout/theme-provider";
 import { Footer } from "@/app/_layout/footer";
 import { NavBar } from "@/app/_layout/nav-bar";
 
-// TODO - delete when https://github.com/radix-ui/primitives/pull/2811 gets merged
-import "./_suppressRefWarning";
-
 const serif = Roboto_Slab({
   subsets: ["latin"],
   variable: "--font-roboto-slab",
