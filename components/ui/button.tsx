@@ -17,7 +17,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-slate-950 text-slate-50",
+        default: [
+          "whitespace-nowrap w-max first-letter:capitalize px-5 py-2",
+          "bg-amber-500 text-slate-950 hover:bg-slate-950 hover:text-slate-50",
+          "basic:bg-white basic:hover:bg-slate-950 basic:border-slate-950 basic:border basic:text-sm basic:shadow-slate-100 basic:shadow-[.2rem_.2rem_solid]",
+          "light:rounded-full light:hover:bg-slate-700 light:hover:shadow-slate-300 light:transition-all light:border light:hover:border-none light:shadow-orange-200 light:shadow-[.3rem_.3rem_solid] light:hover:shadow-[.2rem_.2rem_solid]",
+          "dark:border dark:text-slate-50 dark:border-dark-dots/50 dark:rounded-md dark:shadow-md dark:shadow-slate-700 dark:hover:shadow-lg dark:hover:bg-orange-200 dark:hover:shadow-slate-700",
+        ],
         // destructive:
         //   "bg-red-500 text-neutral-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-neutral-50 dark:hover:bg-red-900/90",
         outline: "border hover:border-none",

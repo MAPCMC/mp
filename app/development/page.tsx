@@ -41,7 +41,7 @@ export default function Page() {
           { href: "#action", text: "Kom in actie" },
         ]}
       />
-      <PageMain>
+      <PageMain className="mt-10">
         <section aria-labelledby="product productsub">
           <hgroup className="mb-1">
             <h2
@@ -68,7 +68,7 @@ export default function Page() {
               bezoekers als beheerders zet ik in op een plezierige ervaring.
             </span>
           </p>
-          <ul className="grid gap-3 light:gap-x-4 light:gap-y-6 sm:grid-cols-2 xl:grid-cols-3">
+          <ul className="grid light:gap-4 basic:gap-6 dark:gap-3 sm:grid-cols-2 xl:grid-cols-3 light:xl:gap-y-6">
             <Card as="li">
               <CardHeader>
                 <PencilRuler
@@ -172,43 +172,36 @@ export default function Page() {
             </Card>
           </ul>
         </section>
-        <section
-          className="grid gap-x-4 gap-y-3 sm:grid-cols-2 xl:grid-cols-4"
-          aria-labelledby="how howsub"
-        >
-          <div className="mb-3 sm:col-span-2 xl:col-span-4">
-            <hgroup className="w-full">
-              <h2
-                id="how"
-                className="-mb-1 font-serif text-lg font-light dark:text-slate-300"
-              >
-                <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
-                  werkwijze
-                </span>
-              </h2>
-              <p
-                id="howsub"
-                role="subtitle"
-                className="font-serif text-xl sm:text-3xl"
-              >
-                Persoonlijke aandacht
-              </p>
-            </hgroup>
-            <p className="mt-2 text-lg">
-              <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
-                Het doel is een aantrekkelijke nieuwe site die boven het
-                maaiveld uitsteekt. Hoe we daar komen? Stap voor stap neem ik je
-                mee in het ontwikkeltraject.
+        <section aria-labelledby="how howsub">
+          <hgroup className="mb-1">
+            <h2
+              id="how"
+              className="-mb-1 font-serif text-lg font-light dark:text-slate-300"
+            >
+              <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
+                werkwijze
               </span>
+            </h2>
+            <p
+              id="howsub"
+              role="subtitle"
+              className="font-serif text-xl sm:text-3xl"
+            >
+              Persoonlijke aandacht
             </p>
-          </div>
-          <div className="sm:col-span-2 xl:col-span-4">
-            <ProcessCards />
-          </div>
+          </hgroup>
+          <p className="mb-5 text-lg">
+            <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
+              Het doel is een aantrekkelijke nieuwe site of app die boven het
+              maaiveld uitsteekt. Hoe we daar komen? Ik neem je mee in het
+              ontwikkeltraject.
+            </span>
+          </p>
+          <ProcessCards />
         </section>
         <section
           aria-labelledby="action"
-          className="gap-12 sm:grid sm:grid-cols-2"
+          className="light:gap-4 basic:gap-6 dark:gap-3 sm:grid sm:grid-cols-2"
         >
           <hgroup className="col-span-2">
             <h2
