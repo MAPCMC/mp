@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Breadcrumb as BreadcrumbPrimitive,
   BreadcrumbItem,
@@ -31,10 +31,16 @@ export function Breadcrumb() {
         scrollTrigger: {
           trigger: ".breadcrumb-nav",
           toggleActions: "restart pause resume reset",
+          invalidateOnRefresh: true,
+          fastScrollEnd: true,
         },
       },
     );
   });
+
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, [paths]);
 
   return (
     <BreadcrumbPrimitive className="breadcrumb-nav z-10 -mb-16 w-full px-6 pt-16 md:ml-[20%] md:w-[80%] md:pt-20 lg:ml-0 lg:w-[70%]">

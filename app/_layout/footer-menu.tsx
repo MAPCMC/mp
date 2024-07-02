@@ -15,6 +15,7 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useEffect } from "react";
 
 type MenuItemProps = {
   text: string;
@@ -82,10 +83,16 @@ export function FooterMenu() {
         scrollTrigger: {
           trigger: ".footer-menu",
           toggleActions: "restart pause resume reset",
+          invalidateOnRefresh: true,
+          fastScrollEnd: true,
         },
       },
     );
   });
+
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, [pathname]);
 
   return (
     <NavigationMenu
