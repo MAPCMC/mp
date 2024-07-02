@@ -11,7 +11,7 @@ export const ProcessCards = () => {
   const [reveal, setReveal] = useState(0);
 
   return (
-    <ul
+    <ol
       className={cn(
         "process-cards grid *:min-h-32 light:gap-4 basic:gap-6 dark:gap-3 sm:grid-cols-2 xl:grid-cols-4",
       )}
@@ -107,6 +107,6 @@ export const ProcessCards = () => {
           </Button>
         </li>
       )}
-    </ul>
+    </ol>
   );
 };

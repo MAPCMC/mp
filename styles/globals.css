@@ -11,7 +11,10 @@
   --color-bg-dark-dots: 30 41 59;
 }
 
-h2 {
+h1,
+h2,
+h3,
+h4 {
   scroll-margin-top: 6rem;
 }
 
