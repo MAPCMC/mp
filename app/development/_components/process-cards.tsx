@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { PlusCircleIcon } from "lucide-react";
+import { CodeXml, Handshake, MessageCircleHeart } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -96,11 +96,27 @@ export const ProcessCards = () => {
             onClick={() => setReveal(reveal + 1)}
             variant="outline"
           >
-            <PlusCircleIcon
-              size={52}
-              strokeWidth={1.5}
-              className="text-amber-500 scale-90 group-hover:text-white group-hover:scale-100"
-            />
+            {reveal === 0 && (
+              <CodeXml
+                size={52}
+                strokeWidth={1.5}
+                className="text-amber-500 scale-90 group-hover:text-white group-hover:scale-100"
+              />
+            )}
+            {reveal === 1 && (
+              <Handshake
+                size={52}
+                strokeWidth={1.5}
+                className="text-amber-500 scale-90 group-hover:text-white group-hover:scale-100"
+              />
+            )}
+            {reveal === 2 && (
+              <MessageCircleHeart
+                size={52}
+                strokeWidth={1.5}
+                className="text-amber-500 scale-90 group-hover:text-white group-hover:scale-100"
+              />
+            )}
             <span className="text-sm text-inherit first-letter:capitalize group-hover:translate-y-1">
               volgende stap
             </span>
