@@ -146,7 +146,7 @@ export default function Page() {
             wat je wilt kunnen aanpassen. Zo weten we wat de blokken zijn
             waarmee we de site of applicatie bouwen, en hoe we die blokken aan
             elkaar koppelen. Deze informatie is cruciaal voor het inrichten van
-            je datastructuur.
+            de code en de data.
           </p>
           <p>
             Een voorbeeld: we plaatsen een nieuwsfeed op de homepagina; hoe
@@ -160,8 +160,37 @@ export default function Page() {
             Het is geen enkel probleem om hier in een later stadium ideeën over
             te vormen, of wanneer je überhaupt wilt dat dit voor je wordt
             bepaald. Maar weet dat deze vragen worden gesteld en beantwoord; als
-            jij hier inspraak in wilt hebben, train jezelf dan om in dit soort
-            blokken over je content na te denken.
+            jij hier inspraak in wilt hebben, train jezelf dan om in blokken
+            over je content na te denken.
+          </p>
+          <h3 id="processes">
+            Welke processen vinden er plaats in jouw werkveld?
+          </h3>
+          <p>
+            Als het niet lukt om in termen van functionaliteit of content te
+            denken, laat dit dan bij de ontwikkelaar. Zij hebben ervaring met
+            dit perspectief, en kunnen helpen om jouw verhaal te vertalen. Waar
+            zij geen ervaring mee hebben, en waar jouw input het verschil maakt,
+            is met het leren kennen van jouw werk, en de problemen die zij voor
+            je op kunnen lossen.
+          </p>
+          <p>
+            Stel: jullie organiseren jaarlijks een groot evenement. Aanmelden
+            gebeurt al sinds 2014 via e-mail; dezelfde vragen gaan over en weer,
+            uitzonderingen op de gastenlijst worden gemaakt, de goedkeuring en
+            bevestiging wordt handmatig gedaan. Jij kan dit dromen, kent het
+            evenement tot in de puntjes, weet precies waar de knelpunten in de
+            aanmelding zitten, en wat voor jullie de belangrijkste
+            bezoekersinformatie is.
+          </p>
+          <p>
+            Een ontwikkelaar kan dit automatiseren en naar je hand zetten, op
+            het moment dat jij dit proces in kaart kan brengen. Hoe zien de
+            stappen er uit, en waarom zijn de stappen die je zet belangrijk?
+            Juist in de waarom zit ontzettend veel waarde; in de dingen die je
+            vanuit jouw werk vanzelfsprekend acht. Wat zou voor dit evenement en
+            voor jouw bedrijf de ideale aanmeldprocedure zijn? Dan beginnen we
+            daar straks met inrichten!
           </p>
           <h3 id="conditions">Wat zijn de randvoorwaarden?</h3>
           <p>
