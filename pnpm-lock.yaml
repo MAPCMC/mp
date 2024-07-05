@@ -15,7 +15,7 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(react-dom@19.0.0-rc-81c5ff2e04-20240521(react@19.0.0-rc-81c5ff2e04-20240521))(react-hook-form@7.52.1(react@19.0.0-rc-81c5ff2e04-20240521))(react@19.0.0-rc-81c5ff2e04-20240521)
       '@hookform/resolvers':
-        specifier: ^3.7.0
+        specifier: ^3.6.0
         version: 3.7.0(react-hook-form@7.52.1(react@19.0.0-rc-81c5ff2e04-20240521))
       '@icons-pack/react-simple-icons':
         specifier: ^9.6.0
@@ -45,10 +45,10 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       embla-carousel-autoplay:
-        specifier: ^8.1.6
+        specifier: ^8.1.5
         version: 8.1.6(embla-carousel@8.1.6)
       embla-carousel-react:
-        specifier: ^8.1.6
+        specifier: ^8.1.5
         version: 8.1.6(react@19.0.0-rc-81c5ff2e04-20240521)
       gsap:
         specifier: ^3.12.5
@@ -69,7 +69,7 @@ importers:
         specifier: 19.0.0-rc-81c5ff2e04-20240521
         version: 19.0.0-rc-81c5ff2e04-20240521(react@19.0.0-rc-81c5ff2e04-20240521)
       react-hook-form:
-        specifier: ^7.52.1
+        specifier: ^7.52.0
         version: 7.52.1(react@19.0.0-rc-81c5ff2e04-20240521)
       tailwind-merge:
         specifier: ^2.3.0
@@ -103,7 +103,7 @@ importers:
         specifier: 14.2.3
         version: 14.2.3(eslint@8.57.0)(typescript@5.5.3)
       postcss:
-        specifier: ^8.4.39
+        specifier: ^8.4.38
         version: 8.4.39
       prettier:
         specifier: ^3.3.2
@@ -121,7 +121,7 @@ importers:
         specifier: 2.0.0-beta.0
         version: 2.0.0-beta.0
       typescript:
-        specifier: ^5.5.3
+        specifier: ^5.5.2
         version: 5.5.3
 
 packages:
