@@ -46,6 +46,14 @@ const linkVariants = cva(
           "light:rounded-full light:hover:bg-sky-800 light:hover:shadow-sky-300 light:transition-all light:!border-none light:shadow-orange-200 light:shadow-[.3rem_.3rem_solid] light:hover:shadow-[.2rem_.2rem_solid]",
           "dark:border dark:text-slate-950 dark:border-dark-dots/50 dark:rounded-md dark:shadow-md dark:shadow-slate-700 dark:hover:shadow-lg dark:hover:bg-sky-300 dark:hover:shadow-slate-700",
         ],
+        secondary: [
+          "first-letter:capitalize",
+          "whitespace-nowrap w-max first-letter:capitalize px-5 py-2",
+          "outline-2 outline-offset-4 outline-sky-300 focus-visible:outline",
+          "basic:bg-transparent basic:hover:bg-slate-300 basic:border-slate-300 basic:hover:border-slate-950 basic:border basic:text-sm basic:shadow-slate-100 basic:shadow-[.2rem_.2rem_solid] basic:hover:text-slate-950 basic:text-slate-700",
+          "light:rounded-full light:border-light-dots light:bg-light light:hover:bg-white light:hover:text-slate-950 light:hover:shadow-orange-300 light:transition-all light:border light:shadow-orange-200 light:shadow-[.3rem_.3rem_solid] light:hover:shadow-[.2rem_.2rem_solid]",
+          "dark:border dark:text-slate-50 dark:border-dark-dots/50 dark:rounded-md dark:shadow-md dark:shadow-slate-700 dark:hover:shadow-lg dark:hover:bg-slate-300 dark:hover:shadow-slate-700 dark:bg-slate-700 hover:dark:text-slate-950",
+        ],
         download: [
           "whitespace-nowrap w-max first-letter:capitalize px-5 py-2",
           "outline-2 outline-offset-4 outline-sky-300 focus-visible:outline",
@@ -79,27 +87,35 @@ const linkVariants = cva(
 
 export interface LinkProps
   extends NextLinkProps,
+    // React.AnchorHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof linkVariants> {
   className?: string;
   children?: React.ReactNode;
+  ref?: React.ForwardedRef<HTMLAnchorElement>;
+  target?: string;
 }
 
-const NavLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ className, children, variant, size, ...props }, ref) => {
-    return (
-      <Link
-        className={cn("group", linkVariants({ variant, size }), className)}
-        ref={ref}
-        {...props}
-      >
-        {children}
-        {variant === "button" && (
-          <ArrowRight className="-mr-1 ml-2 inline-block h-4 w-4 basic:!animate-none basic:transition-transform basic:group-hover:translate-x-2 basic:group-focus:translate-x-2 group-hover:motion-safe:animate-bounce-x-2 group-focus-visible:motion-safe:animate-bounce-x-2" />
-        )}
-      </Link>
-    );
-  },
-);
+const NavLink: React.FC<LinkProps> = ({
+  className,
+  children,
+  variant,
+  size,
+  ref,
+  ...props
+}) => {
+  return (
+    <Link
+      className={cn("group", linkVariants({ variant, size }), className)}
+      ref={ref}
+      {...props}
+    >
+      {children}
+      {(variant === "button" || variant === "secondary") && (
+        <ArrowRight className="-mr-1 ml-2 inline-block h-4 w-4 basic:!animate-none basic:transition-transform basic:group-hover:translate-x-2 basic:group-focus:translate-x-2 group-hover:motion-safe:animate-bounce-x-2 group-focus-visible:motion-safe:animate-bounce-x-2" />
+      )}
+    </Link>
+  );
+};
 
 NavLink.displayName = "NavLink";
 

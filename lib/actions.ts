@@ -1,8 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { emailSchema } from "@/lib/validations";
-import { ZodError } from "zod";
+import { emailSchema, quotationSchema } from "@/lib/validations";
+import { z, ZodError } from "zod";
 
 export type State =
   | {
@@ -53,4 +53,10 @@ export async function sendEmail(
     }
     return { status: "ERROR", message: "Er is een fout opgetreden." };
   }
+}
+
+export async function sendQuotationRequest(
+  data: z.infer<typeof quotationSchema>,
+) {
+  return data;
 }

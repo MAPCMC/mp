@@ -27,7 +27,7 @@ export default function Page() {
         ]}
       />
       <PageMain>
-        <article className="prose prose-slate prose-sm md:prose-base dark:prose-invert prose-headings:font-serif prose-lead:text-inherit prose-headings:font-normal prose-lead:text-lg prose-h2:text-3xl prose-h3:text-2xl prose-li:marker:text-orange-500 -ml-3 mt-6 max-w-[90ch] px-3 py-4 light:bg-light/50 basic:bg-basic/50 dark:bg-dark/50">
+        <article className="prose prose-slate prose-sm md:prose-base prose-headings:font-serif prose-lead:text-inherit prose-headings:text-inherit prose-headings:font-normal prose-lead:text-lg prose-h2:text-3xl prose-h3:text-2xl prose-li:marker:text-orange-500 -ml-3 mt-6 max-w-[90ch] px-3 py-4 text-inherit light:bg-light/50 basic:bg-basic/50 dark:bg-dark/50">
           <h2 id="todo">Begin aan een ontwikkelplan</h2>
           <p className="lead">
             Bij de eerste stappen van een nieuw ontwikkelproces komt veel denk-
@@ -187,10 +187,10 @@ export default function Page() {
             Een ontwikkelaar kan dit automatiseren en naar je hand zetten, op
             het moment dat jij dit proces in kaart kan brengen. Hoe zien de
             stappen er uit, en waarom zijn de stappen die je zet belangrijk?
-            Juist in de waarom zit ontzettend veel waarde; in de dingen die je
-            vanuit jouw werk vanzelfsprekend acht. Wat zou voor dit evenement en
-            voor jouw bedrijf de ideale aanmeldprocedure zijn? Dan beginnen we
-            daar straks met inrichten!
+            Neem ons mee in je routine, en in de dingen die je vanuit jouw werk
+            vanzelfsprekend acht. Wat zou voor dit evenement en voor jouw
+            bedrijf de ideale aanmeldprocedure zijn? Dan beginnen we daar straks
+            met inrichten!
           </p>
           <h3 id="conditions">Wat zijn de randvoorwaarden?</h3>
           <p>

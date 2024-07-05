@@ -150,7 +150,7 @@ export const MemoryGame = ({
                 "card size-12 shadow-[.2rem_.2rem_solid] dark:rounded-md lg:size-16 lg:shadow-[.3rem_.3rem_solid]",
                 "basic:border basic:border-slate-300 basic:bg-basic basic:shadow-slate-100",
                 "light:rounded-md light:bg-orange-500/70 light:shadow-orange-200",
-                "dark:border dark:border-dark-dots dark:bg-dark ",
+                "dark:border dark:border-dark-dots dark:bg-dark lg:justify-self-end",
               )}
             ></div>
           ))}

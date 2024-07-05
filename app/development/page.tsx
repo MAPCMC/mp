@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ContactForm } from "@/components/contact-form";
+import { QuotationForm } from "@/app/development/_components/quotation-form";
 import { NavLink } from "@/components/links";
 import { Toaster } from "@/components/ui/toaster";
 import { AnchorMenu } from "@/components/anchor-menu";
@@ -131,9 +131,9 @@ export default function Page() {
               </CardHeader>
               <CardContent>
                 Zelf kan ik eindeloos genieten van een mooie site, maar jij en
-                je bezoekers zien een middel tot een doel. Of het nu gaat om
-                vindbaarheid, veiligheid of snelheid - als gereedschap doet je
-                site wat het moet doen.
+                je bezoekers zien eerder een middel tot een doel. Of het nu gaat
+                om vindbaarheid, veiligheid of snelheid - als gereedschap doet
+                je site wat het moet doen.
               </CardContent>
             </Card>
             <Card as="li">
@@ -201,9 +201,9 @@ export default function Page() {
         </section>
         <section
           aria-labelledby="action"
-          className="light:gap-4 basic:gap-6 dark:gap-3 sm:grid sm:grid-cols-2"
+          className="grid light:gap-4 basic:gap-6 dark:gap-3 lg:grid-cols-3"
         >
-          <hgroup className="col-span-2">
+          <hgroup className="lg:col-span-3">
             <h2
               className="-mb-1 font-serif text-lg font-light dark:text-slate-300"
               id="action"
@@ -218,13 +218,22 @@ export default function Page() {
               Wat gaan we doen?
             </p>
           </hgroup>
-          <Card as="article" aria-labelledby="quotation">
+          <Card
+            as="article"
+            aria-labelledby="quotation"
+            className="lg:col-span-2 lg:row-span-2"
+          >
             <CardHeader>
-              <CardTitle id="quotation">Offerte aanvragen</CardTitle>
+              <CardTitle id="quotation">Vraag een offerte aan</CardTitle>
             </CardHeader>
-            <CardContent>
-              {/* TODO details opdracht */}
-              <ContactForm />
+            <CardContent className="space-y-4">
+              <p>
+                Stuur mij een beknopte omschrijving van je project, en ik maak
+                een inschatting van het werk en de mogelijkheden. Zo weet je
+                direct waar je aan toe bent. Is je idee nog niet zo strak
+                omlijnd? Gooi een balletje op, dan gaan we verder in gesprek.
+              </p>
+              <QuotationForm />
             </CardContent>
           </Card>
           <Card as="article" aria-labelledby="plan">

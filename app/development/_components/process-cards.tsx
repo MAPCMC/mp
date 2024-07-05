@@ -117,7 +117,7 @@ export const ProcessCards = () => {
                 className="text-amber-500 scale-90 group-hover:text-white group-hover:scale-100"
               />
             )}
-            <span className="text-sm text-inherit first-letter:capitalize group-hover:translate-y-1">
+            <span className="text-sm text-inherit first-letter:capitalize">
               volgende stap
             </span>
           </Button>

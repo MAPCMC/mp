@@ -27,7 +27,7 @@ export default function Home() {
       <PageHeader>
         <div className="grid gap-x-4 gap-y-2 sm:grid-cols-[auto_auto] md:grid-rows-[1fr_auto]">
           {/* logo puzzle */}
-          <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr] lg:gap-2" />
+          <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[1fr_auto_auto] sm:grid-rows-[1fr_auto_auto] lg:gap-2" />
           <hgroup className="self-end font-serif font-light">
             <h1 className="text-xl">
               <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
@@ -44,6 +44,14 @@ export default function Home() {
           <p className="w-full break-words font-serif text-3xl sm:text-4xl lg:text-5xl">
             Samen bouwen we uitzonderlijke websites
           </p>
+          <div className="mt-4 inline-flex flex-wrap items-center gap-3 sm:col-start-2">
+            <NavLink href="/development#quotation" variant="button">
+              stuur mij je idee!
+            </NavLink>
+            <NavLink href="/freelance" variant="secondary">
+              of huur mij in
+            </NavLink>
+          </div>
         </div>
       </PageHeader>
       <AnchorMenu
