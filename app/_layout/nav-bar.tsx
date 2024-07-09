@@ -48,9 +48,9 @@ export function NavBar() {
               />
               <div
                 className={cn(
-                  "absolute inset-0 z-10 flex items-center justify-center  text-slate-50 opacity-0 transition-all ",
+                  "absolute inset-0 z-10 flex items-center justify-center text-slate-50 opacity-0",
                   "group-hover:opacity-100 light:rounded-md dark:rounded-md",
-                  "light:bg-sky-800 basic:bg-slate-950 dark:bg-sky-800",
+                  "light:bg-sky-800 basic:bg-slate-950 dark:bg-sky-300 dark:text-slate-950",
                 )}
               >
                 <Home className="h-5 w-5" />

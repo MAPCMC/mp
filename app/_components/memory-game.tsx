@@ -150,6 +150,7 @@ export const MemoryGame = ({
                 "card size-12 shadow-[.2rem_.2rem_solid] dark:rounded-md lg:size-16 lg:shadow-[.3rem_.3rem_solid]",
                 "basic:border basic:border-slate-300 basic:bg-basic basic:shadow-slate-100",
                 "light:rounded-md light:bg-orange-500/70 light:shadow-orange-200",
+                "dark:border dark:border-dark-dots dark:bg-dark lg:justify-self-end",
               )}
             ></div>
           ))}
@@ -198,7 +199,7 @@ export const MemoryGame = ({
       {cards.length > 0 && (
         <Button
           className={cn(
-            "absolute -top-8 right-0 sm:inset-x-0 sm:-bottom-8 sm:top-auto",
+            "absolute -top-8 right-0 sm:inset-x-0 sm:-bottom-10 sm:top-auto",
             "animate-in fade-in slide-in-from-right-24 sm:slide-in-from-right-0 sm:slide-in-from-top-full",
           )}
           size="xs"

@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { ContactForm } from "@/components/contact-form";
+import { ContactForm } from "@/app/contact/_components/contact-form";
 import { PageHeader } from "@/components/page-header";
 import { PageMain } from "@/components/page-main";
 

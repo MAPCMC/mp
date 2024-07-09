@@ -9,7 +9,6 @@ import {
 import { MemoryGame } from "@/app/_components/memory-game";
 import { AboutSpans } from "@/app/_components/about-spans";
 import { NavLink, SimpleLink } from "@/components/links";
-import { DownloadIcon, ExternalLink } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
@@ -28,7 +27,7 @@ export default function Home() {
       <PageHeader>
         <div className="grid gap-x-4 gap-y-2 sm:grid-cols-[auto_auto] md:grid-rows-[1fr_auto]">
           {/* logo puzzle */}
-          <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[auto_auto_1fr] sm:grid-rows-[auto_auto_1fr] lg:gap-2" />
+          <MemoryGame className="flex flex-wrap-reverse gap-1.5 sm:col-start-1 sm:row-span-2 sm:inline-grid sm:grid-cols-[1fr_auto_auto] sm:grid-rows-[1fr_auto_auto] lg:gap-2" />
           <hgroup className="self-end font-serif font-light">
             <h1 className="text-xl">
               <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
@@ -45,20 +44,31 @@ export default function Home() {
           <p className="w-full break-words font-serif text-3xl sm:text-4xl lg:text-5xl">
             Samen bouwen we uitzonderlijke websites
           </p>
+          <div className="mt-4 inline-flex flex-wrap items-center gap-3 sm:col-start-2">
+            <NavLink href="/development#quotation" variant="button">
+              stuur mij je idee!
+            </NavLink>
+            <NavLink href="/freelance" variant="secondary">
+              of huur mij in
+            </NavLink>
+          </div>
         </div>
       </PageHeader>
       <AnchorMenu
         links={[
-          { text: "Over mij", href: "#s2" },
-          { text: "Aanbod", href: "#s1" },
-          { text: "Ervaring", href: "#s3" },
+          { text: "Over mij", href: "#about" },
+          { text: "Aanbod", href: "#offers" },
+          { text: "Ervaring", href: "#cv" },
         ]}
       />
-      <PageMain className="pt-8">
+      <PageMain className="mt-12">
         {/* over mij */}
-        <section className="space-y-2 sm:w-3/4" aria-labelledby="s2">
+        <section className="space-y-2 sm:w-3/4" aria-labelledby="about">
           <hgroup className="mb-3">
-            <h2 id="s2" className="font-serif text-lg font-light">
+            <h2
+              id="about"
+              className="-mb-1 font-serif text-lg font-light dark:text-slate-300"
+            >
               Over mij
             </h2>
             <p role="subtitle" className="font-serif text-xl sm:text-3xl">
@@ -89,16 +99,17 @@ export default function Home() {
         {/* aanbod */}
         <section
           className={cn(
-            "grid gap-4",
+            "grid gap-x-4 gap-y-3",
             "light:sm:grid-cols-2",
             "dark:sm:grid-cols-2",
-            "basic:-m-6 basic:border-y basic:bg-white basic:p-6 basic:sm:grid-cols-[1fr_auto_1fr] basic:md:border-none basic:md:bg-inherit basic:md:py-0",
+            "basic:-mx-6 basic:border-y basic:border-basic-grid basic:bg-white basic:px-6 basic:py-16",
+            "basic:sm:grid-cols-[1fr_auto_1fr] basic:md:border-none basic:md:bg-inherit basic:md:py-0 basic:md:pr-8 basic:lg:pr-6",
           )}
-          aria-labelledby="s1"
+          aria-labelledby="offers"
         >
           <hgroup className="col-span-full mb-3">
-            <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
-              <span className=" box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
+            <h2 id="offers" className="-mb-1 font-serif text-lg font-light">
+              <span className="box-decoration-clone light:bg-light dark:bg-dark dark:text-slate-300 md:basic:bg-basic">
                 Aanbod
               </span>
             </h2>
@@ -109,10 +120,10 @@ export default function Home() {
           <Card
             as="article"
             className="row-span-3 grid grid-rows-subgrid"
-            aria-labelledby="s1c1"
+            aria-labelledby="offersdev"
           >
             <CardHeader>
-              <CardTitle id="s1c1">Websites & applicaties</CardTitle>
+              <CardTitle id="offersdev">Websites & applicaties</CardTitle>
             </CardHeader>
             <CardContent>
               We werken van een vernieuwend idee naar een succesvolle website of
@@ -126,21 +137,21 @@ export default function Home() {
           </Card>
           <Separator
             orientation="horizontal"
-            className="hidden basic:my-4 basic:block basic:sm:hidden"
+            className="hidden basic:my-4 basic:block basic:sm:hidden "
             decorative
           />
           <Separator
             orientation="vertical"
-            className="hidden basic:mx-6 basic:sm:row-span-3 basic:sm:block"
+            className="hidden basic:mx-2 basic:sm:row-span-3 basic:sm:block"
             decorative
           />
           <Card
             as="article"
-            className="row-span-3 grid grid-rows-subgrid "
-            aria-labelledby="s1c3"
+            className="row-span-3 grid grid-rows-subgrid"
+            aria-labelledby="offersfreelance"
           >
             <CardHeader>
-              <CardTitle id="s1c3">Freelance</CardTitle>
+              <CardTitle id="offersfreelance">Freelance</CardTitle>
             </CardHeader>
             <CardContent className="grow lg:row-start-2">
               Jouw bedrijf heeft een interessant project dat vraagt om
@@ -156,29 +167,33 @@ export default function Home() {
         </section>
         {/* ervaring */}
         <section
-          aria-labelledby="s3"
-          className="grid gap-x-6 gap-y-2 self-end sm:grid-cols-[1fr_auto] lg:w-5/6"
+          aria-labelledby="cv"
+          className="grid gap-x-4 gap-y-3 self-end sm:grid-cols-[1fr_auto] lg:w-5/6"
         >
           <hgroup className="mb-3 sm:col-span-2">
-            <h2 id="s3" className="-mb-1 font-serif text-lg font-light">
+            <h2 id="cv" className="-mb-1 font-serif text-lg font-light">
               Ervaring
             </h2>
             <p role="subtitle" className="font-serif text-xl sm:text-3xl">
               Informatieplatformen, had ik die al genoemd?
             </p>
           </hgroup>
-          <p className="font-serif leading-[1.75rem]">2022-2024</p>
-          <Card className="mb-4">
+          <p className="font-serif text-sm basic:-mb-2 basic:font-light sm:font-normal sm:leading-[1.75rem]  light:sm:pt-5 basic:sm:mb-0 dark:sm:pt-5">
+            <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark dark:text-slate-300">
+              2022-2024
+            </span>
+          </p>
+          <Card className="mb-6 basic:mb-10 sm:mb-1">
             <CardHeader>
               <CardTitle>
                 Front-end developer |{" "}
-                <a
+                <SimpleLink
+                  variant="external"
                   href="https://notfound.nl/"
-                  className="text-lg hover:underline focus-visible:underline"
+                  className="text-lg"
                 >
                   NotFound Digital Creativity
-                  <ExternalLink className="ml-2 inline-block h-4 w-4 -translate-y-1" />
-                </a>
+                </SimpleLink>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
@@ -231,18 +246,22 @@ export default function Home() {
               </ul>
             </CardFooter>
           </Card>
-          <p className="font-serif leading-[1.75rem]">2017-2022</p>
-          <Card>
+          <p className="font-serif text-sm basic:-mb-2 basic:font-light sm:font-normal sm:leading-[1.75rem] light:sm:pt-5 basic:sm:mb-0 dark:sm:pt-5">
+            <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark dark:text-slate-300">
+              2017-2022
+            </span>
+          </p>
+          <Card className="basic:mb-8">
             <CardHeader>
               <CardTitle>
                 Full-stack webdeveloper |{" "}
-                <a
+                <SimpleLink
+                  variant="external"
                   href="https://www.eljakim.nl/"
-                  className="text-lg hover:underline focus-visible:underline"
+                  className="text-lg"
                 >
                   Eljakim Information Technology bv
-                  <ExternalLink className="ml-2 inline-block h-4 w-4 -translate-y-1" />
-                </a>
+                </SimpleLink>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">

@@ -6,7 +6,6 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuLink,
-  // navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cn } from "@/lib/utils";
@@ -15,6 +14,7 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useEffect } from "react";
 
 type MenuItemProps = {
   text: string;
@@ -39,10 +39,9 @@ const MenuItem = ({
         <NavigationMenuLink
           active={isActive}
           className={cn(
-            // navigationMenuTriggerStyle(),
             "group flex h-8 items-center pr-4 text-inherit",
             "underline-offset-4 hover:underline focus-visible:underline",
-            // "light:bg-light basic:bg-basic dark:bg-dark",
+            "outline-2 outline-offset-4 outline-sky-300 focus-visible:outline",
           )}
         >
           <span
@@ -81,10 +80,16 @@ export function FooterMenu() {
         scrollTrigger: {
           trigger: ".footer-menu",
           toggleActions: "restart pause resume reset",
+          invalidateOnRefresh: true,
+          fastScrollEnd: true,
         },
       },
     );
   });
+
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, [pathname]);
 
   return (
     <NavigationMenu
@@ -128,6 +133,13 @@ export function FooterMenu() {
             />
           </NavigationMenuList>
         </NavigationMenuPrimitive.Sub>
+      </NavigationMenuList>
+      <NavigationMenuList className="relative after:absolute after:right-full after:top-1/2 after:w-12 after:border-t-2 after:border-orange-500 after:content-[''] after:-translate-y-1/2 md:after:w-[24vw] lg:after:w-[20vw]">
+        <MenuItem
+          isActive={pathname === "/privacyverklaring"}
+          href="/privacyverklaring"
+          text="privacyverklaring"
+        />
       </NavigationMenuList>
     </NavigationMenu>
   );

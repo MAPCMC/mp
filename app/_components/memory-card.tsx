@@ -73,7 +73,7 @@ export function MemoryCard({
     <button
       ref={localRef}
       className={cn(
-        "card relative size-12 text-slate-50 outline-offset-2 dark:text-slate-950 lg:size-16",
+        "card relative size-12 text-slate-50 outline-offset-2 dark:text-slate-950 lg:size-16 lg:justify-self-end",
         "perspective-1000 transform-style-3d",
         "light:rounded-md *:light:rounded-md dark:rounded-md *:dark:rounded-md",
         "hover:z-20 hover:outline hover:outline-2 hover:outline-offset-2 hover:outline-sky-400",

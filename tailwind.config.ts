@@ -43,6 +43,7 @@ const config = {
     },
   },
   plugins: [
+    require("@tailwindcss/typography"),
     require("tailwindcss-animate"),
     require("tailwindcss-3d"),
     themeVariants({
