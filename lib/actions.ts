@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+// import { revalidatePath } from "next/cache";
 import {
   contactSchema,
   quotationSchema,
@@ -11,11 +11,11 @@ import { z } from "zod";
 import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: process.env.EMAIL_PORT,
+  host: process.env.EMAIL_HOST || "smtpexample",
+  port: process.env.EMAIL_PORT || "portnumber",
   auth: {
-    user: process.env.EMAIL_ADDRESS,
-    pass: process.env.EMAIL_PW,
+    user: process.env.EMAIL_ADDRESS || "youremail",
+    pass: process.env.EMAIL_PW || "yourpassword",
   },
 });
 
@@ -38,9 +38,8 @@ const sendEmail = async ({
   };
 
   try {
-    const info = await transporter.sendMail(mailOptions);
-    if (info.response)
-      return { status: "SUCCESS", message: "Verzending gelukt" };
+    await transporter.sendMail(mailOptions);
+    return { status: "SUCCESS", message: "Verzending gelukt" };
   } catch (error) {
     return { status: "ERROR", message: "Verzending mislukt" };
   }
