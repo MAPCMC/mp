@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Toaster } from "@/components/ui/toaster";
 import { AnchorMenu } from "@/components/anchor-menu";
 import { PageHeader } from "@/components/page-header";
 import { PageMain } from "@/components/page-main";
@@ -240,7 +239,6 @@ export default function Page() {
           </Card>
         </section>
       </PageMain>
-      <Toaster />
     </>
   );
 }

@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/card";
 import { QuotationForm } from "@/app/development/_components/quotation-form";
 import { NavLink } from "@/components/links";
-import { Toaster } from "@/components/ui/toaster";
 import { AnchorMenu } from "@/components/anchor-menu";
 import { PageHeader } from "@/components/page-header";
 import { PageMain } from "@/components/page-main";
@@ -252,7 +251,6 @@ export default function Page() {
           </Card>
         </section>
       </PageMain>
-      <Toaster />
     </>
   );
 }

@@ -18,7 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
-import { SendHorizonalIcon } from "lucide-react";
+import { Loader, SendHorizonalIcon } from "lucide-react";
 // import { FileUpload } from "@/components/file-upload";
 import { sendQuotationRequest } from "@/lib/actions";
 
@@ -37,17 +37,23 @@ export function QuotationForm() {
     resolver: zodResolver(quotationSchema),
   });
 
-  function onSubmit(data: z.infer<typeof quotationSchema>) {
-    sendQuotationRequest(data);
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
-    form.reset();
+  async function onSubmit(data: z.infer<typeof quotationSchema>) {
+    const response = await sendQuotationRequest(data);
+
+    if (response.status === "ERROR") {
+      toast({
+        title: "Verzenden is mislukt.",
+        description: "Probeer het later opnieuw.",
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "Bedankt voor je bericht!",
+        description: "Ik neem snel contact met je op.",
+        variant: "success",
+      });
+      form.reset();
+    }
   }
 
   return (
@@ -171,21 +177,36 @@ export function QuotationForm() {
             </FormItem>
           )}
         /> */}
-        <Button type="submit" className="group/button w-max">
-          verzenden
-          <SendHorizonalIcon className="-mr-1 ml-2 h-4 w-4  basic:!animate-none basic:transition-transform basic:group-hover/button:translate-x-2 basic:group-focus-visible/button:translate-x-2 group-hover/button:motion-safe:animate-bounce-x-2" />
-        </Button>
-        {(Object.keys(form.formState.errors).length > 0 ||
-          form.formState.isDirty) && (
+        <div className="flex flex-wrap justify-between gap-3 md:col-span-2">
           <Button
-            type="button"
-            variant="secondary"
-            className="w-auto place-self-end"
-            onClick={() => form.reset()}
+            type="submit"
+            className="group/button w-max min-w-32"
+            disabled={form.formState.isLoading || form.formState.isSubmitting}
           >
-            wissen
+            {form.formState.isSubmitting ? (
+              <>
+                <span className="sr-only">er wordt verzonden</span>
+                <Loader className="motion-safe:animate-[spin_2s_linear_infinite]" />
+              </>
+            ) : (
+              <>
+                verzenden
+                <SendHorizonalIcon className="-mr-1 ml-2 h-4 w-4  basic:!animate-none basic:transition-transform basic:group-hover/button:translate-x-2 basic:group-focus-visible/button:translate-x-2 group-hover/button:motion-safe:animate-bounce-x-2" />
+              </>
+            )}
           </Button>
-        )}
+          {(Object.keys(form.formState.errors).length > 0 ||
+            form.formState.isDirty) && (
+            <Button
+              type="button"
+              variant="secondary"
+              className="w-auto place-self-end"
+              onClick={() => form.reset()}
+            >
+              wissen
+            </Button>
+          )}
+        </div>
       </form>
     </Form>
   );
