@@ -18,7 +18,7 @@ export default function Page() {
         <h1 className="font-serif text-4xl first-letter:capitalize">
           freelance
         </h1>
-        <div className="prose prose-slate prose-sm md:prose-base dark:prose-invert prose-headings:font-serif prose-lead:text-inherit prose-headings:font-normal prose-lead:text-lg prose-h2:text-3xl prose-h3:text-2xl mt-10 max-w-full text-inherit">
+        <div className="prose prose-sm prose-slate mt-10 max-w-[90ch] text-inherit dark:prose-invert md:prose-base prose-headings:font-serif prose-headings:font-normal prose-h2:text-3xl prose-h3:text-2xl prose-lead:text-lg prose-lead:text-inherit">
           <p className="lead">
             Heb je een dikke klus en niemand paraat? Ik help graag een handje
             mee. Iemand nodig die vaart bij complexe probleemstellingen,
@@ -195,7 +195,7 @@ export default function Page() {
         </section>
         <section
           aria-labelledby="s3"
-          className="grid light:gap-4 basic:gap-6 dark:gap-3 lg:grid-cols-3 "
+          className="grid light:gap-4 basic:gap-6 dark:gap-3 lg:grid-cols-3"
         >
           <hgroup className="lg:col-span-3">
             <h2 className="-mb-1 font-serif text-lg font-light" id="s3">
@@ -209,26 +209,33 @@ export default function Page() {
               Tijd voor koffie!
             </p>
           </hgroup>
-          <div className="prose prose-slate prose-sm md:prose-base dark:prose-invert prose-headings:font-serif prose-lead:text-inherit prose-headings:font-normal prose-lead:text-lg prose-h2:text-3xl prose-h3:text-2xl mt-10 max-w-full text-inherit">
-            
+          <div className="prose prose-sm prose-slate max-w-[90ch] text-inherit dark:prose-invert md:prose-base prose-headings:font-serif prose-headings:font-normal prose-h2:text-3xl prose-h3:text-2xl prose-lead:text-lg prose-lead:text-inherit lg:col-span-3">
+            <p className="lead ">
+              Ben je geïnteresseerd in een samenwerking maar heb je geen positie
+              op dit moment,{" "}
+              <NavLink
+                href="https://www.linkedin.com/in/maarten-peene-432635146/"
+                target="_blank"
+              >
+                stuur mij een uitnodiging via LinkedIn.
+              </NavLink>{" "}
+              Benieuwd wat ik op dit moment voor je kan betekenen? Gebruik het
+              formulier en ik kom bij je terug.
+            </p>
           </div>
-          <p className="lg:col-span-3">
-            Ben je geïnteresseerd in een samenwerking maar heb je geen positie
-            op dit moment,{" "}
-            <NavLink
-              href="https://www.linkedin.com/in/maarten-peene-432635146/"
-              target="_blank"
-            >
-              stuur mij een uitnodiging via LinkedIn.
-            </NavLink>{" "}
-            Benieuwd wat ik op dit moment voor je kan betekenen? Gebruik het
-            formulier en ik kom bij je terug.
-          </p>
-          <Card as="article" aria-labelledby="s3c1" className="lg:col-span-2">
+          <Card
+            as="article"
+            aria-labelledby="availability"
+            className="gap-6 lg:col-span-2"
+          >
             <CardHeader>
-              <CardTitle id="s3c1">Vraag naar mijn beschikbaarheid</CardTitle>
+              <CardTitle id="availability">
+                Vraag naar mijn beschikbaarheid
+              </CardTitle>
             </CardHeader>
-            <CardContent>{/* <PositionForm /> */}</CardContent>
+            <CardContent>
+              <JobOfferForm />
+            </CardContent>
           </Card>
         </section>
       </PageMain>

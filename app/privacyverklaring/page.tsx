@@ -41,7 +41,7 @@ export default function Privacy() {
           <ul>
             <li>voor- en achternaam;</li>
             <li>e-mailadres;</li>
-            <li>telefoonnummer (vast en/of mobiel);</li>
+            <li>telefoonnummer;</li>
             <li>handelsnaam;</li>
             <li>vestigingsadres en postadres;</li>
             <li>KvK-nummer;</li>
@@ -67,8 +67,7 @@ export default function Privacy() {
             maximaal 5 jaar, zodat ik bijvoorbeeld kan bijhouden wanneer ons
             laatste contact is geweest en om het gesprek inhoudelijk voort te
             kunnen zetten. Het is mijn gerechtvaardigd belang om dit bij te
-            houden: ik wil niet vergeten wat we hebben besproken, zodat ik je
-            gericht kan benaderen.
+            houden: ik wil niet vergeten wat we hebben besproken.
           </p>
           <p>
             Heb je contact opgenomen via social media, dan zal dat via een
@@ -125,11 +124,11 @@ export default function Privacy() {
           </ul>
           <h3>Doorgifte derde landen</h3>
           <p>
-            Ik verwerk persoonsgegevens alleen binnen de EU. Hosting van mijn
-            sites en servers gebeurt bij een Nederlandse partij, die werkt
-            binnen Nederlandse richtlijnen voor gegevensbescherming. Bij gebruik
-            van software of diensten die (mogelijk) gegevens buiten de EU
-            opslaan, ga ik het gebruik van persoonsgegevens uit de weg.
+            Ik verwerk je persoonsgegevens binnen de EU. Hosting van mijn sites
+            en servers gebeurt bij een Nederlandse partij, die zich houdt aan
+            Nederlandse richtlijnen voor gegevensbescherming. Bij gebruik van
+            software of diensten die (mogelijk) gegevens buiten de EU opslaan,
+            ga ik het gebruik van persoonsgegevens uit de weg.
           </p>
           <h2>Jouw rechten</h2>
           <p>

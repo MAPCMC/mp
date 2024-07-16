@@ -60,8 +60,8 @@ export default function Page() {
               Wat mag je verwachten?
             </p>
           </hgroup>
-          <p className="mb-5 text-lg">
-            <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
+          <p className="prose mb-5 max-w-[90ch] text-inherit *:text-inherit">
+            <span className="lead box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
               Iedere developer heeft een eigen stijl; dit zie je terug in de
               producten die ze leveren. Mijn aandacht gaat uit naar het maken
               van websites en applicaties die je écht gebruiken wilt. Voor zowel
@@ -190,8 +190,8 @@ export default function Page() {
               Persoonlijke aandacht
             </p>
           </hgroup>
-          <p className="mb-5 text-lg">
-            <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
+          <p className="prose mb-5 max-w-[90ch] text-inherit *:text-inherit">
+            <span className="lead box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
               Het doel is een aantrekkelijke nieuwe site of app die boven het
               maaiveld uitsteekt. Hoe we daar komen? Ik neem je mee in het
               ontwikkeltraject.
@@ -224,14 +224,14 @@ export default function Page() {
             className="lg:col-span-2 lg:row-span-2"
           >
             <CardHeader>
-              <CardTitle id="quotation">Vraag een offerte aan</CardTitle>
+              <CardTitle id="quotation">Begin een aanvraag</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p>
-                Stuur mij een beknopte omschrijving van je project, en ik maak
-                een inschatting van het werk en de mogelijkheden. Zo weet je
-                direct waar je aan toe bent. Is je idee nog niet zo strak
-                omlijnd? Gooi een balletje op, dan gaan we verder in gesprek.
+                Stuur mij een omschrijving van je project, en ik maak een
+                inschatting van het werk en de mogelijkheden. Zo weet je direct
+                waar je aan toe bent. Is je idee nog niet zo strak omlijnd? Gooi
+                een balletje op, dan gaan we verder in gesprek.
               </p>
               <QuotationForm />
             </CardContent>

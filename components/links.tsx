@@ -3,7 +3,6 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import {
-  ArrowDown,
   ArrowDownToLine,
   ArrowRight,
   DownloadIcon,
@@ -30,7 +29,7 @@ const linkVariants = cva(
         ],
         anchor: [
           "relative block px-4 py-1.5 text-center md:text-right",
-          "first-letter:capitalize text-xs md:text-sm",
+          "first-letter:capitalize text-xs md:text-base",
           "data-active:underline hover:underline underline-offset-4 focus-visible:underline",
           "outline-offset-4 outline-2 outline-sky-400 focus-visible:outline",
           "basic:italic basic:bg-basic basic:data-active:bg-slate-100 basic:md:bg-transparent basic:md:data-active:bg-transparent basic:md:border-none",
