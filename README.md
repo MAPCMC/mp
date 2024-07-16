@@ -16,6 +16,17 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Setup db
+
+Make sure to setup a postGreSQL db (supabase) and add DATABASE_URL to your environment.
+
+You can generate migrations using drizzle-kit generate command and then run them using the drizzle-kit migrate command.
+
+```bash
+npx drizzle-kit generate
+npx drizzle-kit migrate
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
