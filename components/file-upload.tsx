@@ -1,109 +1,91 @@
-"use client";
+import React, { useCallback } from "react";
+import { Accept, useDropzone } from "react-dropzone";
+import { useController, UseControllerProps } from "react-hook-form";
+import { cn } from "@/lib/utils"; // Assuming you have a utility function for handling class names
+import { FilePlus, FilePlus2 } from "lucide-react";
 
-import { FilePlus } from "lucide-react";
-import { useState } from "react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { cn } from "@/lib/utils";
+interface FileUploadProps extends UseControllerProps {
+  label?: string;
+  description?: string;
+  className?: string;
+  accept?: Accept;
+  multiple?: boolean;
+}
 
-export const FileUpload = ({ ...props }) => {
-  const [blob, setBlob] = useState<string>();
-  const [file, setFile] = useState<File>();
-  const [fileEnter, setFileEnter] = useState(false);
+export const FileUpload: React.FC<FileUploadProps> = ({
+  label,
+  description,
+  className,
+  accept,
+  multiple,
+  ...props
+}) => {
+  const {
+    field: { value, onChange, onBlur },
+    fieldState: { error },
+  } = useController(props);
 
-  const remove = () => {
-    setBlob("");
-    setFile(undefined);
-  };
+  const onDrop = useCallback(
+    (acceptedFiles: File[]) => {
+      multiple ? onChange(acceptedFiles) : onChange(acceptedFiles[0]);
+    },
+    [onChange, multiple],
+  );
+
+  const { fileRejections, getRootProps, getInputProps, isDragActive } =
+    useDropzone({
+      onDrop,
+      accept: accept,
+      maxFiles: multiple ? undefined : 1,
+    });
+
+  const fileRejectionItems = fileRejections.map(({ file, errors }) => (
+    <>
+      {errors.map((e) => (
+        <li key={e.code}>
+          {file.name}: {e.message}
+        </li>
+      ))}
+    </>
+  ));
 
   return (
-    <>
-      {!file ? (
-        <div
-          onDragOver={(e) => {
-            e.preventDefault();
-            setFileEnter(true);
-          }}
-          onDragLeave={(e) => {
-            setFileEnter(false);
-          }}
-          onDragEnd={(e) => {
-            e.preventDefault();
-            setFileEnter(false);
-          }}
-          onDrop={(e) => {
-            e.preventDefault();
-            setFileEnter(false);
-            if (e.dataTransfer.items) {
-              [...e.dataTransfer.items].forEach((item, i) => {
-                if (item.kind === "file") {
-                  const file = item.getAsFile();
-                  if (file) {
-                    let blobUrl = URL.createObjectURL(file);
-                    setBlob(blobUrl);
-                    setFile(file);
-                  }
-                  console.log(`items file[${i}].name = ${file?.name}`);
-                }
-              });
-            } else {
-              [...e.dataTransfer.files].forEach((file, i) => {
-                console.log(`… file[${i}].name = ${file.name}`);
-              });
-            }
-          }}
-          className={` flex h-72 w-full flex-col items-center justify-center rounded-md border border-neutral-200 bg-white p-2 text-center text-sm placeholder:text-neutral-500  disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-800 dark:bg-slate-950 dark:placeholder:text-neutral-400`}
-        >
-          <label
-            htmlFor="file"
-            className={cn(
-              "flex h-full w-full flex-col items-center justify-center gap-2 rounded-md focus-visible:z-20 focus-visible:outline  focus-visible:outline-2  focus-visible:outline-offset-2 focus-visible:outline-sky-400",
-              fileEnter ? "border-2 border-sky-400" : "border border-dashed",
-            )}
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === " " || e.key === "Spacebar") {
-                e.preventDefault();
-                e.currentTarget.click();
-              }
-              if (e.key === "Enter") e.currentTarget.click();
-            }}
-          >
+    <div
+      className={cn(
+        "flex w-full flex-col items-center justify-center rounded-md border border-neutral-200 bg-white p-2 text-center text-sm placeholder:text-neutral-500  disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-800 dark:bg-slate-950 dark:placeholder:text-neutral-400",
+        className,
+      )}
+    >
+      {label && <label className="file-upload-label">{label}</label>}
+      <div
+        {...getRootProps()}
+        className={cn(
+          "flex h-64 w-full flex-col items-center justify-center gap-2 rounded-md focus-visible:z-20 focus-visible:outline  focus-visible:outline-2  focus-visible:outline-offset-2 focus-visible:outline-sky-400",
+          isDragActive ? "border-2 border-sky-400" : "border border-dashed",
+        )}
+      >
+        <input {...getInputProps()} onBlur={onBlur} />
+        {isDragActive ? (
+          <>
+            <FilePlus2 size={52} strokeWidth={1.25} />
+            Laat bestand los om toe te voegen
+          </>
+        ) : (
+          <>
             <FilePlus size={52} strokeWidth={1.25} />
             Klik hier of sleep een bestand
-          </label>
-          <Input
-            {...props}
-            id="file"
-            type="file"
-            accept=".pdf,.doc,.docx"
-            className="hidden"
-            onChange={(e) => {
-              let files = e.target.files;
-              if (files && files[0]) {
-                console.log(files[0]);
-                let blobUrl = URL.createObjectURL(files[0]);
-                setBlob(blobUrl);
-                setFile(files[0]);
-              }
-            }}
-          />
-        </div>
-      ) : (
-        <div className="relative flex h-72 w-full flex-col items-center justify-center rounded-md border border-neutral-200 bg-white text-center text-sm placeholder:text-neutral-500  disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-800 dark:bg-slate-950 dark:placeholder:text-neutral-400">
-          <object
-            className={cn(
-              "max-h-full max-w-full grow",
-              file?.type === "application/pdf" && "w-full",
-            )}
-            data={blob}
-            type={file?.type}
-          />
-          <Button onClick={remove} className="absolute right-4 top-4">
-            verwijderen
-          </Button>
+          </>
+        )}
+      </div>
+      {description && <p className="text-slate-700">{description}</p>}
+      {value && <p>{value.name}</p>}
+      {error && <p className="mt-2 text-red-600">{error.message}</p>}
+      {fileRejectionItems.length > 0 && (
+        <div className="mt-2">
+          <p className="text-red-600">Rejected files:</p>
+          <ul>{fileRejectionItems}</ul>
         </div>
       )}
-    </>
+    </div>
   );
 };

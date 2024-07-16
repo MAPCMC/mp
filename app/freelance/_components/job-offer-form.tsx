@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { quotationSchema } from "@/lib/validations";
+import { jobOfferSchema } from "@/lib/validations";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -19,11 +19,10 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
 import { SendHorizonalIcon } from "lucide-react";
-// import { FileUpload } from "@/components/file-upload";
-import { sendQuotationRequest } from "@/lib/actions";
+import { sendJobOffer } from "@/lib/actions";
 
-export function QuotationForm() {
-  const form = useForm<z.infer<typeof quotationSchema> & { email2?: string }>({
+export function JobOfferForm() {
+  const form = useForm<z.infer<typeof jobOfferSchema> & { email2?: string }>({
     mode: "all",
     defaultValues: {
       firstName: "",
@@ -31,14 +30,14 @@ export function QuotationForm() {
       email: "",
       email2: "",
       phone: "",
+      url: "",
       text: "",
-      file: "",
     },
-    resolver: zodResolver(quotationSchema),
+    resolver: zodResolver(jobOfferSchema),
   });
 
-  function onSubmit(data: z.infer<typeof quotationSchema>) {
-    sendQuotationRequest(data);
+  function onSubmit(data: z.infer<typeof jobOfferSchema>) {
+    sendJobOffer(data);
     toast({
       title: "You submitted the following values:",
       description: (
@@ -89,7 +88,7 @@ export function QuotationForm() {
             <FormItem>
               <FormLabel
                 showRequired={
-                  !(quotationSchema.shape.email instanceof z.ZodOptional)
+                  !(jobOfferSchema.shape.email instanceof z.ZodOptional)
                 }
               >
                 e-mailadres
@@ -137,17 +136,29 @@ export function QuotationForm() {
             </FormItem>
           )}
         />
-
+        <FormField
+          control={form.control}
+          name="url"
+          render={({ field }) => (
+            <FormItem className="md:col-span-2">
+              <FormLabel>Link naar vacature</FormLabel>
+              <FormControl>
+                <Input placeholder="" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="text"
           render={({ field }) => (
             <FormItem className="md:col-span-2">
-              <FormLabel showRequired>beschrijf het project</FormLabel>
+              <FormLabel showRequired>bericht</FormLabel>
               <FormControl>
                 <Textarea
                   rows={10}
-                  placeholder="Dag Maarten, ik heb een projectidee! ..."
+                  placeholder="Dag Maarten, ik heb een interessante opdracht! ..."
                   {...field}
                 />
               </FormControl>
@@ -155,22 +166,7 @@ export function QuotationForm() {
             </FormItem>
           )}
         />
-        {/* <FormField
-          control={form.control}
-          name="file"
-          render={({ field }) => (
-            <FormItem className="md:col-span-2">
-              <FormLabel>Extra toelichting</FormLabel>
-              <FormControl>
-                <FileUpload
-                  accept={{ "application/pdf": [".pdf"] }}
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
+
         <Button type="submit" className="group/button w-max">
           verzenden
           <SendHorizonalIcon className="-mr-1 ml-2 h-4 w-4  basic:!animate-none basic:transition-transform basic:group-hover/button:translate-x-2 basic:group-focus-visible/button:translate-x-2 group-hover/button:motion-safe:animate-bounce-x-2" />

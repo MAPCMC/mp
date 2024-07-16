@@ -5,6 +5,7 @@ import { AnchorMenu } from "@/components/anchor-menu";
 import { PageHeader } from "@/components/page-header";
 import { PageMain } from "@/components/page-main";
 import { SimpleLink, NavLink } from "@/components/links";
+import { JobOfferForm } from "@/app/freelance/_components/job-offer-form";
 import { Heart, Library, Lightbulb, Terminal, Users } from "lucide-react";
 
 export const metadata: Metadata = {
