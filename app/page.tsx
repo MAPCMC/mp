@@ -48,7 +48,7 @@ export default function Home() {
             <NavLink href="/development#quotation" variant="button">
               stuur mij je idee!
             </NavLink>
-            <NavLink href="/freelance" variant="secondary">
+            <NavLink href="/freelance#availability" variant="secondary">
               of huur mij in
             </NavLink>
           </div>

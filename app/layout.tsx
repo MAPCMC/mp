@@ -5,6 +5,7 @@ import { Roboto_Slab, Roboto_Flex } from "next/font/google";
 import { ThemeProvider } from "@/app/_layout/theme-provider";
 import { Footer } from "@/app/_layout/footer";
 import { NavBar } from "@/app/_layout/nav-bar";
+import { Toaster } from "@/components/ui/toaster";
 
 const serif = Roboto_Slab({
   subsets: ["latin"],
@@ -54,6 +55,7 @@ export default function RootLayout({
           <NavBar />
           {children}
           <Footer />
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

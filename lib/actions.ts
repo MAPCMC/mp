@@ -1,62 +1,99 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
-import { emailSchema, quotationSchema } from "@/lib/validations";
-import { z, ZodError } from "zod";
+// import { revalidatePath } from "next/cache";
+import {
+  contactSchema,
+  quotationSchema,
+  jobOfferSchema,
+} from "@/lib/validations";
+import { z } from "zod";
+// import { createQuotationRequest, createJobOffer } from "@/db/queries";
+import nodemailer from "nodemailer";
+import type SMTPTransport from "nodemailer/lib/smtp-transport";
 
-export type State =
-  | {
-      status: "OK";
-      message: string;
-    }
-  | {
-      status: "ERROR";
-      message: string;
-      errors?: Array<{
-        path: string;
-        message: string;
-      }>;
-    }
-  | {
-      status: "IDLE";
-      message: string;
-    };
+const smtpConfig: SMTPTransport.Options = {
+  host: process.env.EMAIL_HOST || "smtpexample",
+  port: Number(process.env.EMAIL_PORT) || 400,
+  auth: {
+    user: process.env.EMAIL_ADDRESS || "youremail",
+    pass: process.env.EMAIL_PW || "yourpassword",
+  },
+};
+const transporter = nodemailer.createTransport(smtpConfig);
 
-export async function sendEmail(
-  prevState: State | null,
-  formData: FormData,
-): Promise<State> {
+type SendEmailResponse = {
+  status: "SUCCESS" | "ERROR";
+  message: string;
+};
+
+const sendEmail = async ({
+  from,
+  to,
+  subject,
+  html,
+}: nodemailer.SendMailOptions): Promise<SendEmailResponse> => {
+  const mailOptions = {
+    from,
+    to,
+    subject,
+    html,
+  };
+
   try {
-    if (formData.get("email2") !== "") {
-      return {
-        status: "ERROR",
-        message: "Niet verwerkt. Dit is waarschijnlijk spam.",
-      };
-    }
-
-    const { email, subject, text } = emailSchema.parse(formData);
-
-    // TODO: Send email
-
-    revalidatePath("/");
-    return { status: "OK", message: "Bedankt voor je bericht." };
-  } catch (e) {
-    if (e instanceof ZodError) {
-      return {
-        status: "ERROR",
-        message: "Fout in het formulier. Controleer de velden.",
-        errors: e.issues.map((issue) => ({
-          path: issue.path.join("."),
-          message: issue.message,
-        })),
-      };
-    }
-    return { status: "ERROR", message: "Er is een fout opgetreden." };
+    await transporter.sendMail(mailOptions);
+    return { status: "SUCCESS", message: "Verzending gelukt" };
+  } catch (error) {
+    return { status: "ERROR", message: "Verzending mislukt" };
   }
+};
+
+export default sendEmail;
+
+export async function sendContactRequest(data: z.infer<typeof contactSchema>) {
+  const mailResponse = await sendEmail({
+    from: process.env.EMAIL_ADDRESS,
+    to: process.env.EMAIL_ADDRESS,
+    subject: data.subject || "Contactformulier",
+    html: `
+      <p>Email: ${data.email}</p>
+      <p>Bericht: ${data.text}</p>
+    `,
+  });
+
+  return mailResponse;
 }
 
 export async function sendQuotationRequest(
   data: z.infer<typeof quotationSchema>,
 ) {
-  return data;
+  const mailResponse = await sendEmail({
+    from: process.env.EMAIL_ADDRESS,
+    to: process.env.EMAIL_ADDRESS,
+    subject: "Offerte aanvraag",
+    html: `
+      <p>Naam: ${data.firstName} ${data.lastName}</p>
+      <p>Email: ${data.email}</p>
+      <p>Telefoon: ${data.phone}</p>
+      <p>Bericht: ${data.text}</p>
+    `,
+  });
+
+  return mailResponse;
+}
+
+export async function sendJobOffer(data: z.infer<typeof jobOfferSchema>) {
+  const mailResponse = await sendEmail({
+    from: process.env.EMAIL_ADDRESS,
+    to: process.env.EMAIL_ADDRESS,
+    subject: "Beschikbaarheid aanvraag",
+    html: `
+      <p>URL: ${data.url}</p>
+      <p>Naam: ${data.firstName} ${data.lastName}</p>
+      <p>Email: ${data.email}</p>
+      <p>Telefoon: ${data.phone}</p>
+      <p>Bericht: ${data.text}</p>
+    `,
+  });
+
+  return mailResponse;
 }

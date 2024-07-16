@@ -40,6 +40,15 @@ const config = {
       data: {
         active: "active=''",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            dt: {
+              color: "inherit",
+            },
+          },
+        },
+      },
     },
   },
   plugins: [

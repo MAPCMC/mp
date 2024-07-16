@@ -68,7 +68,9 @@ const MenuItem = ({ href, icon, text, className, isActive }: MenuItemProps) => {
             // dark
             "dark:bg-dark dark:hover:bg-slate-950 dark:md:rounded-md dark:md:border dark:md:border-dark-dots",
             "dark:hover:border-sky-300 dark:hover:bg-sky-300 dark:hover:text-slate-950 dark:focus-visible:border-sky-300 dark:focus-visible:bg-sky-300 dark:focus-visible:text-slate-950",
-            "data-active:dark:bg-dark-dots data-active:dark:hover:bg-sky-300",
+            "data-active:dark:bg-dark-dots data-active:dark:hover:bg-sky-300 data-active:dark:hover:text-slate-950",
+
+            "data-active:dark:focus-visible:bg-sky-300 data-active:dark:focus-visible:text-slate-950",
           )}
         >
           <MenuItemIcon

@@ -26,8 +26,9 @@
     "embla-carousel-react": "^8.1.5",
     "gsap": "^3.12.5",
     "lucide-react": "^0.378.0",
-    "next": "15.0.0-canary.12",
+    "next": "15.0.0-canary.68",
     "next-themes": "^0.3.0",
+    "nodemailer": "^6.9.14",
     "react": "19.0.0-rc-81c5ff2e04-20240521",
     "react-dom": "19.0.0-rc-81c5ff2e04-20240521",
     "react-hook-form": "^7.52.0",
@@ -39,6 +40,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^20.14.9",
+    "@types/nodemailer": "^6.4.15",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "eslint": "^8.57.0",

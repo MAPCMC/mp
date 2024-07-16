@@ -1,177 +1,188 @@
 "use client";
 
-import { useActionState, useEffect } from "react";
-import { useFormStatus } from "react-dom";
-import { sendEmail, State } from "@/lib/actions";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { sendContactRequest } from "@/lib/actions";
+import { Button } from "@/components/ui/button";
 import {
-  FieldErrors,
-  useForm,
-  UseFormRegister,
-  FieldPath,
-} from "react-hook-form";
-import { Loader, X } from "lucide-react";
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { emailSchema } from "@/lib/validations";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { ErrorMessage } from "@hookform/error-message";
-import { useToast } from "@/components/ui/use-toast";
-
-export interface FormValues {
-  email: string;
-  subject: string;
-  text: string;
-}
-
-const initialState: State = {
-  status: "IDLE",
-  message: "",
-};
-
-function FormContent({
-  register,
-  isValid,
-  isActive,
-  errors,
-  onReset,
-}: {
-  register: UseFormRegister<FormValues>;
-  isValid: boolean;
-  isActive: boolean;
-  errors: FieldErrors<FormValues>;
-  onReset: () => void;
-}) {
-  const { pending } = useFormStatus();
-
-  return (
-    <>
-      <div>
-        <Label htmlFor="email">
-          E-mailadres <abbr className="text-red-500">*</abbr>
-        </Label>
-        <Input
-          {...register("email")}
-          type="email"
-          placeholder="Mijn e-mailadres"
-          required
-        />
-        <span className="text-sm text-red-500">
-          <ErrorMessage name="email" errors={errors} />
-        </span>
-      </div>
-      <Input
-        type="email"
-        name="email2"
-        placeholder="Bevestig het e-mailadres (niet invullen! Dit is een spam check)"
-        className="hidden"
-      />
-      <div>
-        <Label htmlFor="subject">
-          Onderwerp <abbr className="text-red-500">*</abbr>
-        </Label>
-        <Input
-          {...register("subject")}
-          type="text"
-          placeholder="Ik wil een idee bespreken"
-          required
-        />
-        <span className="text-sm text-red-500">
-          <ErrorMessage name="subject" errors={errors} />
-        </span>
-      </div>
-      <div>
-        <Label htmlFor="text">
-          Bericht <abbr className="text-red-500">*</abbr>
-        </Label>
-        <Textarea
-          {...register("text")}
-          placeholder="Dag Maarten, laten we koffie drinken!"
-          rows={3}
-          required
-        ></Textarea>
-        <span className="text-sm text-red-500">
-          <ErrorMessage name="text" errors={errors} />
-        </span>
-      </div>
-      <div className="flex items-center gap-2">
-        {pending && <Loader className="animate-spin" />}
-        <Button
-          type="submit"
-          aria-disabled={pending || !isValid}
-          disabled={pending || !isValid}
-          className="grow"
-        >
-          Verzenden
-        </Button>
-        {isActive && (
-          <Button type="button" onClick={onReset}>
-            Wissen
-          </Button>
-        )}
-      </div>
-    </>
-  );
-}
+import { toast } from "@/components/ui/use-toast";
+import { Loader, SendHorizonalIcon } from "lucide-react";
+import { contactSchema } from "@/lib/validations";
 
 export function ContactForm() {
-  const {
-    register,
-    formState: { isDirty, isValid, errors },
-    setError,
-    reset,
-  } = useForm<FormValues>({
+  const form = useForm<z.infer<typeof contactSchema> & { email2?: string }>({
     mode: "all",
     defaultValues: {
       email: "",
+      email2: "",
       subject: "",
       text: "",
     },
-    resolver: zodResolver(emailSchema),
+    resolver: zodResolver(contactSchema),
   });
-  const [state, formAction] = useActionState<State, FormData>(
-    sendEmail,
-    initialState,
-  );
-  const { toast } = useToast();
 
-  useEffect(() => {
-    if (!state || state.status === "IDLE") {
-      return;
-    }
-    // In case our form action returns `error` we can now `setError`s
-    if (state.status === "ERROR") {
-      state.errors?.forEach((error) => {
-        setError(error.path as FieldPath<FormValues>, {
-          message: error.message,
-        });
-      });
-    }
+  async function onSubmit(data: z.infer<typeof contactSchema>) {
+    const response = await sendContactRequest(data);
 
-    if (state.status === "OK") {
+    if (response.status === "ERROR") {
       toast({
-        description: state.message,
+        title: "Verzenden is mislukt.",
+        description: "Probeer het later opnieuw.",
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "Bedankt voor je bericht!",
+        description: "Ik neem snel contact met je op.",
         variant: "success",
       });
-      reset();
+      form.reset();
     }
-  }, [state, setError, reset, toast]);
+  }
 
   return (
-    <form action={formAction} className="group flex flex-col gap-2">
-      <FormContent
-        register={register}
-        isValid={isValid}
-        errors={errors}
-        onReset={() => reset()}
-        isActive={Object.keys(errors).length > 0 || isDirty}
-      />
-      {state.status === "ERROR" && (
-        <p aria-live="polite" role="status" className="text-sm text-red-500">
-          {state?.message}
-        </p>
-      )}
-    </form>
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="group grid gap-x-2 gap-y-4"
+      >
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel
+                showRequired={
+                  !(contactSchema.shape.email instanceof z.ZodOptional)
+                }
+              >
+                e-mailadres
+              </FormLabel>
+              <FormControl>
+                <Input placeholder="@" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email2"
+          render={({ field }) => (
+            <FormItem className="hidden">
+              <FormLabel showRequired>
+                e-mailadres bevestiging (niet invullen! Dit is een spam check)
+              </FormLabel>
+              <FormControl>
+                <Input
+                  tabIndex={-1}
+                  placeholder="Bevestig het e-mailadres (niet invullen! Dit is een spam check)"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription>
+                Niet invullen! Dit is een spam check
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="subject"
+          render={({ field }) => {
+            const maxLength =
+              contactSchema.shape.subject._def.innerType._def.checks?.find(
+                (c) => c.kind === "max",
+              )?.value || 0;
+            return (
+              <FormItem>
+                <FormLabel>onderwerp</FormLabel>
+                <FormControl>
+                  <Input placeholder="" {...field} />
+                </FormControl>
+                {!!field.value && field.value?.length > 0 && maxLength > 0 && (
+                  <FormDescription>
+                    {field.value?.length}/{maxLength} tekens
+                  </FormDescription>
+                )}
+                <FormMessage />
+              </FormItem>
+            );
+          }}
+        />
+
+        <FormField
+          control={form.control}
+          name="text"
+          render={({ field }) => {
+            const maxLength =
+              contactSchema.shape.text._def.checks.find((c) => c.kind === "max")
+                ?.value || 0;
+            return (
+              <FormItem className="">
+                <FormLabel showRequired>bericht</FormLabel>
+                <FormControl>
+                  <Textarea
+                    rows={10}
+                    placeholder="Dag Maarten! Ik heb een vraag ..."
+                    {...field}
+                  />
+                </FormControl>
+                {field.value.length > 0 && maxLength > 0 && (
+                  <FormDescription>
+                    {field.value.length}/{maxLength} tekens
+                  </FormDescription>
+                )}
+                <FormMessage />
+              </FormItem>
+            );
+          }}
+        />
+
+        <div className="flex flex-wrap justify-between gap-3">
+          <Button
+            type="submit"
+            className="group/button w-max min-w-32"
+            disabled={form.formState.isLoading || form.formState.isSubmitting}
+          >
+            {form.formState.isSubmitting ? (
+              <>
+                <span className="sr-only">er wordt verzonden</span>
+                <Loader className="motion-safe:animate-[spin_2s_linear_infinite]" />
+              </>
+            ) : (
+              <>
+                verzenden
+                <SendHorizonalIcon className="-mr-1 ml-2 h-4 w-4  basic:!animate-none basic:transition-transform basic:group-hover/button:translate-x-2 basic:group-focus-visible/button:translate-x-2 group-hover/button:motion-safe:animate-bounce-x-2" />
+              </>
+            )}
+          </Button>
+          {(Object.keys(form.formState.errors).length > 0 ||
+            form.formState.isDirty) && (
+            <Button
+              type="button"
+              variant="secondary"
+              className="w-auto place-self-end"
+              onClick={() => form.reset()}
+            >
+              wissen
+            </Button>
+          )}
+        </div>
+      </form>
+    </Form>
   );
 }
