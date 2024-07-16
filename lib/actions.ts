@@ -9,15 +9,17 @@ import {
 import { z } from "zod";
 // import { createQuotationRequest, createJobOffer } from "@/db/queries";
 import nodemailer from "nodemailer";
+import type SMTPTransport from "nodemailer/lib/smtp-transport";
 
-const transporter = nodemailer.createTransport({
+const smtpConfig: SMTPTransport.Options = {
   host: process.env.EMAIL_HOST || "smtpexample",
-  port: process.env.EMAIL_PORT || "portnumber",
+  port: Number(process.env.EMAIL_PORT) || 400,
   auth: {
     user: process.env.EMAIL_ADDRESS || "youremail",
     pass: process.env.EMAIL_PW || "yourpassword",
   },
-});
+};
+const transporter = nodemailer.createTransport(smtpConfig);
 
 type SendEmailResponse = {
   status: "SUCCESS" | "ERROR";
