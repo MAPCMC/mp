@@ -13,7 +13,7 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-roboto-flex)", "sans-serif"],
-        serif: ["var(--font-roboto-slab)"],
+        serif: ["var(--font-roboto-slab)", "helvetica", "arial", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
