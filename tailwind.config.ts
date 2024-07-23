@@ -12,7 +12,7 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-roboto-flex)"],
+        sans: ["var(--font-roboto-flex)", "sans-serif"],
         serif: ["var(--font-roboto-slab)"],
       },
       keyframes: {
