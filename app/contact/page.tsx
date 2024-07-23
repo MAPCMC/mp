@@ -46,12 +46,12 @@ export default function Contact() {
         <Card as="article" aria-labelledby="s3c1">
           <CardHeader>
             <CardTitle id="s3c1">Neem contact op</CardTitle>
+          </CardHeader>
+          <CardContent>
             <p>
               Wil je vrijblijvend in gesprek? Gebruik dit formulier. Ik hoor
               graag van je!
             </p>
-          </CardHeader>
-          <CardContent>
             <ContactForm />
           </CardContent>
         </Card>
