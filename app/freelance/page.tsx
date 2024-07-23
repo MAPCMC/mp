@@ -18,7 +18,7 @@ export default function Page() {
         <h1 className="font-serif text-4xl first-letter:capitalize">
           freelance
         </h1>
-        <div className="prose prose-sm prose-slate mt-10 max-w-[90ch] text-inherit dark:prose-invert md:prose-base prose-headings:font-serif prose-headings:font-normal prose-h2:text-3xl prose-h3:text-2xl prose-lead:text-lg prose-lead:text-inherit">
+        <div className="prose prose-sm prose-slate mt-10 max-w-[90ch] text-inherit dark:prose-invert md:prose-base prose-headings:font-serif prose-headings:font-normal prose-h2:text-3xl prose-h3:text-2xl prose-lead:text-base prose-lead:text-inherit prose-lead:md:text-lg">
           <p className="lead">
             Heb je een dikke klus en niemand paraat? Ik help graag een handje
             mee. Iemand nodig die vaart bij complexe probleemstellingen,
@@ -209,7 +209,7 @@ export default function Page() {
               Tijd voor koffie!
             </p>
           </hgroup>
-          <div className="prose prose-sm prose-slate max-w-[90ch] text-inherit dark:prose-invert md:prose-base prose-headings:font-serif prose-headings:font-normal prose-h2:text-3xl prose-h3:text-2xl prose-lead:text-lg prose-lead:text-inherit lg:col-span-3">
+          <div className="prose prose-sm prose-slate max-w-[90ch] text-inherit dark:prose-invert md:prose-base prose-headings:font-serif prose-headings:font-normal prose-h2:text-3xl prose-h3:text-2xl prose-lead:text-base prose-lead:text-inherit prose-lead:md:text-lg lg:col-span-3">
             <p className="lead ">
               Ben je geïnteresseerd in een samenwerking maar heb je geen positie
               op dit moment,{" "}

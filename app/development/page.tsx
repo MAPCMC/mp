@@ -59,7 +59,7 @@ export default function Page() {
               Wat mag je verwachten?
             </p>
           </hgroup>
-          <p className="prose mb-5 max-w-[90ch] text-inherit *:text-inherit">
+          <p className="prose mb-5 max-w-[90ch] text-inherit *:text-inherit prose-lead:text-base prose-lead:text-inherit prose-lead:md:text-lg">
             <span className="lead box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
               Iedere developer heeft een eigen stijl; dit zie je terug in de
               producten die ze leveren. Mijn aandacht gaat uit naar het maken
@@ -189,7 +189,7 @@ export default function Page() {
               Persoonlijke aandacht
             </p>
           </hgroup>
-          <p className="prose mb-5 max-w-[90ch] text-inherit *:text-inherit">
+          <p className="prose mb-5 max-w-[90ch] text-inherit *:text-inherit prose-lead:text-base prose-lead:text-inherit prose-lead:md:text-lg">
             <span className="lead box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
               Het doel is een aantrekkelijke nieuwe site of app die boven het
               maaiveld uitsteekt. Hoe we daar komen? Ik neem je mee in het
