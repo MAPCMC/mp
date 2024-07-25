@@ -9,14 +9,15 @@ import { Toaster } from "@/components/ui/toaster";
 import { ReactLenis } from "@/lib/lenis";
 import { Roboto_Slab, Roboto_Flex } from "next/font/google";
 
-const serif = Roboto_Slab({
-  subsets: ["latin"],
-  variable: "--font-roboto-slab",
-  preload: false,
-});
 const sans = Roboto_Flex({
   subsets: ["latin"],
   variable: "--font-roboto-flex",
+  preload: false,
+});
+
+const serif = Roboto_Slab({
+  subsets: ["latin"],
+  variable: "--font-roboto-slab",
   preload: false,
 });
 
