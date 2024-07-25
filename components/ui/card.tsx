@@ -13,6 +13,7 @@ const Card = React.forwardRef<HTMLDivElement, Card>(
       <Element
         ref={ref}
         className={cn(
+          "card",
           "flex flex-col gap-4",
           "light:rounded-lg light:border-2 light:border-orange-400 light:bg-white light:p-5 light:text-slate-950 light:shadow-[.3rem_.3rem_solid] light:shadow-orange-400",
           "dark:rounded-sm dark:border dark:border-dark-dots/50 dark:bg-slate-950 dark:p-5 dark:text-slate-50 dark:shadow-md dark:shadow-dark-dots",
@@ -70,7 +71,7 @@ const CardContent = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "prose prose-slate prose-sm md:prose-base prose-li:marker:text-orange-500 max-w-full text-inherit",
+      "prose prose-sm prose-slate max-w-full text-inherit md:prose-base prose-li:marker:text-orange-500",
       className,
     )}
     {...props}

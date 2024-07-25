@@ -27,7 +27,7 @@ export default function Page() {
         ]}
       />
       <PageMain>
-        <article className="prose prose-slate prose-sm md:prose-base prose-headings:font-serif prose-lead:text-inherit prose-headings:text-inherit prose-headings:font-normal prose-lead:text-lg prose-h2:text-3xl prose-h3:text-2xl prose-li:marker:text-orange-500 -ml-3 mt-6 max-w-[90ch] px-3 py-4 text-inherit light:bg-light/50 basic:bg-basic/50 dark:bg-dark/50">
+        <article className="prose prose-sm prose-slate -ml-3 mt-6 max-w-[90ch] px-3 py-4 text-inherit md:prose-base prose-headings:font-serif prose-headings:font-normal prose-headings:text-inherit prose-h2:text-3xl prose-h3:text-2xl prose-li:marker:text-orange-500 prose-lead:text-base prose-lead:text-inherit light:bg-light/50 basic:bg-basic/50 dark:bg-dark/50 prose-lead:md:text-lg">
           <h2 id="todo">Begin aan een ontwikkelplan</h2>
           <p className="lead">
             Bij de eerste stappen van een nieuw ontwikkelproces komt veel denk-

@@ -15,23 +15,19 @@ import { cn } from "@/lib/utils";
 
 function CarouselItemLocal({
   children,
-  theme,
   ...props
 }: {
   children: React.ReactNode;
-  theme?: string;
 }) {
   return (
     <CarouselItem className="flex h-full w-full cursor-grab items-center active:cursor-grabbing">
       <div
-        className={cn({
-          "flex h-10 w-full items-center justify-center gap-2 capitalize": true,
-          "basic:border-y basic:border-slate-950 basic:bg-basic basic:md:h-full basic:md:border-x basic:md:border-y-0":
-            theme === "basic",
-          "dark:border-y dark:border-dark-dots dark:bg-dark": theme === "dark",
-          "light:border-y light:border-light-dots light:bg-light":
-            theme === "light",
-        })}
+        className={cn(
+          "flex h-10 w-full items-center justify-center gap-2 capitalize",
+          "basic:border-y basic:border-slate-950 basic:bg-basic basic:md:h-full basic:md:border-x basic:md:border-y-0",
+          "dark:border-y dark:border-dark-dots dark:bg-dark",
+          "light:border-y light:border-light-dots light:bg-light",
+        )}
         {...props}
       >
         {children}
@@ -71,15 +67,15 @@ export function ThemeToggle() {
           }}
         >
           <CarouselContent className="h-full w-40 text-sm">
-            <CarouselItemLocal theme={theme}>
+            <CarouselItemLocal>
               <Box className="h-4 w-4 text-slate-950" />
               basic
             </CarouselItemLocal>
-            <CarouselItemLocal theme={theme}>
+            <CarouselItemLocal>
               <Sun className="h-4 w-4 text-amber-600" />
               licht
             </CarouselItemLocal>
-            <CarouselItemLocal theme={theme}>
+            <CarouselItemLocal>
               <Moon className="h-4 w-4 text-orange-200" />
               donker
             </CarouselItemLocal>

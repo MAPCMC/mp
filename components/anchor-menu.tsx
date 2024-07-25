@@ -66,7 +66,7 @@ export function AnchorMenu({ links }: AnchorMenuProps) {
         <NavigationMenuList
           className={cn(
             "flex w-full max-w-full md:flex-col",
-            "duration-500 animate-in slide-in-from-bottom-full md:fade-in md:slide-in-from-bottom-2 md:slide-in-from-bottom-8 md:slide-in-from-right-6",
+            "duration-500 animate-in motion-safe:slide-in-from-bottom-full md:fade-in motion-safe:md:slide-in-from-bottom-8 motion-safe:md:slide-in-from-right-6",
             "gap-px border-slate-950 bg-slate-950 md:bg-transparent",
             "basic:border-y basic:md:border-none",
             "light:border light:md:border-none",

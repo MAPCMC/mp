@@ -1,20 +1,25 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
-import { Roboto_Slab, Roboto_Flex } from "next/font/google";
+
 import { ThemeProvider } from "@/app/_layout/theme-provider";
 import { Footer } from "@/app/_layout/footer";
 import { NavBar } from "@/app/_layout/nav-bar";
 import { Toaster } from "@/components/ui/toaster";
+import { ReactLenis } from "@/lib/lenis";
+import { Roboto_Slab, Roboto_Flex } from "next/font/google";
+
+import { headers } from "next/headers";
+
+const sans = Roboto_Flex({
+  subsets: ["latin"],
+  variable: "--font-roboto-flex",
+  preload: false,
+});
 
 const serif = Roboto_Slab({
   subsets: ["latin"],
   variable: "--font-roboto-slab",
-  preload: false,
-});
-const sans = Roboto_Flex({
-  subsets: ["latin"],
-  variable: "--font-roboto-flex",
   preload: false,
 });
 
@@ -23,17 +28,17 @@ export const metadata: Metadata = {
   description: "Full-stack webdeveloper",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const nonce = headers().get("x-nonce") ?? undefined;
+
   return (
-    <html
-      lang="nl"
-      suppressHydrationWarning
-      className="motion-safe:scroll-smooth"
-    >
+    <html lang="nl" suppressHydrationWarning>
       <body
         className={cn(
           "flex h-full min-h-screen w-full min-w-full max-w-full flex-col items-center",
@@ -41,22 +46,25 @@ export default function RootLayout({
           "basic:grid-basic basic:text-slate-950",
           "light:grid-light light:text-slate-950",
           "dark:grid-dark dark:text-slate-50",
-          sans.variable,
           serif.variable,
+          sans.variable,
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-          themes={["basic", "light", "dark", "fun"]}
-        >
-          <NavBar />
-          {children}
-          <Footer />
-          <Toaster />
-        </ThemeProvider>
+        <ReactLenis root>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+            themes={["basic", "light", "dark", "fun"]}
+            nonce={nonce}
+          >
+            <NavBar />
+            {children}
+            <Footer />
+            <Toaster />
+          </ThemeProvider>
+        </ReactLenis>
       </body>
     </html>
   );

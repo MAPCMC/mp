@@ -11,8 +11,8 @@ export default function Privacy() {
         <p>Laatst gewijzigd: 8 juli 2024</p>
       </PageHeader>
       <PageMain>
-        <article className="prose prose-sm prose-slate -ml-3 mt-6 max-w-[90ch] px-3 py-4 text-inherit md:prose-base prose-headings:font-serif prose-headings:font-normal prose-headings:text-inherit prose-h2:text-3xl prose-h3:text-2xl prose-li:marker:text-orange-500 prose-lead:text-lg prose-lead:text-inherit light:bg-light/50 basic:bg-basic/50 dark:bg-dark/50">
-          <p>
+        <article className="prose prose-sm prose-slate -ml-3 mt-6 max-w-[90ch] px-3 py-4 text-inherit md:prose-base prose-headings:font-serif prose-headings:font-normal prose-headings:text-inherit prose-h2:text-3xl prose-h3:text-2xl prose-li:marker:text-orange-500 prose-lead:text-base prose-lead:text-inherit light:bg-light/50 basic:bg-basic/50 dark:bg-dark/50 prose-lead:md:text-lg">
+          <p className="lead">
             In deze verklaring zet ik uiteen hoe ik omga met persoongegevens die
             aan mij worden toevertrouwd. Ik hecht veel waarde aan online
             privacy, en doe er binnen mijn mogelijkheden alles om jouw gegevens

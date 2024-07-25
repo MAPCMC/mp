@@ -20,6 +20,7 @@ import {
   PenLine,
   Smile,
 } from "lucide-react";
+import { CardGroup } from "@/components/card-group";
 
 export const metadata: Metadata = {
   title: "Development | Maarten Peene",
@@ -59,7 +60,7 @@ export default function Page() {
               Wat mag je verwachten?
             </p>
           </hgroup>
-          <p className="prose mb-5 max-w-[90ch] text-inherit *:text-inherit">
+          <p className="prose mb-5 max-w-[90ch] text-inherit *:text-inherit prose-lead:text-base prose-lead:text-inherit prose-lead:md:text-lg">
             <span className="lead box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
               Iedere developer heeft een eigen stijl; dit zie je terug in de
               producten die ze leveren. Mijn aandacht gaat uit naar het maken
@@ -67,7 +68,10 @@ export default function Page() {
               bezoekers als beheerders zet ik in op een plezierige ervaring.
             </span>
           </p>
-          <ul className="grid light:gap-4 basic:gap-6 dark:gap-3 sm:grid-cols-2 xl:grid-cols-3 light:xl:gap-y-6">
+          <CardGroup
+            as="ul"
+            className="grid light:gap-4 basic:gap-6 dark:gap-3 sm:grid-cols-2 xl:grid-cols-3 light:xl:gap-y-6"
+          >
             <Card as="li">
               <CardHeader>
                 <PencilRuler
@@ -169,7 +173,7 @@ export default function Page() {
                 meedenk en met je de details in wil duiken.
               </CardContent>
             </Card>
-          </ul>
+          </CardGroup>
         </section>
         <section aria-labelledby="how howsub">
           <hgroup className="mb-1">
@@ -189,7 +193,7 @@ export default function Page() {
               Persoonlijke aandacht
             </p>
           </hgroup>
-          <p className="prose mb-5 max-w-[90ch] text-inherit *:text-inherit">
+          <p className="prose mb-5 max-w-[90ch] text-inherit *:text-inherit prose-lead:text-base prose-lead:text-inherit prose-lead:md:text-lg">
             <span className="lead box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
               Het doel is een aantrekkelijke nieuwe site of app die boven het
               maaiveld uitsteekt. Hoe we daar komen? Ik neem je mee in het
@@ -198,11 +202,8 @@ export default function Page() {
           </p>
           <ProcessCards />
         </section>
-        <section
-          aria-labelledby="action"
-          className="grid light:gap-4 basic:gap-6 dark:gap-3 lg:grid-cols-3"
-        >
-          <hgroup className="lg:col-span-3">
+        <section aria-labelledby="action">
+          <hgroup className="light:mb-4 basic:mb-6 dark:mb-3">
             <h2
               className="-mb-1 font-serif text-lg font-light dark:text-slate-300"
               id="action"
@@ -217,38 +218,40 @@ export default function Page() {
               Wat gaan we doen?
             </p>
           </hgroup>
-          <Card
-            as="article"
-            aria-labelledby="quotation"
-            className="lg:col-span-2 lg:row-span-2"
-          >
-            <CardHeader>
-              <CardTitle id="quotation">Begin een aanvraag</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p>
-                Stuur mij een omschrijving van je project, en ik maak een
-                inschatting van het werk en de mogelijkheden. Zo weet je direct
-                waar je aan toe bent. Is je idee nog niet zo strak omlijnd? Gooi
-                een balletje op, dan gaan we verder in gesprek.
-              </p>
-              <QuotationForm />
-            </CardContent>
-          </Card>
-          <Card as="article" aria-labelledby="plan">
-            <CardHeader>
-              <CardTitle id="plan">Begin zelf</CardTitle>
-            </CardHeader>
-            <CardContent className="grow">
-              Bereid je voor op het ontwikkelproces in je eigen tempo, zodat je
-              daarna vliegend van start kan!
-            </CardContent>
-            <CardFooter>
-              <NavLink href="/development/start-nu" variant="button">
-                Start nu
-              </NavLink>
-            </CardFooter>
-          </Card>
+          <CardGroup className="grid light:gap-4 basic:gap-6 dark:gap-3 lg:grid-cols-3">
+            <Card
+              as="article"
+              aria-labelledby="quotation"
+              className="lg:col-span-2 lg:row-span-2"
+            >
+              <CardHeader>
+                <CardTitle id="quotation">Begin een aanvraag</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p>
+                  Stuur mij een omschrijving van je project, en ik maak een
+                  inschatting van het werk en de mogelijkheden. Zo weet je
+                  direct waar je aan toe bent. Is je idee nog niet zo strak
+                  omlijnd? Gooi een balletje op, dan gaan we verder in gesprek.
+                </p>
+                <QuotationForm />
+              </CardContent>
+            </Card>
+            <Card as="article" aria-labelledby="plan">
+              <CardHeader>
+                <CardTitle id="plan">Begin zelf</CardTitle>
+              </CardHeader>
+              <CardContent className="grow">
+                Bereid je voor op het ontwikkelproces in je eigen tempo, zodat
+                je daarna vliegend van start kan!
+              </CardContent>
+              <CardFooter>
+                <NavLink href="/development/start-nu" variant="button">
+                  Start nu
+                </NavLink>
+              </CardFooter>
+            </Card>
+          </CardGroup>
         </section>
       </PageMain>
     </>
