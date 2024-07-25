@@ -9,6 +9,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { ReactLenis } from "@/lib/lenis";
 import { Roboto_Slab, Roboto_Flex } from "next/font/google";
 
+import { headers } from "next/headers";
+
 const sans = Roboto_Flex({
   subsets: ["latin"],
   variable: "--font-roboto-flex",
@@ -26,11 +28,15 @@ export const metadata: Metadata = {
   description: "Full-stack webdeveloper",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const nonce = headers().get("x-nonce") ?? undefined;
+
   return (
     <html lang="nl" suppressHydrationWarning>
       <body
@@ -51,6 +57,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
             themes={["basic", "light", "dark", "fun"]}
+            nonce={nonce}
           >
             <NavBar />
             {children}
