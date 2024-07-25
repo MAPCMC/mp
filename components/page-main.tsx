@@ -15,28 +15,34 @@ export function PageMain({
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger, useGSAP);
     let mm = gsap.matchMedia();
-    mm.add({ reduceMotion: "(prefers-reduced-motion: reduce)" }, (ctx) => {
-      const { reduceMotion } = ctx.conditions as gsap.Conditions;
+    mm.add(
+      {
+        reduceMotion: "(prefers-reduced-motion: reduce)",
+        motion: "(prefers-reduced-motion: no-preference)",
+      },
+      (ctx) => {
+        const { reduceMotion } = ctx.conditions as gsap.Conditions;
 
-      const blocks: Element[] = gsap.utils.toArray(
-        "#main > *:not(.card):not(article)",
-      );
+        const blocks: Element[] = gsap.utils.toArray(
+          "#main > *:not(.card):not(article)",
+        );
 
-      blocks.forEach((block) => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: block,
-            start: "10% 90%",
-            end: "bottom 60%",
-            toggleActions: "restart resume resume reverse",
-          },
+        blocks.forEach((block) => {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: block,
+              start: "10% 90%",
+              end: "bottom 60%",
+              toggleActions: "restart resume resume reverse",
+            },
+          });
+          tl.from(block, {
+            opacity: 0.2,
+            y: reduceMotion ? 20 : 80,
+          });
         });
-        tl.from(block, {
-          opacity: 0.2,
-          y: reduceMotion ? 20 : 80,
-        });
-      });
-    });
+      },
+    );
   });
 
   return (
