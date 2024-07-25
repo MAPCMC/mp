@@ -119,7 +119,7 @@ export const MemoryGame = ({
       const mm = gsap.matchMedia();
 
       mm.add({ reduceMotion: "(prefers-reduced-motion: reduce)" }, (ctx) => {
-        const { reduceMotion } = ctx.conditions;
+        const { reduceMotion } = ctx.conditions as gsap.Conditions;
         gsap.fromTo(
           ".card",
           { y: reduceMotion ? 20 : 40, x: reduceMotion ? 15 : 30, opacity: 0 },

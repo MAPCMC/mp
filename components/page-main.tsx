@@ -16,7 +16,7 @@ export function PageMain({
     gsap.registerPlugin(ScrollTrigger, useGSAP);
     let mm = gsap.matchMedia();
     mm.add({ reduceMotion: "(prefers-reduced-motion: reduce)" }, (ctx) => {
-      const { reduceMotion } = ctx.conditions;
+      const { reduceMotion } = ctx.conditions as gsap.Conditions;
 
       const blocks: Element[] = gsap.utils.toArray(
         "#main > *:not(.card):not(article)",
