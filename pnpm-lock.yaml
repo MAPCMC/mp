@@ -53,6 +53,9 @@ importers:
       gsap:
         specifier: ^3.12.5
         version: 3.12.5
+      lenis:
+        specifier: ^1.1.6
+        version: 1.1.6(react-dom@19.0.0-rc-d025ddd3-20240722(react@19.0.0-rc-d025ddd3-20240722))(react@19.0.0-rc-d025ddd3-20240722)
       lucide-react:
         specifier: ^0.378.0
         version: 0.378.0(react@19.0.0-rc-d025ddd3-20240722)
@@ -145,6 +148,9 @@ packages:
 
   '@corex/deepmerge@4.0.43':
     resolution: {integrity: sha512-N8uEMrMPL0cu/bdboEWpQYb/0i2K5Qn8eCsxzOmxSggJbbQte7ljMRoXm917AbntqTGOzdTu+vP3KOOzoC70HQ==}
+
+  '@darkroom.engineering/tempus@0.0.46':
+    resolution: {integrity: sha512-s5vav3KMHYezvUCl4ee5epg0oimF6M8C9gAaKxFnFaTvX2q3ywFDryIv6XLd0mRFUt3S1uHDJqKaiEcs2ZVSvw==}
 
   '@emnapi/runtime@1.2.0':
     resolution: {integrity: sha512-bV21/9LQmcQeCPEg3BDFtvwL6cwiTMksYNWQQ4KOxCZikEGalWtenoZ0wCiukJINlGCIi2KXx01g4FoH/LxpzQ==}
@@ -1605,6 +1611,17 @@ packages:
     resolution: {integrity: sha512-MbjN408fEndfiQXbFQ1vnd+1NoLDsnQW41410oQBXiyXDMYH5z505juWa4KUE1LqxRC7DgOgZDbKLxHIwm27hA==}
     engines: {node: '>=0.10'}
 
+  lenis@1.1.6:
+    resolution: {integrity: sha512-MQE2Pz49inEsT/H6enEfYeMysH/Yl6s9Z91th1KAm3RxMDzN0YOEncZzR3o6uvJH44yCCUDnr8ILMvT8o689RA==}
+    peerDependencies:
+      react: '>=17.0.0'
+      react-dom: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -2370,6 +2387,8 @@ snapshots:
       regenerator-runtime: 0.14.1
 
   '@corex/deepmerge@4.0.43': {}
+
+  '@darkroom.engineering/tempus@0.0.46': {}
 
   '@emnapi/runtime@1.2.0':
     dependencies:
@@ -3433,7 +3452,7 @@ snapshots:
       eslint: 8.57.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.3))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
       eslint-plugin-jsx-a11y: 6.9.0(eslint@8.57.0)
       eslint-plugin-react: 7.34.3(eslint@8.57.0)
       eslint-plugin-react-hooks: 4.6.2(eslint@8.57.0)
@@ -3457,7 +3476,7 @@ snapshots:
       enhanced-resolve: 5.17.0
       eslint: 8.57.0
       eslint-module-utils: 2.8.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
-      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.3))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0)
       fast-glob: 3.3.2
       get-tsconfig: 4.7.5
       is-core-module: 2.14.0
@@ -3479,7 +3498,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.3))(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0):
+  eslint-plugin-import@2.29.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.3))(eslint-import-resolver-typescript@3.6.1(@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.29.1(eslint@8.57.0))(eslint@8.57.0))(eslint@8.57.0):
     dependencies:
       array-includes: 3.1.8
       array.prototype.findlastindex: 1.2.5
@@ -3976,6 +3995,13 @@ snapshots:
   language-tags@1.0.9:
     dependencies:
       language-subtag-registry: 0.3.23
+
+  lenis@1.1.6(react-dom@19.0.0-rc-d025ddd3-20240722(react@19.0.0-rc-d025ddd3-20240722))(react@19.0.0-rc-d025ddd3-20240722):
+    dependencies:
+      '@darkroom.engineering/tempus': 0.0.46
+    optionalDependencies:
+      react: 19.0.0-rc-d025ddd3-20240722
+      react-dom: 19.0.0-rc-d025ddd3-20240722(react@19.0.0-rc-d025ddd3-20240722)
 
   levn@0.4.1:
     dependencies:
