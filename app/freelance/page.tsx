@@ -6,6 +6,7 @@ import { PageMain } from "@/components/page-main";
 import { SimpleLink, NavLink } from "@/components/links";
 import { JobOfferForm } from "@/app/freelance/_components/job-offer-form";
 import { Heart, Library, Lightbulb, Terminal, Users } from "lucide-react";
+import { CardGroup } from "@/components/card-group";
 
 export const metadata: Metadata = {
   title: "Freelance | Maarten Peene",
@@ -44,28 +45,34 @@ export default function Page() {
       </PageHeader>
       <AnchorMenu
         links={[
-          { href: "#s1", text: "kwaliteiten" },
-          { href: "#s2", text: "functieprofiel" },
-          { href: "#s3", text: "contact" },
+          { href: "#kwaliteiten", text: "kwaliteiten" },
+          { href: "#profiel", text: "functieprofiel" },
+          { href: "#contact", text: "contact" },
         ]}
       />
       <PageMain className="mt-10">
-        <section aria-labelledby="s1 s1b">
+        <section aria-labelledby="kwaliteiten kwaliteitenb">
           <hgroup className="mb-5 w-full">
-            <h2 id="s1" className="-mb-1 font-serif text-lg font-light">
+            <h2
+              id="kwaliteiten"
+              className="-mb-1 font-serif text-lg font-light"
+            >
               <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Kwaliteiten
               </span>
             </h2>
             <p
-              id="s1b"
+              id="kwaliteitenb"
               role="subtitle"
               className="font-serif text-xl sm:text-3xl"
             >
               Wat breng ik mee naar de werkvloer?
             </p>
           </hgroup>
-          <ul className="grid light:gap-4 basic:gap-6 dark:gap-3 lg:grid-cols-3 light:xl:gap-y-6">
+          <CardGroup
+            as="ul"
+            className="grid light:gap-4 basic:gap-6 dark:gap-3 lg:grid-cols-3 light:xl:gap-y-6"
+          >
             <Card as="li">
               <CardHeader>
                 <Library
@@ -119,86 +126,90 @@ export default function Page() {
                 team.
               </CardContent>
             </Card>
-          </ul>
+          </CardGroup>
         </section>
-        <section className="grid light:gap-4 basic:gap-6 dark:gap-3 lg:grid-cols-2 light:xl:gap-y-6">
-          <hgroup className="mb-1 w-full lg:col-span-2">
-            <h2 id="s2" className="-mb-1 font-serif text-lg font-light">
+        <section>
+          <hgroup className="light:mb-4 basic:mb-6 dark:mb-3 light:xl:mb-6">
+            <h2 id="profiel" className="-mb-1 font-serif text-lg font-light">
               <span className="box-decoration-clone light:bg-light basic:bg-basic dark:bg-dark">
                 Functieprofiel
               </span>
             </h2>
             <p
-              id="s2b"
+              id="profielsub"
               role="subtitle"
               className="font-serif text-xl sm:text-3xl"
             >
               Hoe kan je mij inzetten?
             </p>
           </hgroup>
-          <Card as="article">
-            <CardHeader>
-              <Terminal
-                width={52}
-                height={52}
-                strokeWidth={1.25}
-                className="origin-bottom-left scale-75 light:text-orange-400 dark:text-orange-200 md:scale-100"
-              />
-              <CardTitle>Code</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Ik werk graag mee aan jullie software. Of we nou beginnen met
-                legacy code of rond een lege tafel. Wat ik zoek is de
-                aansluiting bij een groter team waarmee ik de uitdaging van
-                grote projecten aan kan gaan.
-              </p>
-              <p>Functieomschrijvingen in mijn straatje zijn:</p>
-              <ul>
-                <li>Front-end of full-stack Javascript/Typescript developer</li>
-                <li>Frameworks o.a. React, Vue, Next.JS of Node.JS</li>
-                <li>voor 24-32 uur per week</li>
-                <li>Mid of senior level</li>
-                <li>Rondom Utrecht (of goed bereikbaar)</li>
-                <li>Voertaal Nederlands of Engels</li>
-              </ul>
-            </CardContent>
-          </Card>
-          <Card as="article">
-            <CardHeader>
-              <Users
-                width={52}
-                height={52}
-                strokeWidth={1.25}
-                className="origin-bottom-left scale-75 light:text-orange-400 dark:text-orange-200 md:scale-100"
-              />
-              <CardTitle>No code</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>
-                Op zoek naar iemand die vanuit technische onderlegging de kar
-                kan trekken? Je maakt mij bijna niet blijer dan met een
-                chaotisch kanbanbord waaraan ik structuur en inhoud mag geven.
-                Ik bewaar het overzicht, spreek de stakeholders en ondersteun
-                het team.
-              </p>
-              <p>Neem contact op wanneer je zoekt naar:</p>
-              <ul>
-                <li>een team lead, projectbeheerder of product owner</li>
-                <li>voor maximaal 28 uur per week</li>
-                <li>Hybride of op kantoor</li>
-                <li>Rondom Utrecht (of goed bereikbaar)</li>
-                <li>Voertaal Nederlands of Engels</li>
-              </ul>
-            </CardContent>
-          </Card>
+          <CardGroup className="grid light:gap-4 basic:gap-6 dark:gap-3 lg:grid-cols-2 light:xl:gap-y-6">
+            <Card as="article">
+              <CardHeader>
+                <Terminal
+                  width={52}
+                  height={52}
+                  strokeWidth={1.25}
+                  className="origin-bottom-left scale-75 light:text-orange-400 dark:text-orange-200 md:scale-100"
+                />
+                <CardTitle>Code</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  Ik werk graag mee aan jullie software. Of we nou beginnen met
+                  legacy code of rond een lege tafel. Wat ik zoek is de
+                  aansluiting bij een groter team waarmee ik de uitdaging van
+                  grote projecten aan kan gaan.
+                </p>
+                <p>Functieomschrijvingen in mijn straatje zijn:</p>
+                <ul>
+                  <li>
+                    Front-end of full-stack Javascript/Typescript developer
+                  </li>
+                  <li>Frameworks o.a. React, Vue, Next.JS of Node.JS</li>
+                  <li>voor 24-32 uur per week</li>
+                  <li>Mid of senior level</li>
+                  <li>Rondom Utrecht (of goed bereikbaar)</li>
+                  <li>Voertaal Nederlands of Engels</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card as="article">
+              <CardHeader>
+                <Users
+                  width={52}
+                  height={52}
+                  strokeWidth={1.25}
+                  className="origin-bottom-left scale-75 light:text-orange-400 dark:text-orange-200 md:scale-100"
+                />
+                <CardTitle>No code</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>
+                  Op zoek naar iemand die vanuit technische onderlegging de kar
+                  kan trekken? Je maakt mij bijna niet blijer dan met een
+                  chaotisch kanbanbord waaraan ik structuur en inhoud mag geven.
+                  Ik bewaar het overzicht, spreek de stakeholders en ondersteun
+                  het team.
+                </p>
+                <p>Neem contact op wanneer je zoekt naar:</p>
+                <ul>
+                  <li>een team lead, projectbeheerder of product owner</li>
+                  <li>voor maximaal 28 uur per week</li>
+                  <li>Hybride of op kantoor</li>
+                  <li>Rondom Utrecht (of goed bereikbaar)</li>
+                  <li>Voertaal Nederlands of Engels</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </CardGroup>
         </section>
         <section
-          aria-labelledby="s3"
+          aria-labelledby="contact"
           className="grid light:gap-4 basic:gap-6 dark:gap-3 lg:grid-cols-3"
         >
           <hgroup className="lg:col-span-3">
-            <h2 className="-mb-1 font-serif text-lg font-light" id="s3">
+            <h2 className="-mb-1 font-serif text-lg font-light" id="contact">
               Contact
             </h2>
             <p
@@ -223,20 +234,18 @@ export default function Page() {
               formulier en ik kom bij je terug.
             </p>
           </div>
-          <Card
-            as="article"
-            aria-labelledby="availability"
-            className="gap-6 lg:col-span-2"
-          >
-            <CardHeader>
-              <CardTitle id="availability">
-                Vraag naar mijn beschikbaarheid
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <JobOfferForm />
-            </CardContent>
-          </Card>
+          <CardGroup className="lg:col-span-2">
+            <Card as="article" aria-labelledby="availability">
+              <CardHeader>
+                <CardTitle id="availability">
+                  Vraag naar mijn beschikbaarheid
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <JobOfferForm />
+              </CardContent>
+            </Card>
+          </CardGroup>
         </section>
       </PageMain>
     </>

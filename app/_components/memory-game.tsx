@@ -116,11 +116,22 @@ export const MemoryGame = ({
 
   const { contextSafe } = useGSAP(
     () => {
-      gsap.fromTo(
-        ".card",
-        { y: 40, x: 30, opacity: 0 },
-        { x: 0, opacity: 1, y: 0, duration: 0.5, stagger: 0.1 },
-      );
+      const mm = gsap.matchMedia();
+
+      mm.add({ reduceMotion: "(prefers-reduced-motion: reduce)" }, (ctx) => {
+        const { reduceMotion } = ctx.conditions;
+        gsap.fromTo(
+          ".card",
+          { y: reduceMotion ? 20 : 40, x: reduceMotion ? 15 : 30, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: reduceMotion ? 0 : 0.1,
+          },
+        );
+      });
     },
     { scope: game },
   );
