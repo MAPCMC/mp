@@ -15,6 +15,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useEffect } from "react";
+import { useTheme } from "next-themes";
 
 type MenuItemProps = {
   text: string;
@@ -68,6 +69,7 @@ const MenuItem = ({
 
 export function FooterMenu() {
   const pathname = usePathname();
+  const { theme } = useTheme();
 
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -79,9 +81,9 @@ export function FooterMenu() {
         x: 0,
         scrollTrigger: {
           trigger: ".footer-menu",
-          toggleActions: "restart pause resume reset",
-          invalidateOnRefresh: true,
-          fastScrollEnd: true,
+          start: "50% 90%",
+          end: "150% 100%",
+          toggleActions: "restart resume resume reverse",
         },
       },
     );
@@ -89,7 +91,7 @@ export function FooterMenu() {
 
   useEffect(() => {
     ScrollTrigger.refresh();
-  }, [pathname]);
+  }, [pathname, theme]);
 
   return (
     <NavigationMenu

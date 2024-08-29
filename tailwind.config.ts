@@ -12,8 +12,8 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-roboto-flex)"],
-        serif: ["var(--font-roboto-slab)"],
+        sans: ["var(--font-roboto-flex)", "helvetica", "arial", "sans-serif"],
+        serif: ["var(--font-roboto-slab)", "helvetica", "arial", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
