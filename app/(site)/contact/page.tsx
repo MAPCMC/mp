@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { ContactForm } from "@/app/contact/_components/contact-form";
+import { ContactForm } from "@/app/(site)/contact/_components/contact-form";
 import { PageHeader } from "@/components/page-header";
 import { PageMain } from "@/components/page-main";
-import { CardGroup } from "../../components/card-group";
+import { CardGroup } from "@/components/card-group";
 
 export const metadata: Metadata = {
   title: "Contact | Maarten Peene",

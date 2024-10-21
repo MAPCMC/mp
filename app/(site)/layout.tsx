@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 
-import { ThemeProvider } from "@/app/_layout/theme-provider";
-import { Footer } from "@/app/_layout/footer";
-import { NavBar } from "@/app/_layout/nav-bar";
+import { ThemeProvider } from "@/app/(site)/_layout/theme-provider";
+import { Footer } from "@/app/(site)/_layout/footer";
+import { NavBar } from "@/app/(site)/_layout/nav-bar";
 import { Toaster } from "@/components/ui/toaster";
 import { ReactLenis } from "@/lib/lenis";
 import { Roboto_Slab, Roboto_Flex } from "next/font/google";

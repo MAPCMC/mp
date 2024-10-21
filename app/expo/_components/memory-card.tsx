@@ -9,7 +9,7 @@ import { useRef, useImperativeHandle } from "react";
 
 gsap.registerPlugin(useGSAP);
 
-export function MemoryCard({
+export function MemoryCardExpo({
   children,
   onClick,
   onKeyDown,
@@ -73,12 +73,13 @@ export function MemoryCard({
     <button
       ref={localRef}
       className={cn(
-        "card relative size-12 text-slate-50 outline-offset-2 dark:text-slate-950 lg:size-16 lg:justify-self-end",
+        "card relative  text-slate-50 outline-offset-2 dark:text-slate-950 lg:justify-self-end",
         "perspective-1000 transform-style-3d",
         "light:rounded-md *:light:rounded-md dark:rounded-md *:dark:rounded-md",
         "hover:z-20 hover:outline hover:outline-2 hover:outline-offset-2 hover:outline-sky-400",
         "focus-visible:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400",
         "shadow-[.2rem_.2rem_solid] shadow-orange-200 lg:shadow-[.3rem_.3rem_solid] lg:shadow-orange-200",
+        "size-16 sm:size-20",
       )}
       onClick={handleClick}
       onKeyDown={handleKeyDown}

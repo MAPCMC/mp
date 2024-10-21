@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import { ThemeToggle } from "@/app/_layout/theme-toggle";
-import { Breadcrumb } from "@/app/_layout/breadcrumb";
-import { NavMenu } from "@/app/_layout/nav-menu";
+import { ThemeToggle } from "@/app/(site)/_layout/theme-toggle";
+import { Breadcrumb } from "@/app/(site)/_layout/breadcrumb";
+import { NavMenu } from "@/app/(site)/_layout/nav-menu";
 import { cn } from "@/lib/utils";
 import { NavLink, SimpleLink } from "@/components/links";
 import { Home } from "lucide-react";

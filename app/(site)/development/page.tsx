@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ProcessCards } from "@/app/development/_components/process-cards";
+import { ProcessCards } from "@/app/(site)/development/_components/process-cards";
 import {
   Card,
   CardContent,
@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { QuotationForm } from "@/app/development/_components/quotation-form";
+import { QuotationForm } from "@/app/(site)/development/_components/quotation-form";
 import { NavLink } from "@/components/links";
 import { AnchorMenu } from "@/components/anchor-menu";
 import { PageHeader } from "@/components/page-header";

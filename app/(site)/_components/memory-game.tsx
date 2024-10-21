@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { MemoryCard } from "@/app/_components/memory-card";
+import { MemoryCard } from "@/app/(site)/_components/memory-card";
 import {
   SiGithub,
   SiTypescript,

@@ -6,8 +6,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MemoryGame } from "@/app/_components/memory-game";
-import { AboutSpans } from "@/app/_components/about-spans";
+import { MemoryGame } from "@/app/(site)/_components/memory-game";
+import { AboutSpans } from "@/app/(site)/_components/about-spans";
 import { NavLink, SimpleLink } from "@/components/links";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
