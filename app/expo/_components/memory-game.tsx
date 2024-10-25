@@ -20,6 +20,7 @@ import { cn } from "@/lib/utils";
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { addHighScore } from "../_helpers";
 import { Input } from "@/components/ui/input";
 
 gsap.registerPlugin(useGSAP);
@@ -47,6 +48,7 @@ export const MemoryGame = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
   const [score, setScore] = useState<number>(0);
+  const [name, setName] = useState<string>("");
   const [cards, setCards] = useState<Card[]>([]);
   const [openCards, setOpenCards] = useState<number[]>([]);
   const [clearedCards, setClearedCards] = useState<string[]>([]);
@@ -88,9 +90,10 @@ export const MemoryGame = ({
   };
 
   const handleQuit = () => {
-    // TODO save score to db
+    addHighScore(score, name);
 
     setCards([]);
+    setName("");
     setClearedCards([]);
     setOpenCards([]);
     setScore(0);
@@ -186,6 +189,7 @@ export const MemoryGame = ({
             "-mx-8 -mt-8 mb-6 flex justify-end gap-3 bg-orange-600 p-4",
           )}
         >
+          <Input value={name} onChange={(e) => setName(e.target.value)} />
           <div className="flex items-center gap-2">
             <p>{score}</p>
             <Button
