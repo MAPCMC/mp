@@ -48,6 +48,7 @@ export default function RootLayout({
           "dark:grid-dark dark:text-slate-50",
           serif.variable,
           sans.variable,
+          "font-sans font-light",
         )}
       >
         <ReactLenis root>
