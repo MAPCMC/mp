@@ -13,13 +13,28 @@ const chooseAnonymous = () => {
     "deelnemer_onbekend",
     "anoniemhierhoor",
     "mijnietbellen",
+    "onzichtbaregast",
+    "niemandweetdit",
+    "supergeheim123",
+    "anoniempje_007",
+    "verborgen_bezoeker",
+    "onbekende_gebruiker",
+    "naamloos",
+    "eenofanderpersoon",
+    "niet_te_vinden",
+    "hiero_anoniem",
+    "verstoppertje2024",
+    "zomaar_ik",
   ];
 
   return names[Math.floor(Math.random() * names.length)];
 };
 
 export const addHighScore = (score: number, name?: string) => {
-  createScore({ value: score.toString(), name: name ?? chooseAnonymous() });
+  if (!name || name.length === 0 || name.length > 160) {
+    name = chooseAnonymous();
+  }
+  createScore({ value: score.toString(), name: name });
   revalidatePath("/expo");
   redirect("/expo");
 };

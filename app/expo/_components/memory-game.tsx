@@ -22,6 +22,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { addHighScore } from "../_helpers";
 import { Input } from "@/components/ui/input";
+import { SelectScore } from "@/db/schema";
 
 gsap.registerPlugin(useGSAP);
 
@@ -45,8 +46,11 @@ const Cards = [
 
 export const MemoryGame = ({
   className,
+  scores,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) => {
+}: React.HTMLAttributes<HTMLDivElement> & {
+  scores: SelectScore[];
+}) => {
   const [score, setScore] = useState<number>(0);
   const [name, setName] = useState<string>("");
   const [cards, setCards] = useState<Card[]>([]);
@@ -175,26 +179,33 @@ export const MemoryGame = ({
   });
 
   return (
-    <div
-      id="memory-game"
-      ref={game}
-      className={cn("relative", className)}
-      {...props}
-    >
+    <div id="memory-game" ref={game} className="relative flex w-full flex-col">
       {cards.length > 0 && (
         <div
           className={cn(
-            "relative col-span-full",
+            "relative",
             "duration-700 animate-in fade-in slide-in-from-top-6",
-            "-mx-8 -mt-8 mb-6 flex justify-end gap-3 bg-orange-600 p-4",
+            "flex flex-wrap items-center justify-between gap-x-6 border-b bg-orange-600 px-5 py-2",
           )}
         >
-          <Input value={name} onChange={(e) => setName(e.target.value)} />
-          <div className="flex items-center gap-2">
-            <p>{score}</p>
+          <div className="flex w-full items-center gap-2 sm:w-auto">
+            <Input
+              placeholder="naam"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="h-auto rounded-none disabled:hidden"
+              disabled={
+                scores.length >= 5 &&
+                Number(scores[scores.length - 1]?.value) > score
+              }
+            />
             <Button
-              size="xs"
+              disabled={
+                scores.length >= 5 &&
+                Number(scores[scores.length - 1]?.value) > score
+              }
               variant="outline"
+              className="disabled:hidden"
               onClick={handleQuit}
               onKeyDown={(e) => {
                 if (
@@ -208,13 +219,16 @@ export const MemoryGame = ({
                 }
               }}
             >
-              <span className="first-letter:capitalize">score opslaan</span>
+              <span className="first-letter:capitalize">
+                <span className="hidden sm:inline">score</span> opslaan
+              </span>
             </Button>
           </div>
+          <p className="font-serif text-xl text-white">score: {score}</p>
         </div>
       )}
-      {cards.length === 0 && (
-        <div className="col-span-full flex flex-col items-center justify-center gap-4 sm:flex-row">
+      {cards.length === 0 ? (
+        <div className="flex grow flex-col items-center justify-center gap-4 sm:flex-row">
           <MemoryCardExpo
             index={0}
             onClick={() => {
@@ -230,39 +244,43 @@ export const MemoryGame = ({
             <p className="text-xs text-slate-950">Durf dan. Ahh toe</p>
           </div>
         </div>
+      ) : (
+        <div className="flex grow flex-col items-center justify-center px-5 py-12">
+          <div className="relative grid grid-cols-3 gap-2 sm:grid-cols-5">
+            {/* celebrate */}
+            {clearedCards.length === cardAmount && (
+              <PartyPopper className="absolute -top-8 left-0 h-6 w-6 text-slate-950 animate-in fade-in slide-in-from-bottom" />
+            )}
+            {cards.map((card, index) => {
+              const CardIcon = card.icon as React.ElementType;
+              return (
+                <MemoryCardExpo
+                  onClick={handleCardClick}
+                  key={card.id}
+                  index={index}
+                  isOpen={openCards.includes(index)}
+                  isResetCard={card.text === "Reset"}
+                  isCleared={clearedCards.includes(card.text)}
+                  onKeyDown={(e) => {
+                    if (
+                      e.key === "Escape" ||
+                      e.key === "Esc" ||
+                      e.key === "Delete" ||
+                      e.key === "Backspace"
+                    ) {
+                      e.preventDefault();
+                      handleQuit();
+                    }
+                  }}
+                >
+                  <CardIcon className="h-full w-full p-2" />
+                  <span className="sr-only">{card.text}</span>
+                </MemoryCardExpo>
+              );
+            })}
+          </div>
+        </div>
       )}
-      {/* celebrate */}
-      {clearedCards.length === cardAmount && (
-        <PartyPopper className="absolute -left-8 -top-16 h-6 w-6 text-white animate-in fade-in slide-in-from-bottom" />
-      )}
-      {cards.map((card, index) => {
-        const CardIcon = card.icon as React.ElementType;
-
-        return (
-          <MemoryCardExpo
-            onClick={handleCardClick}
-            key={card.id}
-            index={index}
-            isOpen={openCards.includes(index)}
-            isResetCard={card.text === "Reset"}
-            isCleared={clearedCards.includes(card.text)}
-            onKeyDown={(e) => {
-              if (
-                e.key === "Escape" ||
-                e.key === "Esc" ||
-                e.key === "Delete" ||
-                e.key === "Backspace"
-              ) {
-                e.preventDefault();
-                handleQuit();
-              }
-            }}
-          >
-            <CardIcon className="h-full w-full p-2" />
-            <span className="sr-only">{card.text}</span>
-          </MemoryCardExpo>
-        );
-      })}
     </div>
   );
 };

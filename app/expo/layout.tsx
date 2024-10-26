@@ -2,14 +2,15 @@ import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import { Roboto_Slab, Roboto_Flex } from "next/font/google";
 import "@/styles/globals.css";
+import { ThemeProvider } from "@/app/(site)/_layout/theme-provider";
+import { BasicTheme } from "./_components/BasicTheme";
 
 export const metadata: Metadata = {
   title: "EXPO | Maarten Peene",
-  description: "Exposeer mijn werk bij de Nijverheid",
+  description: "Exposeer een memory spelletje bij de Nijverheid",
 };
 
 const sans = Roboto_Flex({
-  weight: ["300", "400", "600", "700"],
   subsets: ["latin"],
   variable: "--font-roboto-flex",
   preload: false,
@@ -30,14 +31,20 @@ export default function RootLayout({
     <html lang="nl" suppressHydrationWarning>
       <body
         className={cn(
-          "flex h-full min-h-screen w-full min-w-full max-w-full flex-col items-center justify-center",
-          "bg-orange-500 text-white",
+          "grid-basic flex h-full min-h-screen w-full min-w-full max-w-full flex-col font-sans font-light",
           serif.variable,
           sans.variable,
-          "font-sans font-light",
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="basic"
+          disableTransitionOnChange
+          themes={["basic"]}
+        >
+          <BasicTheme />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
