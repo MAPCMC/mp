@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import { Roboto_Slab, Roboto_Flex } from "next/font/google";
@@ -34,7 +35,7 @@ export default function RootLayout({
           sans.variable,
         )}
       >
-        {children}
+        <Suspense fallback={null}>{children}</Suspense>
       </body>
     </html>
   );
