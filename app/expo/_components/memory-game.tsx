@@ -52,6 +52,7 @@ export const MemoryGame = ({
   scores: SelectScore[];
 }) => {
   const [score, setScore] = useState<number>(0);
+  const [hideInput, setHideInput] = useState(true);
   const [name, setName] = useState<string>("");
   const [cards, setCards] = useState<Card[]>([]);
   const [openCards, setOpenCards] = useState<number[]>([]);
@@ -178,6 +179,17 @@ export const MemoryGame = ({
     });
   });
 
+  useEffect(() => {
+    if (
+      scores.length < 5 ||
+      Number(scores[scores.length - 1]?.value) <= score
+    ) {
+      setHideInput(false);
+    } else {
+      setHideInput(true);
+    }
+  }, [score, scores]);
+
   return (
     <div id="memory-game" ref={game} className="relative flex w-full flex-col">
       {cards.length > 0 && (
@@ -194,16 +206,10 @@ export const MemoryGame = ({
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="h-auto rounded-none disabled:hidden"
-              disabled={
-                scores.length >= 5 &&
-                Number(scores[scores.length - 1]?.value) > score
-              }
+              disabled={hideInput}
             />
             <Button
-              disabled={
-                scores.length >= 5 &&
-                Number(scores[scores.length - 1]?.value) > score
-              }
+              disabled={hideInput}
               variant="outline"
               className="disabled:hidden"
               onClick={handleQuit}
