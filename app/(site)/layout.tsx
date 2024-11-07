@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 
-import { ThemeProvider } from "@/app/(site)/_layout/theme-provider";
+import { Providers } from "./_layout/providers";
 import { Footer } from "@/app/(site)/_layout/footer";
 import { NavBar } from "@/app/(site)/_layout/nav-bar";
 import { Toaster } from "@/components/ui/toaster";
-import { ReactLenis } from "@/lib/lenis";
-import { Roboto_Slab, Roboto_Flex } from "next/font/google";
 
-import { headers } from "next/headers";
+import { Roboto_Slab, Roboto_Flex } from "next/font/google";
+import { Suspense } from "react";
 
 const sans = Roboto_Flex({
   subsets: ["latin"],
@@ -28,15 +27,11 @@ export const metadata: Metadata = {
   description: "Full-stack webdeveloper",
 };
 
-export const dynamic = "force-dynamic";
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const nonce = headers().get("x-nonce") ?? undefined;
-
   return (
     <html lang="nl" suppressHydrationWarning>
       <body
@@ -51,21 +46,14 @@ export default function RootLayout({
           "font-sans font-light",
         )}
       >
-        <ReactLenis root>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-            themes={["basic", "light", "dark", "fun"]}
-            nonce={nonce}
-          >
+        <Suspense fallback={null}>
+          <Providers>
             <NavBar />
             {children}
             <Footer />
             <Toaster />
-          </ThemeProvider>
-        </ReactLenis>
+          </Providers>
+        </Suspense>
       </body>
     </html>
   );

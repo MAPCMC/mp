@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { cn } from "@/lib/utils";
 import { Roboto_Slab, Roboto_Flex } from "next/font/google";
 import "@/styles/globals.css";
-import { ThemeProvider } from "@/app/(site)/_layout/theme-provider";
-import { BasicTheme } from "./_components/BasicTheme";
 
 export const metadata: Metadata = {
   title: "EXPO | Maarten Peene",
@@ -28,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="nl" suppressHydrationWarning>
+    <html lang="nl" suppressHydrationWarning className="basic">
       <body
         className={cn(
           "grid-basic flex h-full min-h-screen w-full min-w-full max-w-full flex-col font-sans font-light",
@@ -36,15 +34,7 @@ export default function RootLayout({
           sans.variable,
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="basic"
-          disableTransitionOnChange
-          themes={["basic"]}
-        >
-          <BasicTheme />
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

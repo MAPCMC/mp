@@ -3,10 +3,9 @@ import HighScores from "./_components/HighScores";
 import { getScores } from "@/db/queries";
 import { NavLink } from "@/components/links";
 
-export const dynamic = "force-dynamic";
-
 export default async function Page() {
   const scores = await getScores();
+
   return (
     <>
       <div className="flex grow">

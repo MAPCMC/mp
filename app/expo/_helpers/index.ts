@@ -1,8 +1,7 @@
 "use server";
 
 import { createScore } from "@/db/queries";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+import { revalidateTag } from "next/cache";
 
 const chooseAnonymous = () => {
   const names = [
@@ -30,11 +29,13 @@ const chooseAnonymous = () => {
   return names[Math.floor(Math.random() * names.length)];
 };
 
-export const addHighScore = (score: number, name?: string) => {
+export const addHighScore = async (score: number, name?: string) => {
   if (!name || name.length === 0 || name.length > 160) {
     name = chooseAnonymous();
   }
-  createScore({ value: score.toString(), name: name });
-  revalidatePath("/expo");
-  redirect("/expo");
+  await createScore({ value: score.toString(), name: name });
+};
+
+export const revalidateScores = async () => {
+  revalidateTag("scores");
 };

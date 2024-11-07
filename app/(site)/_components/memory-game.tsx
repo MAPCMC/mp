@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { MemoryCard } from "@/app/(site)/_components/memory-card";
 import {
   SiGithub,
@@ -191,28 +191,33 @@ export const MemoryGame = ({
         const CardIcon = card.icon as React.ElementType;
 
         return (
-          <MemoryCard
-            onClick={handleCardClick}
+          <Suspense
             key={card.id}
-            index={index}
-            isOpen={openCards.includes(index)}
-            isResetCard={card.text === "Reset"}
-            isCleared={clearedCards.includes(card.text)}
-            onKeyDown={(e) => {
-              if (
-                e.key === "Escape" ||
-                e.key === "Esc" ||
-                e.key === "Delete" ||
-                e.key === "Backspace"
-              ) {
-                e.preventDefault();
-                handleQuit();
-              }
-            }}
+            fallback={<div className="size-12 bg-orange-200"></div>}
           >
-            <CardIcon className="h-full w-full p-2" />
-            <span className="sr-only">{card.text}</span>
-          </MemoryCard>
+            <MemoryCard
+              onClick={handleCardClick}
+              // key={card.id}
+              index={index}
+              isOpen={openCards.includes(index)}
+              isResetCard={card.text === "Reset"}
+              isCleared={clearedCards.includes(card.text)}
+              onKeyDown={(e) => {
+                if (
+                  e.key === "Escape" ||
+                  e.key === "Esc" ||
+                  e.key === "Delete" ||
+                  e.key === "Backspace"
+                ) {
+                  e.preventDefault();
+                  handleQuit();
+                }
+              }}
+            >
+              <CardIcon className="h-full w-full p-2" />
+              <span className="sr-only">{card.text}</span>
+            </MemoryCard>
+          </Suspense>
         );
       })}
 

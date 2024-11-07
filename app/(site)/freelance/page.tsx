@@ -3,10 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnchorMenu } from "@/components/anchor-menu";
 import { PageHeader } from "@/components/page-header";
 import { PageMain } from "@/components/page-main";
-import { SimpleLink, NavLink } from "@/components/links";
+import { NavLink } from "@/components/links";
 import { JobOfferForm } from "@/app/(site)/freelance/_components/job-offer-form";
 import { Heart, Library, Lightbulb, Terminal, Users } from "lucide-react";
 import { CardGroup } from "@/components/card-group";
+import { DownloadCVButton } from "../_components/download-cv-button";
 
 export const metadata: Metadata = {
   title: "Freelance | Maarten Peene",
@@ -32,14 +33,7 @@ export default function Page() {
             over mijn werkervaring, bekijk mijn cv.
           </p>
           <p>
-            <SimpleLink
-              variant="download"
-              className="block no-underline"
-              href="/cv.pdf"
-              download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
-            >
-              Download mijn complete CV
-            </SimpleLink>
+            <DownloadCVButton />
           </p>
         </div>
       </PageHeader>

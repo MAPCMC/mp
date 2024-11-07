@@ -1,15 +1,17 @@
 import { db } from "./index";
 import { InsertScore, scores } from "./schema";
-import { sql } from "drizzle-orm";
+import { revalidateTag, unstable_cacheTag as cacheTag } from "next/cache";
 
 export async function getScores() {
-  return await db
-    .select()
-    .from(scores)
-    .orderBy(sql`${scores.value} DESC, ${scores.createdAt} DESC`)
-    .limit(5);
+  "use cache";
+  cacheTag("scores");
+  return await db.query.scores.findMany({
+    orderBy: (scores, { desc }) => [desc(scores.value), desc(scores.createdAt)],
+    limit: 5,
+  });
 }
 
 export async function createScore(data: InsertScore) {
   await db.insert(scores).values(data);
+  revalidateTag("scores");
 }

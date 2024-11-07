@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 import { AnchorMenu } from "@/components/anchor-menu";
 import { PageHeader } from "@/components/page-header";
 import { PageMain } from "@/components/page-main";
+import { DownloadCVButton } from "@/app/(site)/_components/download-cv-button";
 
 export const metadata: Metadata = {
   title: "Home | Maarten Peene",
@@ -321,14 +322,8 @@ export default function Home() {
               </ul>
             </CardFooter>
           </Card>
-          <SimpleLink
-            variant="download"
-            className="mt-4 sm:col-start-2"
-            href="/cv.pdf"
-            download={`cv_maarten_peene_${new Date(Date.now()).toLocaleDateString("nl-NL", { year: "numeric", month: "numeric", day: "numeric" })}`}
-          >
-            download mijn complete CV
-          </SimpleLink>
+
+          <DownloadCVButton />
         </section>
       </PageMain>
     </>
