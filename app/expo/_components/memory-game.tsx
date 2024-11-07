@@ -197,40 +197,39 @@ export const MemoryGame = ({
           className={cn(
             "relative",
             "duration-700 animate-in fade-in slide-in-from-top-6",
-            "flex flex-wrap items-center justify-between gap-x-6 border-b bg-orange-600 px-5 py-2",
+            "flex flex-wrap items-center gap-x-6 gap-y-2 border-b bg-orange-600 px-5 py-2",
           )}
         >
-          <div className="flex w-full items-center gap-2 sm:w-auto">
-            <Input
-              placeholder="naam"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="h-auto rounded-none disabled:hidden"
-              disabled={hideInput}
-            />
-            <Button
-              disabled={hideInput}
-              variant="outline"
-              className="disabled:hidden"
-              onClick={handleQuit}
-              onKeyDown={(e) => {
-                if (
-                  e.key === "Escape" ||
-                  e.key === "Esc" ||
-                  e.key === "Delete" ||
-                  e.key === "Backspace"
-                ) {
-                  e.preventDefault();
-                  handleQuit();
-                }
-              }}
-            >
-              <span className="first-letter:capitalize">
-                <span className="hidden sm:inline">score</span> opslaan
-              </span>
-            </Button>
-          </div>
           <p className="font-serif text-xl text-white">score: {score}</p>
+          {!hideInput && (
+            <div className="flex w-full items-center gap-2 sm:w-auto">
+              <Input
+                placeholder="naam"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="h-auto rounded-none"
+              />
+              <Button
+                variant="outline"
+                onClick={handleQuit}
+                onKeyDown={(e) => {
+                  if (
+                    e.key === "Escape" ||
+                    e.key === "Esc" ||
+                    e.key === "Delete" ||
+                    e.key === "Backspace"
+                  ) {
+                    e.preventDefault();
+                    handleQuit();
+                  }
+                }}
+              >
+                <span className="first-letter:capitalize">
+                  <span className="hidden sm:inline">score</span> opslaan
+                </span>
+              </Button>
+            </div>
+          )}
         </div>
       )}
       {cards.length === 0 ? (
