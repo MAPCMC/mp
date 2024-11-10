@@ -11,7 +11,12 @@ export async function getScores() {
     limit: 7,
   });
 
-  return scores;
+  // extra ordering (somehow db production does not sort results)
+  const scoresOrdered = scores.sort(
+    (a, b) => Number(b.value) - Number(a.value),
+  );
+
+  return scoresOrdered;
 }
 
 export async function createScore(data: InsertScore) {
