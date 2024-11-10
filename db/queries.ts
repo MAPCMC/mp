@@ -10,7 +10,13 @@ export async function getScores() {
 
   // extra ordering (somehow db production does not sort results)
   const scoresOrdered = scores
-    .sort((a, b) => Number(b.value) - Number(a.value))
+    .sort((a, b) => {
+      if (a.value === b.value)
+        return (
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
+      return Number(b.value) - Number(a.value);
+    })
     .slice(0, 7);
 
   return scoresOrdered;
