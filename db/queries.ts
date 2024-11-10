@@ -5,10 +5,13 @@ import { revalidateTag, unstable_cacheTag as cacheTag } from "next/cache";
 export async function getScores() {
   "use cache";
   cacheTag("scores");
-  return await db.query.scores.findMany({
+
+  const scores = await db.query.scores.findMany({
     orderBy: (scores, { desc }) => [desc(scores.value), desc(scores.createdAt)],
-    limit: 5,
+    limit: 7,
   });
+
+  return scores;
 }
 
 export async function createScore(data: InsertScore) {

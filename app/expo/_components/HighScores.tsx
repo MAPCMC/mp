@@ -14,9 +14,6 @@ export default function HighScores({
   resetShow?: boolean;
 }) {
   const [show, setShow] = React.useState(false);
-  const highscores = scores
-    .sort((a, b) => Number(b.value) - Number(a.value))
-    .slice(0, 5);
 
   React.useEffect(() => {
     if (resetShow === true || resetShow === false) setShow(resetShow);
@@ -40,7 +37,7 @@ export default function HighScores({
       </div>
       {show && (
         <ul className="space-y-2">
-          {highscores.map((score) => (
+          {scores.map((score) => (
             <li key={score.id} className="flex items-center justify-between">
               <span>{score.name}</span>
               <span>{score.value}</span>
