@@ -6,15 +6,12 @@ export async function getScores() {
   "use cache";
   cacheTag("scores");
 
-  const scores = await db.query.scores.findMany({
-    orderBy: (scores, { desc }) => [desc(scores.value), desc(scores.createdAt)],
-    limit: 7,
-  });
+  const scores = await db.query.scores.findMany();
 
   // extra ordering (somehow db production does not sort results)
-  const scoresOrdered = scores.sort(
-    (a, b) => Number(b.value) - Number(a.value),
-  );
+  const scoresOrdered = scores
+    .sort((a, b) => Number(b.value) - Number(a.value))
+    .slice(0, 7);
 
   return scoresOrdered;
 }
