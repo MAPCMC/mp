@@ -49,7 +49,7 @@ export function CardGroup({
 
             if (isDesktop) {
               tl.from(".card", {
-                x: reduceMotion ? 0 : 50,
+                x: reduceMotion ? 0 : 20,
                 y: 20,
                 opacity: 0.2,
                 stagger: 0.2,

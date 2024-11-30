@@ -31,7 +31,7 @@ export function PageMain({
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: block,
-              start: "10% 90%",
+              start: "top 90%",
               end: "bottom 60%",
               toggleActions: "restart resume resume reverse",
             },
