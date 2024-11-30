@@ -64,7 +64,7 @@ export function Breadcrumb() {
                       "basic:border-basic basic:bg-basic basic:group-hover:bg-sky-800 basic:group-focus-visible:bg-sky-800",
                     )}
                   ></span>
-                  <span className="truncate first-letter:capitalize light:bg-light basic:bg-basic dark:bg-dark">
+                  <span className="block truncate pr-1 first-letter:capitalize light:bg-light basic:bg-basic dark:bg-dark">
                     home
                   </span>
                 </NavLink>

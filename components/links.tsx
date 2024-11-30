@@ -54,7 +54,7 @@ const linkVariants = cva(
           "dark:border dark:text-slate-50 dark:border-dark-dots/50 dark:rounded-md dark:shadow-md dark:shadow-slate-700 dark:hover:shadow-lg dark:hover:bg-slate-300 dark:hover:shadow-slate-700 dark:bg-slate-700 hover:dark:text-slate-950",
         ],
         download: [
-          "font-normal whitespace-nowrap w-max first-letter:capitalize px-5 py-2",
+          "font-normal whitespace-nowrap w-max first-letter:capitalize px-5 py-2 no-underline",
           "outline-2 outline-offset-4 outline-sky-300 focus-visible:outline",
           "bg-amber-500 text-slate-950 hover:bg-slate-950 hover:text-slate-50",
           "basic:bg-white basic:hover:bg-slate-950 basic:border-slate-950 basic:border basic:text-sm basic:shadow-slate-100 basic:shadow-[.2rem_.2rem_solid]",
