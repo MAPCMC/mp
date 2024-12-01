@@ -40,9 +40,6 @@ export function CardGroup({
             const tl = gsap.timeline({
               scrollTrigger: {
                 trigger: block,
-                start: "top 90%",
-                end: "bottom center",
-                toggleActions: "restart pause resume reverse",
                 fastScrollEnd: true,
               },
             });

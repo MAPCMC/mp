@@ -27,17 +27,14 @@ export function PageMain({
           "#main > *:not(.card):not(article)",
         );
 
-        blocks.forEach((block) => {
+        blocks.forEach((block, i) => {
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: block,
-              start: "top 90%",
-              end: "bottom 60%",
-              toggleActions: "restart resume resume reverse",
             },
           });
           tl.from(block, {
-            opacity: 0.2,
+            opacity: 0.7,
             y: reduceMotion ? 20 : 80,
           });
         });
